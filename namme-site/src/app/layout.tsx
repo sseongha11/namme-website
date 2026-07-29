@@ -5,10 +5,12 @@ import {
   Instrument_Serif,
 } from "next/font/google";
 
+import { PreviewBanner } from "@/components/preview-banner";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-button";
 import { site } from "@/content/site";
+import { isPreview } from "@/lib/site-status";
 
 import "./globals.css";
 
@@ -47,7 +49,9 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
   },
-  robots: { index: true, follow: true },
+  robots: isPreview
+    ? { index: false, follow: false, nocache: true }
+    : { index: true, follow: true },
   alternates: { canonical: "/" },
 };
 
@@ -57,6 +61,10 @@ export const metadata: Metadata = {
  * builder’s site.
  */
 function OrganisationJsonLd() {
+  // Structured data publishes the review score and accreditations to search
+  // engines as fact. Withhold it entirely until those numbers are verified.
+  if (isPreview) return null;
+
   const json = {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
@@ -103,6 +111,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <PreviewBanner />
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
