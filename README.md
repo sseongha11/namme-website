@@ -81,6 +81,16 @@ These are blocking:
 
 Then: real photographs. See `namme-site/IMAGES.md`.
 
+## Deployments
+
+Pushing to `main` deploys automatically to <https://namme-site.vercel.app>.
+Pull requests get their own preview URL. Vercel's Root Directory for this
+project is `namme-site`, since the app sits one level below the repo root.
+
+To take the site out of preview mode, set `NEXT_PUBLIC_SITE_STATUS=live` in the
+Vercel project's environment variables — but work through the checklist above
+first.
+
 ## Stack
 
 Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS v4, Motion, Radix
