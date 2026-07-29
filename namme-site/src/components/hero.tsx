@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Phone, Star } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { WhatsAppLink } from "@/components/whatsapp-button";
 import { site } from "@/content/site";
 
 export function Hero() {
@@ -52,7 +51,6 @@ export function Hero() {
                 <Phone aria-hidden /> {site.phone}
               </a>
             </Button>
-            <WhatsAppLink variant="button" className="h-13" />
           </div>
 
           {/* Trust strip — rating and the two accreditations that carry weight */}
