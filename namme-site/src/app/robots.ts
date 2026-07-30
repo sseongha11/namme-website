@@ -11,7 +11,14 @@ export default function robots(): MetadataRoute.Robots {
   }
 
   return {
-    rules: { userAgent: "*", allow: "/" },
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      // The card and leaflet PDFs are for someone who is already here. Left
+      // crawlable they rank on their own, and a search result that opens a PDF
+      // rather than a page is a dead end — no navigation, no way to enquire.
+      disallow: "/downloads/",
+    },
     sitemap: `${site.url}/sitemap.xml`,
   };
 }
