@@ -4,7 +4,7 @@ import { Clock, Mail, MapPin, MessageSquare, Phone } from "lucide-react";
 
 import { FaqSection } from "@/components/faq-section";
 import { PageHeader } from "@/components/page-header";
-import { QuoteForm } from "@/components/quote-form";
+import { ContactChannels } from "@/components/contact-channels";
 import { WhatsAppLink } from "@/components/whatsapp-button";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHeading } from "@/components/section";
@@ -116,8 +116,8 @@ export default function ContactPage() {
                       نتحدث العربية
                     </p>
                     <p className="mt-1.5 text-[14.5px] leading-[1.65] text-ink-soft">
-                      We speak Arabic. You’re welcome to call, email or fill in this
-                      form in Arabic —{" "}
+                      We speak Arabic. You’re welcome to call, message or email
+                      us in Arabic —{" "}
                       <Link
                         href="/ar"
                         className="text-clay underline underline-offset-4"
@@ -132,7 +132,7 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          <QuoteForm />
+          <ContactChannels />
         </div>
       </Section>
 

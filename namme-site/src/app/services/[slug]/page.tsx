@@ -8,7 +8,7 @@ import { CtaBand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
 import { Process } from "@/components/process";
 import { ProjectCard } from "@/components/project-card";
-import { QuoteForm } from "@/components/quote-form";
+import { ContactChannels } from "@/components/contact-channels";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHeading } from "@/components/section";
 import { Button } from "@/components/ui/button";
@@ -218,7 +218,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
             title={`Thinking about ${service.title.toLowerCase()}?`}
             lead="Tell us roughly what you have in mind and we’ll come and look. Free, no obligation, and you get an honest view of the cost before anyone asks you for money."
           />
-          <QuoteForm />
+          <ContactChannels />
         </div>
       </Section>
 

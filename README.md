@@ -52,30 +52,24 @@ Anything marked `TODO` in those files is a placeholder waiting for real data.
 - `/about`, `/contact`, `/privacy`, `/terms`
 - `/ar` — Arabic summary page, right-to-left
 
-50 pages, all statically generated.
+43 pages, all statically generated.
 
-## Before this goes live
+## The site is live
 
-These are blocking:
+`NEXT_PUBLIC_SITE_STATUS=live` is set in Vercel, so the preview banner is gone
+and the pages are indexable. There is no enquiry form: contact is WhatsApp,
+phone and email, which cannot silently fail the way an unwired form did.
 
-1. **Add `RESEND_API_KEY` in Vercel.** The enquiry form posts to
-   `src/app/api/enquiry/route.ts`, which emails it to the address in
-   `content/site.ts`. Without the key the endpoint returns an error and the form
-   tells the customer to ring instead — deliberately, because a form that
-   silently discards enquiries is worse than no form. Sign up at resend.com with
-   the same Gmail the enquiries go to, create a key, then:
+Still worth doing, roughly in order:
 
-   ```
-   vercel env add RESEND_API_KEY production
-   ```
-
-   Optional: `ENQUIRY_TO` to send somewhere other than the site email, and
-   `ENQUIRY_FROM` if a verified sending domain is ever set up.
+1. **Photographs of the Loughborough job.** The biggest single gap — the case
+   study currently shows an illustration. Drop the files in and add them to
+   `photos` in `content/projects.ts`; no code change needed. See IMAGES.md.
 2. **Confirm the company registration name** in `content/site.ts` — `legalName`
    is still a guess, and it appears in the footer copyright line.
-3. **Replace the projects and testimonials with real ones.** The seven case
-   studies and six reviews in there now are realistic but invented, and are
-   marked as such. This is the last remaining placeholder content on the site.
+3. **Add more real projects and reviews.** One of each is enough to be honest;
+   more is better. Never invent one — see the rules at the top of
+   `content/projects.ts` and `content/testimonials.ts`.
 4. **Add trust signals only when they are real.** Headline stats, a review
    score and accreditations were all removed rather than left unverified. If
    Namme holds an FMB, TrustMark, Gas Safe or NICEIC registration, add it back
@@ -88,8 +82,6 @@ These are blocking:
    current local plan. Planning policy moves, and these pages state specifics
    about conservation areas, the Derwent Valley Mills World Heritage Site and
    the Nottingham–Derby Green Belt.
-
-Then: real photographs. See `namme-site/IMAGES.md`.
 
 ## Deployments
 
@@ -104,8 +96,9 @@ first.
 ## Stack
 
 Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS v4, Motion, Radix
-primitives, Embla carousel, react-hook-form with Zod. Deploys as a static site —
-Vercel, Netlify or Cloudflare Pages will all host it.
+primitives, Embla carousel. No form libraries — contact is WhatsApp, phone and
+email. Deploys as a static site — Vercel, Netlify or Cloudflare Pages will all
+host it.
 
 Note: `npm audit` reports issues in the ESLint and PostCSS toolchains. Those are
 build-time dependencies only and don't ship to visitors; fixing them requires a

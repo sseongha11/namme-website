@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
 import { ProjectCard } from "@/components/project-card";
 import { Process } from "@/components/process";
-import { QuoteForm } from "@/components/quote-form";
+import { ContactChannels } from "@/components/contact-channels";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHeading } from "@/components/section";
 import { areas, getArea } from "@/content/areas";
@@ -141,7 +141,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
             title={`Building in ${area.name}?`}
             lead="Tell us the postcode and roughly what you have in mind. We’ll come and look, take measurements, and give you an honest view of the cost."
           />
-          <QuoteForm />
+          <ContactChannels />
         </div>
       </Section>
 

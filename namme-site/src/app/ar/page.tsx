@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Check, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 import { FaqSection } from "@/components/faq-section";
-import { QuoteForm } from "@/components/quote-form";
+import { ContactChannels } from "@/components/contact-channels";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { WhatsAppLink } from "@/components/whatsapp-button";
@@ -318,12 +318,13 @@ export default function ArabicPage() {
               <Check className="mt-1 size-4 shrink-0 text-clay" aria-hidden />
               {ar.contact.formNote}
             </p>
-            {/* The form itself stays in English: the labels match the paperwork
-                the customer will receive, and the note above explains they may
-                write their answers in Arabic. */}
-            <div dir="ltr" className="font-sans">
-              <QuoteForm />
-            </div>
+            <ContactChannels
+              lead={ar.contact.channelsLead}
+              whatsappLabel={ar.contact.whatsappLabel}
+              callLabel={ar.contact.callLabel}
+              emailLabel={ar.contact.emailLabel}
+              note={ar.contact.channelsNote}
+            />
           </div>
         </div>
       </section>
