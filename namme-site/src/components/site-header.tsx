@@ -10,10 +10,12 @@ import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { serviceGroups, servicesByGroup } from "@/content/services";
 import { site } from "@/content/site";
+import { showPortfolio } from "@/lib/site-status";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { label: "Projects", href: "/projects" },
+  // The portfolio is hidden while its case studies are placeholders.
+  ...(showPortfolio ? [{ label: "Projects", href: "/projects" }] : []),
   { label: "Guides", href: "/guides" },
   { label: "Areas", href: "/areas" },
   { label: "About", href: "/about" },

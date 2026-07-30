@@ -32,9 +32,9 @@ export const site = {
   url: "https://www.namme.co.uk", // TODO confirm domain
 
   hours: [
-    { days: "Monday – Friday", time: "8:00 – 18:00" },
-    { days: "Saturday", time: "9:00 – 14:00" },
-    { days: "Sunday", time: "Closed" },
+    { days: "Monday – Thursday", time: "8:00 – 18:00" },
+    { days: "Friday", time: "Closed" },
+    { days: "Saturday – Sunday", time: "8:00 – 18:00" },
   ],
 
   social: {

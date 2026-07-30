@@ -15,6 +15,7 @@ import { areas } from "@/content/areas";
 import { guides } from "@/content/guides";
 import { projects } from "@/content/projects";
 import { faqs } from "@/content/site";
+import { showPortfolio } from "@/lib/site-status";
 
 const DIFFERENTIATORS = [
   {
@@ -56,8 +57,9 @@ export default function HomePage() {
           lead="Brickwork, landscape gardening, extensions, driveways, rendering, refurbishments, roofing, tiling, bathrooms, painting &amp; decorating and kitchen fitting. Priced and run the same way whatever the size of the job."
           action={
             <Button asChild variant="outline">
-              <Link href="/projects">
-                See recent projects <ArrowRight aria-hidden />
+              <Link href={showPortfolio ? "/projects" : "/contact"}>
+                {showPortfolio ? "See recent projects" : "Get a free quote"}{" "}
+                <ArrowRight aria-hidden />
               </Link>
             </Button>
           }
@@ -77,21 +79,23 @@ export default function HomePage() {
       </Section>
 
       {/* Projects */}
-      <Section>
-        <SectionHeading
-          eyebrow="Recent work"
-          title="Projects, with the parts that went wrong included."
-          lead="Every one of these had a problem in it — drainage, rot, a refusal, an objection. What matters is what happened next."
-          action={
-            <Button asChild variant="outline">
-              <Link href="/projects">
-                All projects <ArrowRight aria-hidden />
-              </Link>
-            </Button>
-          }
-        />
-        <ProjectCarousel projects={projects} />
-      </Section>
+      {showPortfolio ? (
+        <Section>
+          <SectionHeading
+            eyebrow="Recent work"
+            title="Projects, with the parts that went wrong included."
+            lead="Every one of these had a problem in it — drainage, rot, a refusal, an objection. What matters is what happened next."
+            action={
+              <Button asChild variant="outline">
+                <Link href="/projects">
+                  All projects <ArrowRight aria-hidden />
+                </Link>
+              </Button>
+            }
+          />
+          <ProjectCarousel projects={projects} />
+        </Section>
+      ) : null}
 
       {/* Why us */}
       <Section tone="paper-2">
@@ -114,17 +118,19 @@ export default function HomePage() {
       </Section>
 
       {/* Testimonials */}
-      <Section>
-        <SectionHeading
-          eyebrow="What clients say"
-          title="In their words, not ours."
-          lead="A star average tells you very little, so these say what the job was and what we actually did."
-        />
-        <TestimonialsSection />
-      </Section>
+      {showPortfolio ? (
+        <Section>
+          <SectionHeading
+            eyebrow="What clients say"
+            title="In their words, not ours."
+            lead="A star average tells you very little, so these say what the job was and what we actually did."
+          />
+          <TestimonialsSection />
+        </Section>
+      ) : null}
 
       {/* Guides — research-stage content */}
-      <Section tone="paper-2">
+      <Section tone={showPortfolio ? "paper-2" : "paper"}>
         <SectionHeading
           eyebrow="Before you commit"
           title="Cost and planning guides."
@@ -158,7 +164,7 @@ export default function HomePage() {
       </Section>
 
       {/* Areas */}
-      <Section>
+      <Section tone={showPortfolio ? "paper" : "paper-2"}>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
             <SectionHeading
@@ -198,7 +204,7 @@ export default function HomePage() {
       </Section>
 
       {/* FAQ */}
-      <Section tone="paper-2">
+      <Section tone={showPortfolio ? "paper-2" : "paper"}>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <SectionHeading
             eyebrow="Common questions"

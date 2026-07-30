@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { projectsForService } from "@/content/projects";
 import { getService, services } from "@/content/services";
 import { site } from "@/content/site";
+import { showPortfolio } from "@/lib/site-status";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -161,7 +162,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
       </Section>
 
       {/* Related projects */}
-      {projects.length > 0 ? (
+      {showPortfolio && projects.length > 0 ? (
         <Section>
           <SectionHeading
             eyebrow="Recent work"

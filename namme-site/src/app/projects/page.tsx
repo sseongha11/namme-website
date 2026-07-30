@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { CtaBand } from "@/components/cta-band";
 import { PageHeader } from "@/components/page-header";
@@ -7,6 +8,7 @@ import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { showPortfolio } from "@/lib/site-status";
 
 export const metadata: Metadata = {
   title: `Projects — recent work across ${site.primaryLocation}`,
@@ -16,6 +18,9 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  // Hidden until the case studies are real jobs — see src/lib/site-status.ts.
+  if (!showPortfolio) notFound();
+
   return (
     <>
       <PageHeader

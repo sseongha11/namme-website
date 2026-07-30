@@ -12,9 +12,11 @@ import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import { getProject, projects } from "@/content/projects";
 import { getService } from "@/content/services";
+import { showPortfolio } from "@/lib/site-status";
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  // No pages generated while the portfolio is hidden.
+  return showPortfolio ? projects.map((p) => ({ slug: p.slug })) : [];
 }
 
 export async function generateMetadata(
@@ -34,7 +36,7 @@ export async function generateMetadata(
 export default async function ProjectPage(props: PageProps<"/projects/[slug]">) {
   const { slug } = await props.params;
   const project = getProject(slug);
-  if (!project) notFound();
+  if (!project || !showPortfolio) notFound();
 
   const others = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
 

@@ -13,6 +13,7 @@ import { Section, SectionHeading } from "@/components/section";
 import { areas, getArea } from "@/content/areas";
 import { getProject } from "@/content/projects";
 import { getService } from "@/content/services";
+import { showPortfolio } from "@/lib/site-status";
 
 export function generateStaticParams() {
   return areas.map((a) => ({ slug: a.slug }));
@@ -110,7 +111,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
       </Section>
 
       {/* Local projects */}
-      {projects.length > 0 ? (
+      {showPortfolio && projects.length > 0 ? (
         <Section>
           <SectionHeading
             eyebrow="Nearby work"

@@ -5,6 +5,7 @@ import { guides } from "@/content/guides";
 import { projects } from "@/content/projects";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
+import { showPortfolio } from "@/lib/site-status";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
@@ -13,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     { path: "", priority: 1 },
     { path: "/services", priority: 0.9 },
-    { path: "/projects", priority: 0.9 },
+    ...(showPortfolio ? [{ path: "/projects", priority: 0.9 }] : []),
     { path: "/areas", priority: 0.8 },
     { path: "/guides", priority: 0.8 },
     { path: "/about", priority: 0.6 },
@@ -34,12 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
-    ...projects.map((p) => ({
-      url: `${base}/projects/${p.slug}`,
-      lastModified: now,
-      changeFrequency: "yearly" as const,
-      priority: 0.7,
-    })),
+    ...(showPortfolio
+      ? projects.map((p) => ({
+          url: `${base}/projects/${p.slug}`,
+          lastModified: now,
+          changeFrequency: "yearly" as const,
+          priority: 0.7,
+        }))
+      : []),
     ...areas.map((a) => ({
       url: `${base}/areas/${a.slug}`,
       lastModified: now,
