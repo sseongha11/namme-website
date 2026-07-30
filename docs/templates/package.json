@@ -1,0 +1,8 @@
+{
+  "name": "namme-print-kit",
+  "private": true,
+  "type": "module",
+  "description": "Business card, leaflet, quotation and invoice for Namme.",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": { "qrcode": "^1.5.4" }
+}

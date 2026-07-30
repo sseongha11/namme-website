@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Namme — leaflet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@page { size: A4; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    color: #12161a;
+    background: #e9e6e0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .sheet { background: #faf8f4; position: relative; overflow: hidden; }
+  @media screen {
+    body { padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .sheet { box-shadow: 0 18px 50px -20px rgba(18,22,26,.45); }
+    .hint {
+      font-size: 13px; line-height: 1.6; color: #3f464c; background: #fffbe8;
+      border: 1px solid #e5d9a8; padding: 14px 18px; max-width: 700px; border-radius: 4px;
+    }
+    .hint b { color: #8d4023; }
+    [contenteditable]:hover { background: #fff6e9; }
+    [contenteditable]:focus { background: #fff2dd; outline: 2px solid #b4552f; outline-offset: 2px; }
+  }
+  /* Screenshot mode: the sheet alone, exactly its own size, nothing around it. */
+  body.shot { padding: 0 !important; display: block !important; background: #fff !important;
+              overflow: hidden !important; }
+  body.shot .sheet { box-shadow: none !important; margin: 0 !important; }
+  /* Cards keep their 3mm bleed for print; a screenshot shows the trimmed card. */
+  body.shot .card-sheet { padding: 0 !important; width: 85mm !important; height: 55mm !important; }
+  @media print {
+    body { background: none; padding: 0; display: block; }
+    .sheet { box-shadow: none; page-break-after: always; }
+    .sheet:last-of-type { page-break-after: auto; }
+    .hint { display: none !important; }
+  }
+
+    .sheet { width: 210mm; height: 297mm; display: flex; flex-direction: column; }
+    .band { background: #b4552f; color: #fff; padding: 13mm 18mm 11mm; }
+    .band .wordmark { font-size: 20pt; font-weight: 600; letter-spacing: .18em;
+                      text-transform: uppercase; line-height: 1; }
+    .band h1 { font-size: 22pt; line-height: 1.15; letter-spacing: -.02em;
+               font-weight: 600; margin: 7mm 0 0; max-width: 150mm; }
+    .band p { font-size: 10.5pt; line-height: 1.6; margin: 4mm 0 0; max-width: 138mm;
+              color: rgba(255,255,255,.92); }
+    .body { padding: 9mm 18mm 0; flex: 1; }
+    .eyebrow { font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase;
+               color: #b4552f; font-weight: 600; }
+    h2 { font-size: 14pt; letter-spacing: -.01em; margin: 2.5mm 0 0; font-weight: 600; }
+    .trade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2mm 3.5mm; margin-top: 5mm; }
+    .trade { border: .8pt solid #ded7cb; padding: 2.8mm 3.6mm; font-size: 9pt;
+             font-weight: 500; background: #f2eee6; }
+    .promises { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 8mm; margin-top: 5mm; }
+    .promise h3 { font-size: 10.5pt; margin: 0; font-weight: 600; }
+    .promise p { font-size: 9pt; line-height: 1.6; color: #4a5157; margin: 1.6mm 0 0; }
+    .areas { font-size: 8.4pt; line-height: 1.7; color: #4a5157; margin: 4mm 0 8mm; }
+    .foot { margin-top: auto; background: #12161a; color: #fff; padding: 8mm 18mm;
+            display: flex; justify-content: space-between; align-items: center; gap: 10mm; }
+    .foot .num { font-size: 21pt; font-weight: 700; letter-spacing: -.02em; line-height: 1; }
+    .foot .det { font-size: 9pt; line-height: 1.7; color: rgba(255,255,255,.75); margin-top: 3mm; }
+    .foot .det b { color: #fff; font-weight: 600; }
+    .foot .qr { width: 27mm; height: 27mm; background: #fff; padding: 2.5mm; }
+    .foot .qr-cap { font-size: 7pt; color: rgba(255,255,255,.7); text-align: center; margin-top: 2mm; }
+    .rule { height: .8pt; background: #ded7cb; margin: 7mm 0; }
+  </style>
+</head>
+<body>
+
+<p class="hint"><b>One-page leaflet.</b> Send <b>leaflet.pdf</b> by email or
+WhatsApp when someone asks what you do, or print it as a flyer.</p>
+
+<div class="sheet">
+  <div class="band">
+    <div style="display:flex;align-items:center;gap:4mm">
+      <svg viewBox="0 0 40 40" fill="none"
+  width="10mm" height="10mm" style="display:block">
+  <path d="M6 34.5V15.2L20 5.5L34 15.2V34.5" stroke="rgba(255,255,255,.92)" stroke-width="3"
+        stroke-linejoin="miter" stroke-linecap="square"/>
+  <path d="M6 15.2L34 34.5" stroke="rgba(255,255,255,.92)" stroke-width="3" stroke-linecap="square"/>
+</svg>
+      <div class="wordmark">Namme</div>
+    </div>
+    <h1>A small, local, friendly, Derby based<br>general building company.</h1>
+    <p>Providing a quality and reliable service at an affordable price. Call your local trader now for a free, no obligation quote.</p>
+  </div>
+
+  <div class="body">
+    <p class="eyebrow">What we do</p>
+    <h2>Eleven trades, one team, one standard.</h2>
+    <div class="trade-grid"><div class="trade">Brickwork</div><div class="trade">Landscape gardening</div><div class="trade">Extensions</div><div class="trade">Driveways</div><div class="trade">Rendering</div><div class="trade">Refurbishments</div><div class="trade">Roofing</div><div class="trade">Tiling</div><div class="trade">Bathrooms</div><div class="trade">Painting & decorating</div><div class="trade">Kitchen fitting</div></div>
+
+    <div class="rule"></div>
+
+    <p class="eyebrow">Why us</p>
+    <h2>The promises you can hold us to.</h2>
+    <div class="promises">
+      <div class="promise"><h3>Free written quotes</h3><p>We come out, look at the job and put the price in writing. No charge, no obligation.</p></div><div class="promise"><h3>No job too small</h3><p>A day’s tiling and a full extension get quoted the same way and turned up for on the day we said.</p></div><div class="promise"><h3>You pay for finished work</h3><p>Never large sums up front. Any deposit covers materials, and never more than they cost.</p></div><div class="promise"><h3>Nothing you haven’t agreed</h3><p>If we find something underneath, you see it and get the price before we touch it.</p></div>
+    </div>
+
+    <div class="rule"></div>
+
+    <p class="eyebrow">Where we work</p>
+    <h2>Derby, and about an hour around it.</h2>
+    <p class="areas">Derby · Allestree · Mickleover · Littleover · Oakwood & Chaddesden · Chellaston & Melbourne · Belper & Duffield · Ilkeston & Long Eaton · Ashbourne · Nottingham · Loughborough · Leicester</p>
+  </div>
+
+  <div class="foot">
+    <div>
+      <div class="num">07424 662851</div>
+      <div class="det">
+        <b>WhatsApp</b> wa.me/447424662851 &nbsp;·&nbsp; naeemhara1971@gmail.com<br>
+        <b>namme-site.vercel.app</b> — prices, timescales and planning for every trade<br>
+        Monday – Thursday: 8:00 – 18:00 &nbsp;·&nbsp; Friday: Closed &nbsp;·&nbsp; Saturday – Sunday: 9:00 – 16:00
+      </div>
+    </div>
+    <div>
+      <div class="qr"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#12161a" d="M0 0.5h7m1 0h1m2 0h1m1 0h3m1 0h2m3 0h7M0 1.5h1m5 0h1m2 0h4m2 0h1m1 0h1m4 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m2 0h3m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m3 0h1m4 0h4m1 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h3m3 0h4m3 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m4 0h2m1 0h1m1 0h1m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 7.5h1m1 0h2m4 0h1m1 0h1M0 8.5h1m1 0h1m3 0h2m5 0h1m1 0h2m2 0h2m2 0h1m2 0h1m1 0h1M0 9.5h6m1 0h1m1 0h2m1 0h1m3 0h2m1 0h2m1 0h2m3 0h2M1 10.5h3m1 0h2m1 0h1m1 0h2m1 0h2m1 0h2m1 0h2m1 0h1m1 0h3m1 0h1M0 11.5h2m1 0h2m3 0h1m1 0h3m1 0h3m2 0h3m1 0h3M0 12.5h2m2 0h4m1 0h1m1 0h1m1 0h2m3 0h2m1 0h3m4 0h1M0 13.5h2m1 0h3m1 0h1m1 0h2m1 0h3m2 0h1m1 0h2m1 0h2m3 0h2M1 14.5h12m2 0h1m3 0h2m3 0h1m3 0h1M0 15.5h1m1 0h1m1 0h2m1 0h2m1 0h2m1 0h1m5 0h3m1 0h2M0 16.5h1m1 0h3m1 0h1m2 0h2m1 0h2m1 0h2m3 0h1m1 0h2m4 0h1M2 17.5h3m2 0h1m2 0h1m5 0h1m2 0h1m1 0h3m2 0h3M0 18.5h2m2 0h1m1 0h3m1 0h5m1 0h4m1 0h2m1 0h2m2 0h1M2 19.5h2m1 0h1m2 0h4m2 0h3m1 0h1m1 0h3M0 20.5h2m1 0h2m1 0h1m1 0h1m1 0h5m4 0h7m1 0h1M8 21.5h2m3 0h2m3 0h1m1 0h1m3 0h3m1 0h1M0 22.5h7m1 0h2m2 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1m3 0h1M0 23.5h1m5 0h1m2 0h1m1 0h3m5 0h2m3 0h1m2 0h1M0 24.5h1m1 0h3m1 0h1m4 0h1m1 0h1m1 0h2m2 0h7M0 25.5h1m1 0h3m1 0h1m3 0h1m1 0h2m2 0h1m1 0h1m2 0h1m2 0h4M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m2 0h3m1 0h2m2 0h1m2 0h2M0 27.5h1m5 0h1m4 0h2m2 0h2m2 0h2m1 0h1m1 0h2M0 28.5h7m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1"/></svg>
+</div>
+      <div class="qr-cap">Scan to see the site</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

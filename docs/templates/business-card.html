@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Namme — business card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@page { size: 91mm 61mm; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    color: #12161a;
+    background: #e9e6e0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .sheet { background: #faf8f4; position: relative; overflow: hidden; }
+  @media screen {
+    body { padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .sheet { box-shadow: 0 18px 50px -20px rgba(18,22,26,.45); }
+    .hint {
+      font-size: 13px; line-height: 1.6; color: #3f464c; background: #fffbe8;
+      border: 1px solid #e5d9a8; padding: 14px 18px; max-width: 700px; border-radius: 4px;
+    }
+    .hint b { color: #8d4023; }
+    [contenteditable]:hover { background: #fff6e9; }
+    [contenteditable]:focus { background: #fff2dd; outline: 2px solid #b4552f; outline-offset: 2px; }
+  }
+  /* Screenshot mode: the sheet alone, exactly its own size, nothing around it. */
+  body.shot { padding: 0 !important; display: block !important; background: #fff !important;
+              overflow: hidden !important; }
+  body.shot .sheet { box-shadow: none !important; margin: 0 !important; }
+  /* Cards keep their 3mm bleed for print; a screenshot shows the trimmed card. */
+  body.shot .card-sheet { padding: 0 !important; width: 85mm !important; height: 55mm !important; }
+  @media print {
+    body { background: none; padding: 0; display: block; }
+    .sheet { box-shadow: none; page-break-after: always; }
+    .sheet:last-of-type { page-break-after: auto; }
+    .hint { display: none !important; }
+  }
+
+    .sheet { width: 91mm; height: 61mm; padding: 3mm; background: #14181c; }
+    .card { width: 85mm; height: 55mm; padding: 4.6mm 5.2mm; position: relative;
+            display: flex; flex-direction: column; background: #14181c;
+            color: #f4f0e8; overflow: hidden;
+             }
+    /* Latin runs — the name, the number, the address — stay left-to-right
+       inside a right-to-left card, or the punctuation lands on the wrong end. */
+    .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block;
+           font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+
+    /* Hairline keyline inset from the trim: the detail that separates a card
+       that was designed from one that was filled in. */
+    .card::before { content: ""; position: absolute; inset: 2.2mm;
+                    border: .5pt solid rgba(180,85,47,.55); pointer-events: none; }
+
+    .lockup { display: flex; align-items: center; gap: 2.4mm; }
+    .wordmark { font-size: 13.5pt; font-weight: 500; letter-spacing: .2em;
+                text-transform: uppercase; line-height: 1; color: #f4f0e8; }
+    .role { font-size: 4.4pt;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #b4552f; font-weight: 600; margin-top: 1.4mm; }
+    .claim { font-size: 5.3pt; line-height: 1.6;
+             color: rgba(244,240,232,.72); margin: 2.8mm 0 0;
+             max-width: 66mm; }
+    .claim b { color: #f4f0e8; font-weight: 600; }
+
+    .trades { font-size: 4.5pt; line-height: 1.7;
+              color: rgba(244,240,232,.48); margin: 2.6mm 0 0;
+              letter-spacing: .02em; }
+
+    /* Contact and QR share the bottom band: the customer looks for the number
+       and the code in the same place, and it balances the weight of the
+       lockup above. */
+    .contact { margin-top: auto; display: grid; grid-template-columns: minmax(0, 1fr) 14mm;
+               gap: 4mm; align-items: end; padding-top: 2.6mm;
+               border-top: .5pt solid rgba(244,240,232,.18); }
+    .cta { font-size: 4.4pt;
+           letter-spacing: .16em;
+           text-transform: uppercase;
+           color: #b4552f; font-weight: 600; }
+    .big { font-size: 13pt; font-weight: 600; letter-spacing: -.01em;
+           color: #f4f0e8; line-height: 1; margin-top: 1.2mm; }
+    .sub { font-size: 5pt; line-height: 1.75;
+           color: rgba(244,240,232,.62); margin-top: 1.4mm; white-space: nowrap; }
+    .sub b { color: #b4552f; font-weight: 600; }
+
+    /* Cream tile, sized so the code keeps a quiet zone on all four sides. */
+    .qr-tile { width: 14mm; height: 14mm; background: #f4f0e8; padding: 1mm; }
+    .qr { width: 100%; height: 100%; }
+    .qr-cap { font-size: 4.2pt; letter-spacing: .04em; color: #b4552f;
+              text-align: center; margin-top: 1.2mm; font-weight: 600;
+              white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<p class="hint"><b>Business card — one side, everything on it.</b> Send
+<b>business-card.pdf</b> to a printer: 85×55mm with 3mm bleed, single-sided.
+On dark stock ask for matt laminate, which is what makes this finish feel
+expensive rather than merely dark. <b>business-card.png</b> is the one to send a
+customer on WhatsApp or put in an email signature.</p>
+
+<div class="sheet card-sheet"><div class="card">
+  <div class="lockup">
+    <svg viewBox="0 0 40 40" fill="none"
+  width="7mm" height="7mm" style="display:block">
+  <path d="M6 34.5V15.2L20 5.5L34 15.2V34.5" stroke="#b4552f" stroke-width="3"
+        stroke-linejoin="miter" stroke-linecap="square"/>
+  <path d="M6 15.2L34 34.5" stroke="#b4552f" stroke-width="3" stroke-linecap="square"/>
+</svg>
+    <div>
+      <div class="wordmark">Namme</div>
+      <div class="role">General building · Derby</div>
+    </div>
+  </div>
+
+  <p class="claim">A small, local, friendly, Derby based, general building company.<br>
+    <b>Providing a quality and reliable service at an affordable price.</b></p>
+
+  <p class="trades">Brickwork · Landscape gardening · Extensions · Driveways · Rendering · Refurbishments · Roofing · Tiling · Bathrooms · Painting & decorating · Kitchen fitting</p>
+
+  <div class="contact">
+    <div>
+      <div class="cta">Free · No obligation quote</div>
+      <div class="big">07424 662851</div>
+      <div class="sub">
+        WhatsApp welcome · naeemhara1971@gmail.com<br>
+        <b>namme-site.vercel.app</b> · Derby DE22 3QQ
+      </div>
+    </div>
+    <div>
+      <div class="qr-tile"><div class="qr"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#12161a" d="M0 0.5h7m1 0h1m2 0h1m1 0h3m1 0h2m3 0h7M0 1.5h1m5 0h1m2 0h4m2 0h1m1 0h1m4 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m2 0h3m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m3 0h1m4 0h4m1 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h3m3 0h4m3 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m4 0h2m1 0h1m1 0h1m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 7.5h1m1 0h2m4 0h1m1 0h1M0 8.5h1m1 0h1m3 0h2m5 0h1m1 0h2m2 0h2m2 0h1m2 0h1m1 0h1M0 9.5h6m1 0h1m1 0h2m1 0h1m3 0h2m1 0h2m1 0h2m3 0h2M1 10.5h3m1 0h2m1 0h1m1 0h2m1 0h2m1 0h2m1 0h2m1 0h1m1 0h3m1 0h1M0 11.5h2m1 0h2m3 0h1m1 0h3m1 0h3m2 0h3m1 0h3M0 12.5h2m2 0h4m1 0h1m1 0h1m1 0h2m3 0h2m1 0h3m4 0h1M0 13.5h2m1 0h3m1 0h1m1 0h2m1 0h3m2 0h1m1 0h2m1 0h2m3 0h2M1 14.5h12m2 0h1m3 0h2m3 0h1m3 0h1M0 15.5h1m1 0h1m1 0h2m1 0h2m1 0h2m1 0h1m5 0h3m1 0h2M0 16.5h1m1 0h3m1 0h1m2 0h2m1 0h2m1 0h2m3 0h1m1 0h2m4 0h1M2 17.5h3m2 0h1m2 0h1m5 0h1m2 0h1m1 0h3m2 0h3M0 18.5h2m2 0h1m1 0h3m1 0h5m1 0h4m1 0h2m1 0h2m2 0h1M2 19.5h2m1 0h1m2 0h4m2 0h3m1 0h1m1 0h3M0 20.5h2m1 0h2m1 0h1m1 0h1m1 0h5m4 0h7m1 0h1M8 21.5h2m3 0h2m3 0h1m1 0h1m3 0h3m1 0h1M0 22.5h7m1 0h2m2 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1m3 0h1M0 23.5h1m5 0h1m2 0h1m1 0h3m5 0h2m3 0h1m2 0h1M0 24.5h1m1 0h3m1 0h1m4 0h1m1 0h1m1 0h2m2 0h7M0 25.5h1m1 0h3m1 0h1m3 0h1m1 0h2m2 0h1m1 0h1m2 0h1m2 0h4M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m2 0h3m1 0h2m2 0h1m2 0h2M0 27.5h1m5 0h1m4 0h2m2 0h2m2 0h2m1 0h1m1 0h2M0 28.5h7m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1"/></svg>
+</div></div>
+      <div class="qr-cap">Our work</div>
+    </div>
+  </div>
+</div></div>
+</body>
+</html>
