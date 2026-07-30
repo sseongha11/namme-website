@@ -11,8 +11,8 @@ import { Section, SectionHeading } from "@/components/section";
 import { faqs, site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Contact — book a free consultation",
-  description: `Talk to ${site.name} about your extension, loft conversion or renovation. Free consultation and written estimate across Derby and Derbyshire.`,
+  title: "Contact — get a free, no-obligation quote",
+  description: `Talk to ${site.name} about your job, large or small. Free visit and a written, no-obligation quote across Derby and Derbyshire.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -21,8 +21,8 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Tell us what you’re thinking of building."
-        lead="A free visit, a measure-up and an honest view of the cost. We read every enquiry ourselves and reply within one working day."
+        title="Tell us what needs doing."
+        lead="A free visit, a proper look at the job and a written quote with no obligation. We read every enquiry ourselves and reply within one working day."
         trail={[{ label: "Contact" }]}
       />
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
                       {site.phone}
                     </a>
                     <p className="mt-1 text-[13.5px] text-ink-muted">
-                      Quickest if your project is urgent
+                      Quickest if the job is urgent
                     </p>
                   </div>
                 </li>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                       className="mt-1 text-[17px] font-medium"
                     />
                     <p className="mt-1 text-[13.5px] text-ink-muted">
-                      Send photos of the space — often the fastest way to start
+                      Send photos of the job — often the fastest way to start
                     </p>
                   </div>
                 </li>
@@ -84,11 +84,9 @@ export default function ContactPage() {
                   <MapPin className="mt-1 size-4 shrink-0 text-clay" aria-hidden />
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-                      Office
+                      Based in
                     </p>
                     <p className="mt-1 text-[16px] leading-relaxed">
-                      {site.address.line1}
-                      <br />
                       {site.address.city} {site.address.postcode}
                     </p>
                   </div>

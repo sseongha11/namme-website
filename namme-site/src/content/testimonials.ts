@@ -1,10 +1,10 @@
 /**
  * Testimonials.
  *
- * Research finding worth respecting: reviews naming a specific project type and
- * a specific behaviour convert considerably better than generic five-star
- * praise. "They were great" is worth almost nothing; "they found the drainage
- * problem in week one and told us what it would cost" is worth a lot.
+ * Research finding worth respecting: reviews naming a specific job type and a
+ * specific behaviour convert considerably better than generic five-star praise.
+ * "They were great" is worth almost nothing; "they found the drainage problem in
+ * week one and told us what it would cost" is worth a lot.
  *
  * TODO: replace with real, attributable reviews. Pull them from whichever
  * platforms Namme actually uses and keep the source label accurate — claiming
@@ -23,7 +23,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "They found a drainage problem in the first week and told us immediately what it would cost to solve, rather than discovering it later as a variation. That set the tone for the whole job.",
+      "They found a drainage problem in the first week and told us immediately what it would cost to solve, rather than discovering it later as an extra. That set the tone for the whole job.",
     author: "Sarah & James M.",
     location: "Normanton, DE23",
     project: "Rear extension",
@@ -32,46 +32,46 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Two builders told us a trussed roof made the loft impractical. Namme explained how the steels would work, priced it, and did exactly that. We have a fourth bedroom instead of a new mortgage.",
+      "Two other quotes were just for the surface. Namme dug a hole first, showed us why the old drive had sunk, and explained why the cheaper option would do exactly the same again.",
     author: "Daniel O.",
-    location: "Mickleover, DE3",
-    project: "Dormer loft conversion",
+    location: "Chaddesden, DE21",
+    project: "Block paved driveway",
     source: "Checkatrade",
     rating: 5,
   },
   {
     quote:
-      "Eight months living out of a listed cottage is a lot to ask. The weekly written update with photographs meant we always knew where we were, which made it bearable.",
+      "We were braced for being told we needed a whole new roof. They went up, sent photographs, and said the front slope was sound and only the back needed doing. It would have been easy to sell us both.",
     author: "The Hartley family",
-    location: "Melbourne, DE73",
-    project: "Listed cottage renovation",
+    location: "Mickleover, DE3",
+    project: "Re-roof and guttering",
     source: "Google",
     rating: 5,
   },
   {
     quote:
-      "We had been told the World Heritage Site designation made an extension impossible. They surveyed the rest of the terrace, built the application around what was already there, and it went through first time.",
+      "They showed us exactly why the old bathroom had been leaking into the kitchen before quoting for a new one. It has been through a winter of teenagers and there is not a mark on the ceiling below.",
     author: "Priya R.",
-    location: "Belper, DE56",
-    project: "Renovation and rear extension",
+    location: "Littleover, DE23",
+    project: "Bathroom refit",
     source: "Houzz",
     rating: 5,
   },
   {
     quote:
-      "The site was swept every evening and the skip never blocked the road for more than a day. Small things, but our neighbours still speak to us, which was not a given.",
+      "The garden was a bog on a slope. Three weeks later we have two flat levels that drain, and they put the neighbour’s leaning fence right while they were at it without adding it to the bill.",
     author: "Michael T.",
-    location: "Littleover, DE23",
-    project: "Wrap-around extension",
+    location: "Oakwood, DE21",
+    project: "Landscaping and retaining wall",
     source: "Google",
     rating: 5,
   },
   {
     quote:
-      "They talked us out of the more expensive option at the design stage because it would not have solved the actual problem. I have never had a contractor do that before.",
+      "Small job — one wall repointed and a gate pier rebuilt. They matched the brick and the mortar so well I genuinely cannot see where the repair is, and they turned up on the day they said.",
     author: "Ellen & Rob K.",
     location: "Allestree, DE22",
-    project: "Double-storey side extension",
+    project: "Brickwork and repointing",
     source: "Direct",
     rating: 5,
   },

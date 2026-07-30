@@ -52,7 +52,7 @@ export function Logo({
         </span>
         {showTagline ? (
           <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.2em] text-ink-muted">
-            Extensions · Lofts · Renovations
+            General building · Derby
           </span>
         ) : null}
       </span>

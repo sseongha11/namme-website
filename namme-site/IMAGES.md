@@ -23,8 +23,8 @@ homeowners rule out builders whose sites show no real project evidence.
 ### Priority order
 
 1. **Project photos** — the portfolio does more work than everything else combined
-2. **Hero image** — one strong photo of a completed extension
-3. **Service images** — one per category (extensions, lofts, renovations)
+2. **Hero image** — one strong photo of a finished job
+3. **Service images** — one per trade (brickwork, driveways, roofing, rendering …)
 4. **About page** — the team, on site
 
 ### How to swap one in

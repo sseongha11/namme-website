@@ -405,7 +405,7 @@ function sceneHouse(rng, w, h, stage) {
 }
 
 /** Interior elevation — kitchen island, run of units, rooflight above. */
-function sceneInterior(rng, w, h) {
+function sceneInterior(rng, w, h, stage) {
   const floorY = h * 0.78;
   const wallTop = h * 0.1;
   let s = `<rect width="${w}" height="${h}" fill="#efe9df"/>`;
@@ -436,6 +436,161 @@ function sceneInterior(rng, w, h) {
   s += `<rect x="0" y="${floorY}" width="${w}" height="${h - floorY}" fill="#d6cfc2"/>`;
   for (let i = 1; i < 7; i++)
     s += `<rect x="0" y="${floorY + ((h - floorY) * i) / 7}" width="${w}" height="2" fill="#c6bdae" opacity="0.7"/>`;
+
+  // mid-job: dust sheets over the floor and a step ladder in the room
+  if (stage === "during") {
+    s += `<path d="M0 ${floorY - h * 0.02} H${w} V${h} H0 Z" fill="#e8e4da" opacity="0.92"/>`;
+    for (let i = 0; i < 5; i++)
+      s += `<path d="M${w * (0.05 + i * 0.2)} ${floorY} L${w * (0.11 + i * 0.2)} ${h}" stroke="#d3cec2" stroke-width="6"/>`;
+    const lx = w * 0.46;
+    const ly = floorY - h * 0.3;
+    s += `<path d="M${lx} ${ly} L${lx - w * 0.05} ${floorY}" stroke="#8a7b63" stroke-width="9"/>`;
+    s += `<path d="M${lx + 10} ${ly} L${lx + w * 0.05} ${floorY}" stroke="#8a7b63" stroke-width="9"/>`;
+    for (let i = 1; i < 4; i++) {
+      const ry = ly + ((floorY - ly) * i) / 4;
+      const rw = w * 0.025 * i;
+      s += `<path d="M${lx - rw * 0.5} ${ry} H${lx + rw * 0.5 + 10}" stroke="#8a7b63" stroke-width="7"/>`;
+    }
+  }
+  return s;
+}
+
+/**
+ * House frontage with a block-paved driveway running to the pavement.
+ * Used for the driveway service and the driveway project frames.
+ */
+function sceneFrontage(rng, w, h, stage) {
+  const tone = pick(rng, ["stock", "red", "grey"]);
+  const groundY = h * 0.62;
+  const x = w * 0.1;
+  const bw = w * 0.8;
+  const top = h * 0.16;
+
+  let s = `<rect width="${w}" height="${h}" fill="url(#sky)"/>`;
+  // house
+  s += `<path d="M${x - 26} ${top} L${x + bw / 2} ${top - h * 0.11} L${x + bw + 26} ${top} Z" fill="${P.roof}"/>`;
+  s += chimney(x + bw * 0.72, top - h * 0.17, 46, h * 0.17, tone);
+  s += brickWall(x, top, bw, groundY - top, tone, "front");
+  s += eavesLine(x, bw, top, x + bw + 4, groundY - top);
+  s += window(x + bw * 0.09, top + h * 0.06, bw * 0.17, h * 0.13);
+  s += window(x + bw * 0.44, top + h * 0.06, bw * 0.17, h * 0.13);
+  s += window(x + bw * 0.74, top + h * 0.06, bw * 0.15, h * 0.13);
+  s += window(x + bw * 0.09, groundY - h * 0.19, bw * 0.24, h * 0.15);
+  s += door(x + bw * 0.46, groundY - h * 0.21, bw * 0.1, h * 0.21);
+  // garage door
+  s += `<rect x="${x + bw * 0.66}" y="${groundY - h * 0.2}" width="${bw * 0.26}" height="${h * 0.2}" fill="#6d747a"/>`;
+  for (let i = 1; i < 7; i++)
+    s += `<rect x="${x + bw * 0.66}" y="${groundY - h * 0.2 + (h * 0.2 * i) / 7}" width="${bw * 0.26}" height="3" fill="#5a6166"/>`;
+
+  // the drive itself, in perspective: wide at the bottom of the frame
+  const paveTop = groundY;
+  const paveBottom = h;
+  const tl = x + bw * 0.1,
+    tr = x + bw * 0.94,
+    bl = w * -0.06,
+    br = w * 1.06;
+  s += `<rect x="0" y="${paveTop}" width="${w}" height="${paveBottom - paveTop}" fill="${P.ground}"/>`;
+  s += `<path d="M${tl} ${paveTop} L${tr} ${paveTop} L${br} ${paveBottom} L${bl} ${paveBottom} Z" fill="#8d8983"/>`;
+  // paving courses, converging
+  const courses = 11;
+  for (let i = 1; i < courses; i++) {
+    const t = i / courses;
+    const y = paveTop + (paveBottom - paveTop) * t * t; // tighter near the house
+    const lx = tl + (bl - tl) * t * t;
+    const rx = tr + (br - tr) * t * t;
+    s += `<path d="M${lx} ${y} H${rx}" stroke="#a6a29a" stroke-width="${2 + t * 3}" opacity="0.85"/>`;
+  }
+  // perpendicular joints, staggered per course
+  for (let i = 0; i < courses; i++) {
+    const t = i / courses;
+    const t2 = (i + 1) / courses;
+    const y1 = paveTop + (paveBottom - paveTop) * t * t;
+    const y2 = paveTop + (paveBottom - paveTop) * t2 * t2;
+    const lx = tl + (bl - tl) * t * t;
+    const rx = tr + (br - tr) * t * t;
+    const span = rx - lx;
+    const blocks = 12;
+    for (let j = 0; j <= blocks; j++) {
+      const off = i % 2 === 0 ? 0 : 0.5;
+      const px = lx + (span * (j + off)) / blocks;
+      if (px < lx || px > rx) continue;
+      s += `<path d="M${px} ${y1} L${px + (px - w / 2) * 0.06} ${y2}" stroke="#a6a29a" stroke-width="${1.5 + t * 2}" opacity="0.7"/>`;
+    }
+  }
+  // soldier course edging and a planted border
+  s += `<path d="M${tl} ${paveTop} L${tr} ${paveTop}" stroke="#6f6b65" stroke-width="7"/>`;
+  s += `<path d="M${tl} ${paveTop} L${bl} ${paveBottom}" stroke="#6f6b65" stroke-width="9"/>`;
+  s += `<path d="M${tr} ${paveTop} L${br} ${paveBottom}" stroke="#6f6b65" stroke-width="9"/>`;
+  s += `<rect x="0" y="${paveTop - 8}" width="${tl}" height="${h - paveTop + 8}" fill="url(#groundGrad)"/>`;
+  s += tree(w * 0.045, paveTop + 30, 0.45);
+  // low front wall to the left boundary
+  s += brickWall(0, paveTop - h * 0.09, w * 0.075, h * 0.09, tone, "fw");
+  s += `<rect x="0" y="${paveTop - h * 0.095}" width="${w * 0.08}" height="10" fill="${BRICK[tone].shade}"/>`;
+
+  if (stage === "during") {
+    // excavated sub-base and a heap of spoil
+    s += `<path d="M${tl} ${paveTop} L${tr} ${paveTop} L${br} ${paveBottom} L${bl} ${paveBottom} Z" fill="#6b6259" opacity="0.92"/>`;
+    for (let i = 0; i < 90; i++) {
+      const px = rng() * w;
+      const py = paveTop + rng() * (paveBottom - paveTop);
+      s += `<circle cx="${px}" cy="${py}" r="${2 + rng() * 4}" fill="#8a8076" opacity="0.6"/>`;
+    }
+    s += `<path d="M${w * 0.68} ${h} q${w * 0.06} -${h * 0.16} ${w * 0.14} 0 Z" fill="#7a6f62"/>`;
+  }
+  return s;
+}
+
+/** Garden: fence line, retaining wall, patio and lawn. */
+function sceneGarden(rng, w, h, stage) {
+  const skyBase = h * 0.34;
+  const patioTop = h * 0.66;
+  let s = `<rect width="${w}" height="${h}" fill="url(#sky)"/>`;
+  // rear boundary fence
+  const fenceTop = skyBase - h * 0.16;
+  s += `<rect x="0" y="${fenceTop}" width="${w}" height="${skyBase - fenceTop}" fill="#a08558"/>`;
+  for (let i = 0; i < 40; i++)
+    s += `<rect x="${(i * w) / 40}" y="${fenceTop}" width="${w / 90}" height="${skyBase - fenceTop}" fill="#8b7049" opacity="0.8"/>`;
+  for (let i = 0; i < 9; i++)
+    s += `<rect x="${(i * w) / 8 - 7}" y="${fenceTop - 12}" width="14" height="${skyBase - fenceTop + 12}" fill="#6f5b3c"/>`;
+  // lawn
+  s += `<rect x="0" y="${skyBase}" width="${w}" height="${patioTop - skyBase}" fill="url(#groundGrad)"/>`;
+  s += tree(w * 0.13, skyBase + h * 0.03, 0.5);
+  s += tree(w * 0.88, skyBase + h * 0.05, 0.62);
+  // planted bed against the fence
+  s += `<rect x="${w * 0.24}" y="${skyBase - 6}" width="${w * 0.5}" height="${h * 0.05}" fill="#6f6047" opacity="0.8"/>`;
+  for (let i = 0; i < 12; i++) {
+    const px = w * 0.25 + rng() * w * 0.48;
+    s += `<circle cx="${px}" cy="${skyBase - 4}" r="${10 + rng() * 16}" fill="${pick(rng, [P.grass, P.grassDark, "#7f8a5f"])}" opacity="0.9"/>`;
+  }
+  // retaining wall between lawn and patio
+  s += `<rect x="0" y="${patioTop - h * 0.07}" width="${w}" height="${h * 0.07}" fill="#c3bcae"/>`;
+  s += `<rect x="0" y="${patioTop - h * 0.075}" width="${w}" height="12" fill="#ada597"/>`;
+  // steps down
+  s += `<rect x="${w * 0.42}" y="${patioTop - h * 0.045}" width="${w * 0.17}" height="${h * 0.045}" fill="#d0c9bb"/>`;
+  s += `<rect x="${w * 0.4}" y="${patioTop - h * 0.02}" width="${w * 0.21}" height="${h * 0.02}" fill="#d8d1c3"/>`;
+  // patio in perspective
+  s += `<rect x="0" y="${patioTop}" width="${w}" height="${h - patioTop}" fill="#cfc8ba"/>`;
+  const rows = 6;
+  for (let i = 1; i <= rows; i++) {
+    const t = i / rows;
+    const y = patioTop + (h - patioTop) * t * t;
+    s += `<path d="M0 ${y} H${w}" stroke="#b6ae9f" stroke-width="${2 + t * 3}"/>`;
+  }
+  for (let i = 0; i < rows; i++) {
+    const t = i / rows;
+    const y1 = patioTop + (h - patioTop) * t * t;
+    const y2 = patioTop + (h - patioTop) * ((i + 1) / rows) ** 2;
+    for (let j = 0; j <= 8; j++) {
+      const off = i % 2 === 0 ? 0 : 0.5;
+      const px = (w * (j + off)) / 8;
+      s += `<path d="M${px} ${y1} L${px + (px - w / 2) * 0.09} ${y2}" stroke="#b6ae9f" stroke-width="${1.5 + t * 2}"/>`;
+    }
+  }
+  if (stage === "during") {
+    s += `<rect x="0" y="${patioTop}" width="${w}" height="${h - patioTop}" fill="#7a6f62" opacity="0.9"/>`;
+    s += `<path d="M${w * 0.06} ${h} q${w * 0.05} -${h * 0.14} ${w * 0.12} 0 Z" fill="#6b6259"/>`;
+    s += `<rect x="${w * 0.7}" y="${patioTop - h * 0.02}" width="${w * 0.22}" height="${h * 0.03}" fill="#8a8076"/>`;
+  }
   return s;
 }
 
@@ -480,7 +635,9 @@ const SCENES = {
   loft: sceneLoft,
   mansard: sceneMansard,
   house: sceneHouse,
-  interior: (rng, w, h) => sceneInterior(rng, w, h),
+  frontage: sceneFrontage,
+  garden: sceneGarden,
+  interior: sceneInterior,
   blueprint: (rng, w, h) => sceneBlueprint(rng, w, h),
 };
 
@@ -504,35 +661,38 @@ const IMAGES = [
   { name: "hero", kind: "extension", w: 2200, h: 1300 },
 
   // service group cards
-  { name: "service-extensions", kind: "extension" },
-  { name: "service-lofts", kind: "loft" },
-  { name: "service-renovations", kind: "interior" },
+  { name: "service-group-building-work", kind: "extension" },
+  { name: "service-group-outside", kind: "frontage" },
+  { name: "service-group-inside", kind: "interior" },
 
-  // individual services
-  { name: "service-rear-extensions", kind: "extension" },
-  { name: "service-side-return-extensions", kind: "extension" },
-  { name: "service-wrap-around-extensions", kind: "extension" },
-  { name: "service-double-storey-extensions", kind: "house" },
-  { name: "service-dormer-loft-conversions", kind: "loft" },
-  { name: "service-mansard-loft-conversions", kind: "mansard" },
-  { name: "service-hip-to-gable-loft-conversions", kind: "loft" },
-  { name: "service-full-house-renovations", kind: "house" },
-  { name: "service-kitchen-renovations", kind: "interior" },
-  { name: "service-bathroom-renovations", kind: "interior" },
+  // individual services — one per trade on the business card
+  { name: "service-extensions", kind: "extension" },
+  { name: "service-refurbishments", kind: "house" },
+  { name: "service-brickwork", kind: "house" },
+  { name: "service-rendering", kind: "house" },
+  { name: "service-roofing", kind: "loft" },
+  { name: "service-driveways", kind: "frontage" },
+  { name: "service-landscape-gardening", kind: "garden" },
+  { name: "service-kitchen-fitting", kind: "interior" },
+  { name: "service-bathrooms", kind: "interior" },
+  { name: "service-tiling", kind: "interior" },
+  { name: "service-painting-decorating", kind: "interior" },
 
   // projects — after + during, because in-progress shots carry more weight
   { name: "project-normanton-rear-extension-after", kind: "extension" },
   { name: "project-normanton-rear-extension-during", kind: "extension", stage: "during" },
-  { name: "project-mickleover-dormer-loft-after", kind: "loft" },
-  { name: "project-mickleover-dormer-loft-during", kind: "loft", stage: "during" },
-  { name: "project-allestree-double-storey-after", kind: "house" },
-  { name: "project-allestree-double-storey-during", kind: "house", stage: "during" },
-  { name: "project-littleover-kitchen-extension-after", kind: "extension" },
-  { name: "project-littleover-kitchen-extension-during", kind: "extension", stage: "during" },
-  { name: "project-melbourne-listed-renovation-after", kind: "house" },
-  { name: "project-melbourne-listed-renovation-during", kind: "house", stage: "during" },
-  { name: "project-belper-whs-renovation-after", kind: "house" },
-  { name: "project-belper-whs-renovation-during", kind: "house", stage: "during" },
+  { name: "project-chaddesden-block-paved-driveway-after", kind: "frontage" },
+  { name: "project-chaddesden-block-paved-driveway-during", kind: "frontage", stage: "during" },
+  { name: "project-mickleover-re-roof-after", kind: "loft" },
+  { name: "project-mickleover-re-roof-during", kind: "loft", stage: "during" },
+  { name: "project-allestree-render-and-brickwork-after", kind: "house" },
+  { name: "project-allestree-render-and-brickwork-during", kind: "house", stage: "during" },
+  { name: "project-littleover-bathroom-after", kind: "interior" },
+  { name: "project-littleover-bathroom-during", kind: "interior", stage: "during" },
+  { name: "project-belper-terrace-refurbishment-after", kind: "house" },
+  { name: "project-belper-terrace-refurbishment-during", kind: "house", stage: "during" },
+  { name: "project-oakwood-garden-landscaping-after", kind: "garden" },
+  { name: "project-oakwood-garden-landscaping-during", kind: "garden", stage: "during" },
 
   // interiors used as secondary project frames
   { name: "interior-kitchen-1", kind: "interior" },

@@ -33,23 +33,26 @@ export const enquirySchema = z.object({
 export type EnquiryInput = z.infer<typeof enquirySchema>;
 
 export const PROJECT_TYPES = [
-  "Rear extension",
-  "Side return extension",
-  "Wrap-around extension",
-  "Double-storey extension",
-  "Loft conversion",
-  "Whole house renovation",
-  "Kitchen",
+  "Brickwork",
+  "Landscape gardening",
+  "Extension",
+  "Driveway",
+  "Rendering",
+  "Refurbishment",
+  "Roofing",
+  "Tiling",
   "Bathroom",
-  "Not sure yet",
+  "Painting & decorating",
+  "Kitchen fitting",
+  "Something else / not sure",
 ] as const;
 
 export const BUDGETS = [
-  "Under £30,000",
-  "£30,000 – £60,000",
-  "£60,000 – £100,000",
-  "£100,000 – £200,000",
-  "Over £200,000",
+  "Under £1,000",
+  "£1,000 – £5,000",
+  "£5,000 – £15,000",
+  "£15,000 – £40,000",
+  "Over £40,000",
   "Not sure yet",
 ] as const;
 

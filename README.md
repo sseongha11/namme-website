@@ -1,7 +1,9 @@
 # Namme — website
 
-Marketing site for Namme, builders in Derby specialising in extensions, loft
-conversions and renovations.
+Marketing site for Namme — a small, local, friendly Derby based general building
+company: brickwork, landscape gardening, extensions, driveways, rendering,
+refurbishments, roofing, tiling, bathrooms, painting & decorating and kitchen
+fitting.
 
 ## Running it
 
@@ -30,8 +32,8 @@ so you can change text without touching layout code.
 
 | File | What it holds |
 | --- | --- |
-| `content/site.ts` | **Phone, email, address, hours, stats, accreditations, the 5-stage process, FAQs.** Start here. |
-| `content/services.ts` | The 10 services, with prices, timescales, planning routes |
+| `content/site.ts` | **Phone, email, address, hours, the 5-stage process, FAQs.** Start here. |
+| `content/services.ts` | The 11 trades, with prices, timescales and permission routes |
 | `content/projects.ts` | Portfolio case studies |
 | `content/areas.ts` | Service areas and their local planning notes |
 | `content/guides.ts` | The four cost and planning guides |
@@ -43,14 +45,14 @@ Anything marked `TODO` in those files is a placeholder waiting for real data.
 ## Structure
 
 - `/` — English homepage (primary language)
-- `/services`, `/services/[slug]` — 10 service pages
+- `/services`, `/services/[slug]` — 11 service pages
 - `/projects`, `/projects/[slug]` — portfolio
-- `/areas`, `/areas/[slug]` — 9 location pages (the local SEO engine)
+- `/areas`, `/areas/[slug]` — 12 location pages (the local SEO engine)
 - `/guides`, `/guides/[slug]` — research-stage cost and planning content
 - `/about`, `/contact`, `/privacy`, `/terms`
 - `/ar` — Arabic summary page, right-to-left
 
-45 pages, all statically generated.
+50 pages, all statically generated.
 
 ## Before this goes live
 
@@ -60,21 +62,20 @@ These are blocking:
    validates and logs but sends nothing. Connect it to email (Resend or
    Postmark) or a CRM. A form that silently discards enquiries is worse than no
    form at all.
-2. **Replace the placeholder contact details** — email, address, and the company
-   registration name in `content/site.ts`.
-3. **Check the headline numbers are true.** `stats` and `rating` in
-   `content/site.ts` currently say 15+ years, 350+ projects, 4.9 from 120+
-   reviews. If those aren't accurate, change them — specific and true beats
-   impressive and false, and a wrong review count is checkable.
-4. **Confirm the accreditations.** The footer lists FMB, TrustMark, Gas Safe,
-   NICEIC, CSCS and a 5-year warranty. Remove any Namme doesn't actually hold.
-5. **Replace the projects and testimonials with real ones.** The six in there
-   now are realistic but invented, and are marked as such.
-6. **Have a native Arabic speaker review `content/ar.ts`.** Arabic that reads
+2. **Confirm the company registration name** in `content/site.ts` (`legalName`
+   is still a guess), and the domain in `url`.
+3. **Replace the projects and testimonials with real ones.** The seven case
+   studies and six reviews in there now are realistic but invented, and are
+   marked as such. This is the last remaining placeholder content on the site.
+4. **Add trust signals only when they are real.** Headline stats, a review
+   score and accreditations were all removed rather than left unverified. If
+   Namme holds an FMB, TrustMark, Gas Safe or NICEIC registration, add it back
+   with a membership number that can be looked up.
+5. **Have a native Arabic speaker review `content/ar.ts`.** Arabic that reads
    slightly off does more damage than no Arabic page.
-7. **Legal review of `/privacy` and `/terms`.** Both are starting points, not
+6. **Legal review of `/privacy` and `/terms`.** Both are starting points, not
    advice.
-8. **Verify the planning notes in `content/areas.ts`** against each council's
+7. **Verify the planning notes in `content/areas.ts`** against each council's
    current local plan. Planning policy moves, and these pages state specifics
    about conservation areas, the Derwent Valley Mills World Heritage Site and
    the Nottingham–Derby Green Belt.

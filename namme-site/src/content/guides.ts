@@ -31,76 +31,71 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
-    slug: "how-much-does-a-loft-conversion-cost",
-    title: "How much does a loft conversion cost?",
-    question: "how much does a loft conversion cost uk",
+    slug: "how-much-does-a-driveway-cost",
+    title: "How much does a new driveway cost?",
+    question: "how much does a driveway cost uk block paving",
     category: "Costs",
     updated: "2026-07",
-    readingTime: "7 min",
+    readingTime: "6 min",
     summary:
-      "Real ranges by conversion type, and the five factors that move the number most.",
+      "Prices by surface type, why cheap drives sink, and when you need planning permission.",
     body: [
       {
         type: "p",
-        text: "Most published loft conversion costs are useless because they average four very different jobs together. A Velux conversion and a mansard are not variations of the same project — they differ by a factor of three. Start by identifying which one your roof can take.",
+        text: "Driveway quotes vary more than almost any other job we price, and the reason is rarely the surface. Two quotes for the same block paving can be £4,000 apart because one includes digging out to 250mm and carting the spoil away, and the other means laying over what is already there.",
       },
-      { type: "h2", text: "Cost by conversion type" },
+      { type: "h2", text: "Cost by surface" },
       {
         type: "table",
-        head: ["Type", "Typical range", "Time on site", "Space gained"],
+        head: ["Surface", "Per m²", "Typical drive", "Life expectancy"],
         rows: [
-          ["Velux / rooflight", "£18,000 – £32,000", "5–8 weeks", "Least"],
-          ["Rear dormer", "£36,000 – £60,000", "8–12 weeks", "Good"],
-          ["Hip-to-gable + dormer", "£43,000 – £72,000", "10–14 weeks", "Very good"],
-          ["Mansard", "£54,000 – £92,000", "12–16 weeks", "Most"],
+          ["Gravel", "£45 – £75", "£2,800 – £4,500", "10+ yrs, topped up"],
+          ["Tarmac", "£65 – £100", "£3,500 – £7,000", "15–20 yrs"],
+          ["Block paving", "£90 – £140", "£5,500 – £11,000", "20–25 yrs"],
+          ["Resin-bound", "£110 – £160", "£7,000 – £14,000", "15–20 yrs"],
         ],
       },
       {
         type: "p",
-        text: "These figures are for Derby and the East Midlands in 2026 and assume a habitable bedroom with an en-suite, built to current building regulations, including the staircase and fire strategy. They exclude furniture and any reconfiguration of the floor below.",
+        text: "A typical Derby semi has a frontage of 35–50m². The totals above assume that size, a straightforward dig-out, and spoil removed from site. Note that resin-bound needs a solid base beneath it — tarmac or concrete — so a resin drive over bare ground is two jobs, not one.",
       },
-      { type: "h2", text: "What actually moves the number" },
-      { type: "h3", text: "1. Your existing roof structure" },
+      { type: "h2", text: "Why driveways fail" },
       {
         type: "p",
-        text: "A traditional cut roof — rafters and purlins, typically pre-1965 — converts readily. A modern trussed roof carries its load through web members that cannot be cut, so steel beams must be installed to take the roof before the trusses come out. That difference is commonly £4,500–£9,000, and it is the single most frequently missed item in a cheap quote.",
+        text: "Almost every sunken drive we are called to replace failed for the same three reasons, in the same order.",
       },
-      { type: "h3", text: "2. Where the staircase goes" },
+      {
+        type: "ul",
+        items: [
+          "Sub-base too shallow. A drive taking cars needs around 150mm of compacted MOT Type 1 under the surface, laid and whacked in layers rather than in one go — and more on soft or made ground.",
+          "No edge restraint. Block paving spreads sideways under wheel loads unless the edge courses are haunched in concrete. Once it starts, the whole field of blocks loosens.",
+          "Nowhere for water to go. On the clay around Derby, a surface fall into a border is not drainage. Water needs a soakaway or a channel drain connected to something.",
+        ],
+      },
+      { type: "h2", text: "Planning permission and the 5m² rule" },
       {
         type: "p",
-        text: "The staircase has to satisfy building regulations for head height, going and pitch, and it has to land somewhere sensible. If it can rise directly over the existing flight, the cost is contained. If it has to eat into a bedroom below, you are now paying to reconfigure that room too — and you may have made a three-bedroom house into a three-bedroom house with a loft.",
-      },
-      { type: "h3", text: "3. Whether you want an en-suite" },
-      {
-        type: "p",
-        text: "Budget £6,000–£11,000. The cost is driven less by the fittings than by how far the soil stack has to travel and whether the water pressure needs a pump.",
-      },
-      { type: "h3", text: "4. Head height" },
-      {
-        type: "p",
-        text: "You need roughly 2.2m from the existing ceiling joists to the ridge to convert without lowering ceilings below. Between 2.0m and 2.2m it is marginal. Below 2.0m you are either lowering the ceilings underneath — expensive and disruptive — or looking at a mansard.",
-      },
-      { type: "h3", text: "5. Planning route" },
-      {
-        type: "p",
-        text: "Permitted development, confirmed by a lawful development certificate, costs a few hundred pounds and takes around six weeks. A full application in a conservation area costs more, takes longer, and may come back demanding a mansard instead of the dormer you costed.",
+        text: "Since 2008 you have needed planning permission to lay more than 5m² of impermeable surfacing between the front of your house and the highway, if the water runs off onto that highway. You do not need it if the surface is permeable — gravel, permeable block paving, porous resin — or if run-off is directed to a soakaway, border or lawn within your own boundary.",
       },
       {
         type: "callout",
-        title: "The quote comparison that matters",
-        text: "When comparing quotes, check whether steel, the staircase, building control fees, party wall surveyors and the fire strategy are all included. The cheapest quote is very often the one that omits three of them — and those omissions surface as variations once you are committed.",
+        title: "A dropped kerb is a separate application",
+        text: "Creating or widening a vehicle crossing over the footway needs approval from the council's highways team, not planning. Budget £1,000–£2,500 for the works, expect several weeks, and get it agreed before the drive is laid — a beautiful driveway you cannot legally drive onto is an expensive lesson.",
       },
-      { type: "h2", text: "What you get back" },
+      { type: "h2", text: "What to check in a quote" },
       {
-        type: "p",
-        text: "A well-executed loft conversion adding a double bedroom and en-suite typically returns a good share of its cost in added value across Derby and the surrounding villages, though this varies considerably by area and by whether you have kept a sensible bedroom-to-bathroom ratio. Treat added value as a secondary benefit — the primary one is not having to move.",
+        type: "ul",
+        items: [
+          "Excavation depth, and whether spoil removal is included or extra",
+          "Sub-base type and depth, compacted in layers",
+          "How drainage is dealt with, in words, not 'adequate falls'",
+          "Edge restraints haunched in concrete",
+          "Whether the drive is permeable, or has permission",
+          "Kiln-dried sand and a final compaction — and who comes back if it settles",
+        ],
       },
     ],
-    relatedServices: [
-      "dormer-loft-conversions",
-      "mansard-loft-conversions",
-      "hip-to-gable-loft-conversions",
-    ],
+    relatedServices: ["driveways", "landscape-gardening"],
   },
   {
     slug: "how-much-does-an-extension-cost",
@@ -161,26 +156,36 @@ export const guides: Guide[] = [
         text: "A fixed price transfers risk to the builder, who prices that risk in. Cost-plus is cheaper when everything goes well and uncapped when it doesn’t. For domestic work of this size, a fixed price against a fully detailed specification is almost always the right choice — but it is only as good as the specification, and a fixed price against a vague drawing is neither fixed nor a price.",
       },
     ],
-    relatedServices: [
-      "rear-extensions",
-      "side-return-extensions",
-      "wrap-around-extensions",
-      "double-storey-extensions",
-    ],
+    relatedServices: ["extensions", "kitchen-fitting"],
   },
   {
-    slug: "do-i-need-planning-permission-for-an-extension",
-    title: "Do I need planning permission for an extension?",
-    question: "do i need planning permission for a rear extension",
+    slug: "do-i-need-planning-permission",
+    title: "Do I need planning permission?",
+    question: "do i need planning permission extension driveway wall fence",
     category: "Planning",
     updated: "2026-07",
-    readingTime: "6 min",
+    readingTime: "7 min",
     summary:
-      "Permitted development limits explained, and the conditions that quietly remove them.",
+      "Extensions, driveways, walls, fences and render — what needs permission and what doesn’t.",
     body: [
       {
         type: "p",
-        text: "Often you don’t. Permitted development rights let you extend without a planning application, provided you stay inside a specific set of limits. The catch is that several common circumstances remove those rights entirely — and finding that out after you have paid for drawings is an expensive way to learn it.",
+        text: "For most of what we do, you don’t. Permitted development rights let you extend, pave, wall and render without a planning application, provided you stay inside a specific set of limits. The catch is that several common circumstances remove those rights entirely — and finding that out after you have paid for drawings is an expensive way to learn it.",
+      },
+      { type: "h2", text: "The quick answers" },
+      {
+        type: "table",
+        head: ["Work", "Permission needed?"],
+        rows: [
+          ["Repairs, re-roofing like for like", "No"],
+          ["Rendering a house", "No — unless listed, conservation or Article 4"],
+          ["Driveway, permeable or drained to your own land", "No"],
+          ["Driveway over 5m², impermeable, draining to the road", "Yes"],
+          ["Dropped kerb", "Highways approval, not planning"],
+          ["Garden wall or fence up to 2m (1m by a highway)", "No"],
+          ["Patio, path, decking under 30cm high", "No"],
+          ["Single-storey rear extension within the limits below", "No"],
+        ],
       },
       { type: "h2", text: "Single-storey rear extension limits" },
       {
@@ -223,7 +228,7 @@ export const guides: Guide[] = [
         text: "A householder application is determined within eight weeks. Approval rates for well-prepared domestic applications are high; most refusals we see come from schemes that ignored published local guidance rather than from anything inherently unacceptable. Where a case is genuinely marginal, a pre-application enquiry costs a few hundred pounds and tells you the officer’s view before you commit to a full submission.",
       },
     ],
-    relatedServices: ["rear-extensions", "double-storey-extensions"],
+    relatedServices: ["extensions", "driveways", "landscape-gardening"],
   },
   {
     slug: "how-to-choose-a-builder",
@@ -271,7 +276,7 @@ export const guides: Guide[] = [
         text: "Payment should follow completed work, never precede it by much. A deposit covering ordered materials is reasonable; a deposit of 30% before anyone arrives is not. Retain around 5% for three to six months after completion to cover snagging — and expect a good builder to accept that without argument.",
       },
     ],
-    relatedServices: ["rear-extensions", "full-house-renovations"],
+    relatedServices: ["extensions", "refurbishments", "roofing"],
   },
 ];
 

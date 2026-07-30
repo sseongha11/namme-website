@@ -11,7 +11,7 @@ import { guides } from "@/content/guides";
 export const metadata: Metadata = {
   title: "Cost and planning guides",
   description:
-    "What extensions and loft conversions actually cost in Derby and the East Midlands, what drives the price, and when you need planning permission.",
+    "What extensions, driveways and building work actually cost in Derby and the East Midlands, what drives the price, and when you need planning permission.",
   alternates: { canonical: "/guides" },
 };
 
@@ -21,7 +21,7 @@ export default function GuidesPage() {
       <PageHeader
         eyebrow="Guides"
         title="Everything we’d tell you on the phone, written down."
-        lead="Most people start thinking about an extension six months before they contact anyone. These are written for that stage — no email required, no form in the way, including the one explaining how to check up on builders like us."
+        lead="Most people spend months thinking about a job before they ring anyone. These are written for that stage — no email required, no form in the way, including the one explaining how to check up on builders like us."
         trail={[{ label: "Guides" }]}
       />
 

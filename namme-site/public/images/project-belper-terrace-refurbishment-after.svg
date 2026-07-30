@@ -13,8 +13,8 @@
       <stop offset="0%" stop-color="#a8ae87"/>
       <stop offset="100%" stop-color="#8f9670"/>
     </linearGradient>
-    <filter id="grain-927" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="927" result="n"/>
+    <filter id="grain-346" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="346" result="n"/>
       <feColorMatrix in="n" type="saturate" values="0"/>
       <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
     </filter>
@@ -25,35 +25,35 @@
 <rect width="1600" height="1100" fill="url(#sky)"/><path d="M194.00000000000003 220 L800 88 L1406 220 Z" fill="#4a4f52"/>
   <g>
     <pattern id="brick-ch431" width="34" height="16" patternUnits="userSpaceOnUse">
-      <rect width="34" height="16" fill="#c9bda3"/>
-      <rect width="34" height="1.4" y="14.6" fill="#ded6c4" opacity="0.75"/>
-      <rect width="1.4" height="8" x="0" y="0" fill="#ded6c4" opacity="0.6"/>
-      <rect width="1.4" height="8" x="17" y="7" fill="#ded6c4" opacity="0.6"/>
-      <rect width="34" height="1.4" y="6.6" fill="#ded6c4" opacity="0.45"/>
+      <rect width="34" height="16" fill="#a9a49c"/>
+      <rect width="34" height="1.4" y="14.6" fill="#c8c3ba" opacity="0.75"/>
+      <rect width="1.4" height="8" x="0" y="0" fill="#c8c3ba" opacity="0.6"/>
+      <rect width="1.4" height="8" x="17" y="7" fill="#c8c3ba" opacity="0.6"/>
+      <rect width="34" height="1.4" y="6.6" fill="#c8c3ba" opacity="0.45"/>
     </pattern>
     <rect x="431.36" y="11" width="52" height="209" fill="url(#brick-ch431)"/>
-    <rect x="431.36" y="11" width="52" height="209" fill="#b3a68c" opacity="0.18"/>
+    <rect x="431.36" y="11" width="52" height="209" fill="#918c84" opacity="0.18"/>
   </g>
-    <rect x="425.36" y="11" width="64" height="10" fill="#b3a68c"/>
+    <rect x="425.36" y="11" width="64" height="10" fill="#918c84"/>
     <rect x="439.36" y="-5" width="16" height="18" fill="#575e63"/>
     <rect x="457.36" y="-5" width="16" height="18" fill="#575e63"/>
   <g>
     <pattern id="brick-house" width="34" height="16" patternUnits="userSpaceOnUse">
-      <rect width="34" height="16" fill="#c9bda3"/>
-      <rect width="34" height="1.4" y="14.6" fill="#ded6c4" opacity="0.75"/>
-      <rect width="1.4" height="8" x="0" y="0" fill="#ded6c4" opacity="0.6"/>
-      <rect width="1.4" height="8" x="17" y="7" fill="#ded6c4" opacity="0.6"/>
-      <rect width="34" height="1.4" y="6.6" fill="#ded6c4" opacity="0.45"/>
+      <rect width="34" height="16" fill="#a9a49c"/>
+      <rect width="34" height="1.4" y="14.6" fill="#c8c3ba" opacity="0.75"/>
+      <rect width="1.4" height="8" x="0" y="0" fill="#c8c3ba" opacity="0.6"/>
+      <rect width="1.4" height="8" x="17" y="7" fill="#c8c3ba" opacity="0.6"/>
+      <rect width="34" height="1.4" y="6.6" fill="#c8c3ba" opacity="0.45"/>
     </pattern>
     <rect x="224.00000000000003" y="220" width="1152" height="726" fill="url(#brick-house)"/>
-    <rect x="224.00000000000003" y="220" width="1152" height="726" fill="#b3a68c" opacity="0.18"/>
+    <rect x="224.00000000000003" y="220" width="1152" height="726" fill="#918c84" opacity="0.18"/>
   </g>
   <g>
     <rect x="198.00000000000003" y="206" width="1204" height="14" fill="#3a3e41"/>
     <rect x="198.00000000000003" y="218" width="1204" height="7" fill="#6d747a"/>
     <rect x="1382" y="220" width="9" height="726" fill="#6d747a"/>
            <rect x="1378" y="524.9200000000001" width="17" height="7" fill="#5c6367"/>
-  </g><rect x="316.16" y="550" width="322.56000000000006" height="396" fill="#b3a68c"/><rect x="293.12" y="528" width="368.64" height="28.599999999999998" fill="#6d747a"/>
+  </g><rect x="316.16" y="550" width="322.56000000000006" height="396" fill="#918c84"/><rect x="293.12" y="528" width="368.64" height="28.599999999999998" fill="#6d747a"/>
   <g>
     <rect x="357.24" y="595" width="113.67999999999999" height="10" fill="#ded6c6"/>
     <rect x="357.24" y="601" width="113.67999999999999" height="239" fill="#faf8f4" opacity="0.85"/>
@@ -130,5 +130,5 @@
     <circle cx="1481.56" cy="844.24" r="26.928" fill="#a8ae87" opacity="0.9"/>
     <circle cx="1524.4" cy="821.8" r="23.663999999999998" fill="#a8ae87" opacity="0.85"/>
   </g>
-<rect width="1600" height="1100" filter="url(#grain-927)" opacity="0.5"/>
+<rect width="1600" height="1100" filter="url(#grain-346)" opacity="0.5"/>
 </svg>

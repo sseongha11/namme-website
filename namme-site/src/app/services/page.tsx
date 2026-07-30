@@ -9,9 +9,9 @@ import { serviceGroups, servicesByGroup } from "@/content/services";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `Services — extensions, loft conversions and renovations in ${site.primaryLocation}`,
+  title: `Services — building, roofing, driveways and interiors in ${site.primaryLocation}`,
   description:
-    "Everything we build, with indicative costs, timescales and the planning route for each. Extensions, loft conversions and full renovations across Derby, Derbyshire, Nottingham and Leicester.",
+    "Everything we do, with indicative costs, timescales and the permission route for each. Brickwork, landscaping, extensions, driveways, rendering, refurbishments, roofing, tiling, bathrooms, decorating and kitchen fitting across Derby and Derbyshire.",
   alternates: { canonical: "/services" },
 };
 
@@ -20,8 +20,8 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="Everything we build, with the numbers attached."
-        lead="Each page gives an indicative cost range, what drives it up or down, how long the build takes and which planning route applies. No form in the way."
+        title="Everything we do, with the numbers attached."
+        lead="Each page gives an indicative cost range, what drives it up or down, how long the job takes and whether it needs permission. No form in the way."
         trail={[{ label: "Services" }]}
       />
 

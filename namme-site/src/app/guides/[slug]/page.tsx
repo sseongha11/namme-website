@@ -181,7 +181,7 @@ export default async function GuidePage(props: PageProps<"/guides/[slug]">) {
                 href="/contact"
                 className="mt-5 inline-block text-[14.5px] font-semibold text-clay underline underline-offset-4"
               >
-                Book a consultation
+                Get a free quote
               </Link>
             </div>
           </aside>

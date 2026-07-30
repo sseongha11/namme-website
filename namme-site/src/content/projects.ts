@@ -11,9 +11,10 @@
  *     prove you did the work rather than merely photographed it. The `photos`
  *     array supports a `stage` for exactly this.
  *
- * TODO: replace every entry with real Namme projects. Placeholder illustrations
- * render automatically wherever `photos` is empty, so the layout is already
- * correct and real photography drops straight in.
+ * TODO: replace every entry with real Namme jobs. These are written around the
+ * trades on the business card so the layout and the service links are right,
+ * but the specifics are placeholders. Illustrations render automatically
+ * wherever `photos` is empty, so real photography drops straight in.
  */
 
 export type ProjectPhoto = {
@@ -52,7 +53,7 @@ export const projects: Project[] = [
     title: "Rear extension and kitchen",
     location: "Normanton, Derby",
     postcode: "DE23",
-    serviceSlugs: ["rear-extensions", "kitchen-renovations"],
+    serviceSlugs: ["extensions", "kitchen-fitting"],
     propertyType: "Victorian mid-terrace",
     year: "2025",
     duration: "13 weeks",
@@ -63,170 +64,203 @@ export const projects: Project[] = [
     challenge:
       "The existing foul drainage ran diagonally beneath the proposed extension and served the neighbouring property as well, so it could not simply be capped and moved. The party wall was in poor condition where the outrigger met it.",
     solution:
-      "We agreed a build-over with Severn Trent and formed a new inspection chamber inside the extension footprint. The outrigger was removed and a goalpost steel frame installed across the full rear width, with a 3.2m rooflight over the dining end.",
+      "We agreed a build-over with Severn Trent and formed a new inspection chamber inside the extension footprint. The outrigger came down, a goalpost steel frame went in across the full rear width, and the kitchen was fitted once the shell was watertight.",
     outcome:
-      "The ground floor gained 16m² and now takes light from two directions. Completed a week ahead of the written programme.",
+      "The ground floor gained 16m² and now takes light from two directions. Finished a week ahead of the dates we gave them.",
     materials: [
       "Structural steel goalpost frame",
       "3.2m aluminium-framed rooflight",
       "Reclaimed Derbyshire red brick to match existing",
-      "Polished concrete floor with underfloor heating",
-      "Bespoke oak and birch ply joinery",
+      "Aluminium sliding doors to the garden",
+      "Porcelain floor tiling over underfloor heating",
     ],
     photos: [],
     testimonial: {
       quote:
-        "They found the drainage problem in week one and told us straight away what it would cost to solve. No surprises after that — which is not what our neighbours experienced with their build.",
+        "They found the drainage problem in week one and told us straight away what it would cost to solve. No surprises after that — which is not what our neighbours got with their build.",
       author: "Homeowner, DE23", // TODO real attribution
     },
   },
   {
-    slug: "mickleover-dormer-loft",
-    title: "Rear dormer loft conversion",
+    slug: "chaddesden-block-paved-driveway",
+    title: "Block paved driveway and front garden",
+    location: "Chaddesden",
+    postcode: "DE21",
+    serviceSlugs: ["driveways", "landscape-gardening", "brickwork"],
+    propertyType: "1950s semi-detached",
+    year: "2025",
+    duration: "9 days",
+    summary:
+      "A sinking tarmac drive replaced with block paving, a soakaway and a new front wall.",
+    brief:
+      "The existing tarmac had sunk into two ruts and puddled against the front door in winter. The owners wanted parking for two cars and something that would not need doing again in five years.",
+    challenge:
+      "Digging out showed why it had failed: barely 60mm of sub-base over made ground, and the previous drive fell towards the house rather than away from it. The front boundary wall had also lost its footing on one side.",
+    solution:
+      "We excavated to 250mm, laid and compacted MOT Type 1 in three layers, and set the falls away from the property into a new soakaway in the front border. Edge courses were haunched in concrete, and the boundary wall was rebuilt on a new footing in matched brick.",
+    outcome:
+      "Off-street parking for two cars, no standing water against the house, and no planning application needed because the run-off is contained on the plot.",
+    materials: [
+      "250mm compacted MOT Type 1 sub-base",
+      "Charcoal and silver block paving, stretcher bond",
+      "Concrete-haunched edge restraints",
+      "Crated soakaway to the front border",
+      "Reclaimed brick to the rebuilt boundary wall",
+    ],
+    photos: [],
+    testimonial: {
+      quote:
+        "Two other quotes were just for the surface. Namme dug a hole first, showed us the problem underneath, and explained why the cheap option would sink again.",
+      author: "Homeowner, DE21", // TODO real attribution
+    },
+  },
+  {
+    slug: "mickleover-re-roof",
+    title: "Full re-roof and new guttering",
     location: "Mickleover",
     postcode: "DE3",
-    serviceSlugs: ["dormer-loft-conversions"],
-    propertyType: "1970s semi-detached",
+    serviceSlugs: ["roofing"],
+    propertyType: "1930s semi-detached",
     year: "2025",
-    duration: "9 weeks",
+    duration: "8 days",
     summary:
-      "A trussed roof void turned into a double bedroom with en-suite, under permitted development.",
+      "Perished felt and rotten battens stripped back and replaced, with new fascias and gutters.",
     brief:
-      "A third child meant the family needed a fourth bedroom or a move. The loft had a modern trussed roof, which two other builders had told them made conversion impractical.",
+      "A damp patch on a bedroom ceiling had been patched twice by others and kept coming back. The owners wanted to know whether it was a repair or a re-roof, and wanted the truth either way.",
     challenge:
-      "Trussed roofs carry load through their web members and cannot simply be cut. Head height at the ridge was 2.35m — workable, but with no margin for a deep floor build-up.",
+      "Once we lifted tiles at the valley, the felt beneath had perished across the whole rear slope and several battens were soft. A repair would have held for a winter at best.",
     solution:
-      "Steel beams were installed between the party wall and the gable to take the roof and floor loads, allowing the trusses to be removed entirely. A shallow floor cassette preserved head height, and the staircase rises over the existing flight so no bedroom below was lost.",
+      "We photographed what we found and quoted both options honestly. They chose the re-roof: strip both slopes, new breathable membrane and treated battens, re-lay the sound tiles and make up the shortfall with matched reclaimed, new lead to the valley and chimney, then new fascias, soffits and guttering.",
     outcome:
-      "A 4.6m × 3.4m double bedroom with en-suite, delivered under permitted development with a lawful development certificate. No planning application required.",
+      "A dry roof with a written guarantee, insulation topped up to current levels while the access was there, and the ceiling stain gone for good.",
     materials: [
-      "Steel beams to party wall and gable",
-      "Shallow-profile engineered floor cassette",
-      "Anthracite standing seam dormer cladding",
-      "Three conservation-style rooflights",
-      "Fire-rated glazed door to protected stairwell",
+      "Breathable roofing membrane",
+      "Treated 25×50 battens",
+      "Reclaimed and existing concrete tiles",
+      "Code 4 lead to valley and chimney flashings",
+      "uPVC fascias, soffits and 112mm guttering",
     ],
     photos: [],
   },
   {
-    slug: "allestree-double-storey",
-    title: "Double-storey side extension",
+    slug: "allestree-render-and-brickwork",
+    title: "Silicone render and brickwork repairs",
     location: "Allestree",
     postcode: "DE22",
-    serviceSlugs: ["double-storey-extensions", "bathroom-renovations"],
+    serviceSlugs: ["rendering", "brickwork"],
     propertyType: "1960s detached",
-    year: "2025",
-    duration: "22 weeks",
+    year: "2024",
+    duration: "3 weeks",
     summary:
-      "An unused integral garage replaced by a utility and study below, fourth bedroom and en-suite above.",
+      "Failed cement render removed, cracked brickwork repaired, and a silicone system applied.",
     brief:
-      "The garage had not held a car in a decade. The owners wanted the footprint working properly across both floors rather than storing bicycles and a freezer.",
+      "The original render was cracked and hollow across the gable and had been overpainted twice. The owners wanted a finish that would not need repainting every few years.",
     challenge:
-      "Garage foundations are rarely designed to carry two storeys, and trial holes confirmed they were inadequate. A neighbour raised an objection during consultation on daylight grounds.",
+      "Tapping the wall showed roughly a third of the render had blown. Behind it, two courses of brickwork had cracked where a lintel over the garage opening had corroded and expanded.",
     solution:
-      "New foundations were underpinned beneath the retained garage walls in sequence. The upper floor was set back from the boundary and the roof pitched away from the neighbouring property, which resolved the daylight objection before determination.",
+      "All render came off rather than the blown sections only — patching a wall in that condition just moves the problem along. The lintel was replaced and the brickwork rebuilt, then a beaded basecoat with mesh reinforcement went on, followed by a through-coloured silicone topcoat.",
     outcome:
-      "Utility and study at ground level, double bedroom and en-suite above. Permission granted with no objections outstanding at decision.",
+      "A breathable, self-cleaning finish with a 15-year system warranty, and the structural cause of the cracking dealt with rather than covered over.",
     materials: [
-      "Sequential underpinning to existing garage walls",
-      "Brick matched to 1960s original",
-      "Concrete interlocking tile roof set back from boundary",
-      "Full-height glazing to study",
-      "Tanked en-suite with large-format tiling",
+      "Replacement galvanised lintel to garage opening",
+      "Matched brickwork rebuild in lime-modified mortar",
+      "Mesh-reinforced polymer basecoat with stop beads",
+      "Through-coloured silicone thin-coat topcoat",
+      "New bellcast drips and window sills",
     ],
     photos: [],
   },
   {
-    slug: "littleover-kitchen-extension",
-    title: "Wrap-around extension",
+    slug: "littleover-bathroom",
+    title: "Bathroom and en-suite refit",
     location: "Littleover",
     postcode: "DE23",
-    serviceSlugs: ["wrap-around-extensions", "kitchen-renovations"],
+    serviceSlugs: ["bathrooms", "tiling"],
     propertyType: "1930s semi-detached",
-    year: "2024",
-    duration: "19 weeks",
+    year: "2025",
+    duration: "3 weeks",
     summary:
-      "Side infill and a 3.5m rear extension combined into an L-shaped ground floor.",
+      "A leaking over-bath shower replaced with a fully tanked walk-in, plus a small en-suite.",
     brief:
-      "The owners had planned the side infill first and the rear extension two years later. We costed both routes and showed that doing them together saved a meaningful sum and one full disruption.",
+      "Water had been getting through to the kitchen ceiling below. The owners wanted a walk-in shower, a heated floor and an en-suite formed in the corner of the main bedroom.",
     challenge:
-      "The combined footprint exceeded permitted development, so full planning was required. A mature oak in the neighbouring garden carried a tree preservation order with a root protection area overlapping the proposed foundations.",
+      "The leak was not the shower tray but the tiling: fixed straight onto plasterboard with no tanking, so every joint was a route to the floor. The en-suite also needed a new soil connection across a joisted floor.",
     solution:
-      "An arboricultural report supported a design using a piled foundation across the affected zone, avoiding excavation within the root protection area entirely. Planning was granted in nine weeks.",
+      "Everything came out to the joists. New backer board, full tanking to the wet zone, then large-format porcelain over electric underfloor heating. The en-suite waste was run within the floor void to the existing stack, notched to the engineer’s limits rather than wherever was convenient.",
     outcome:
-      "The ground floor went from four rooms to one connected space of 52m². Sliding doors span the full rear elevation.",
+      "Both rooms finished in three weeks, kitchen ceiling made good, and Part P certificates issued for the new circuits.",
     materials: [
-      "Mini-piled foundations to the tree-protected zone",
-      "Aluminium sliding doors, 4.8m clear opening",
-      "Two structural rooflights",
-      "Reclaimed brick to match existing",
-      "Large-format porcelain flooring with underfloor heating",
+      "12.5mm tile backer board to wet areas",
+      "Liquid tanking membrane and taped joints",
+      "600×1200 porcelain wall and floor tiles",
+      "Electric underfloor heating with programmable stat",
+      "1200mm walk-in screen and concealed valves",
     ],
     photos: [],
     testimonial: {
       quote:
-        "They talked us out of the more expensive option at design stage because it would not have solved the actual problem. I have never had a contractor do that before.",
+        "They showed us exactly why the old one leaked before quoting. The new one has been through a winter of teenagers and there is not a mark on the ceiling below.",
       author: "Homeowner, DE23", // TODO real attribution
     },
   },
   {
-    slug: "melbourne-listed-renovation",
-    title: "Listed cottage renovation",
-    location: "Melbourne",
-    postcode: "DE73",
-    serviceSlugs: ["full-house-renovations"],
-    propertyType: "Grade II listed Georgian cottage",
-    year: "2024",
-    duration: "8 months",
-    summary:
-      "A cold, damp listed cottage made warm and workable without stripping out what made it worth listing.",
-    brief:
-      "New owners inherited a house with 1970s cement render trapping moisture in solid stone walls, original wiring, and a layout of six small rooms where they wanted three good ones.",
-    challenge:
-      "Listed building consent was required for every external alteration, and the cement render was actively causing the damp it was meant to prevent. Internal walls that looked removable turned out to be original fabric.",
-    solution:
-      "Cement render was removed and replaced with lime, allowing the walls to breathe again. Insulation was applied internally using breathable wood fibre rather than impermeable board. Only later partitions were removed; original fabric was retained and the layout worked around it.",
-    outcome:
-      "Damp resolved at source rather than masked. Heating demand fell materially against the pre-works assessment, with consent secured for every element.",
-    materials: [
-      "Lime render and lime plaster throughout",
-      "Breathable wood fibre internal insulation",
-      "Full rewire and replumb with concealed routing",
-      "Reclaimed quarry tile and oak flooring",
-      "Bespoke joinery matched to surviving detail",
-    ],
-    photos: [],
-    testimonial: {
-      quote:
-        "Eight months is a long time to trust someone with a listed building. The weekly written update with photos was what made it bearable — we always knew exactly where we were.",
-      author: "Homeowner, DE73", // TODO real attribution
-    },
-  },
-  {
-    slug: "belper-whs-renovation",
-    title: "Millworker’s terrace renovation",
+    slug: "belper-terrace-refurbishment",
+    title: "Full refurbishment of a stone terrace",
     location: "Belper",
     postcode: "DE56",
-    serviceSlugs: ["full-house-renovations", "rear-extensions"],
+    serviceSlugs: [
+      "refurbishments",
+      "kitchen-fitting",
+      "painting-decorating",
+      "tiling",
+    ],
     propertyType: "Gritstone terrace, World Heritage Site",
     year: "2024",
-    duration: "6 months",
+    duration: "11 weeks",
     summary:
-      "A full renovation inside the Derwent Valley Mills World Heritage Site, consented first time.",
+      "An empty, damp terrace stripped back and brought up to a lettable standard.",
     brief:
-      "The owners wanted a modern interior and a rear extension. They had been told informally that the World Heritage Site designation made an extension impossible.",
+      "The owners had inherited a house that had been empty for two years. It needed to be habitable and warm, on a budget, without losing what made it worth keeping.",
     challenge:
-      "The property sits within the Derwent Valley Mills WHS, where alterations are assessed against the site’s management plan. The original scheme proposed materials and a roof form with no precedent in the terrace.",
+      "Modern cement render and gypsum plaster on solid stone walls had trapped moisture, and the damp was blamed on a failed damp course that turned out not to be the problem at all. The property also sits inside the Derwent Valley Mills World Heritage Site, so external materials mattered.",
     solution:
-      "We surveyed the rear elevations along the row to document what already existed, redesigned the extension to sit within that established pattern, and specified reclaimed gritstone with a natural slate roof. Consent was granted without amendment.",
+      "Cement pointing and gypsum plaster came off the affected walls and were replaced with lime, letting the stone dry outward again. Then a straightforward refurbishment: rewire, new heating, replastering, a mid-range kitchen, a new bathroom, and decoration throughout.",
     outcome:
-      "A rear extension and full internal renovation delivered inside the WHS, approved first time after an informal steer that it could not be done.",
+      "Let within three weeks of completion. The damp has not returned, because the cause was ventilation and finish rather than rising water.",
     materials: [
-      "Reclaimed gritstone to match the terrace",
-      "Natural Welsh slate roof",
-      "Lime mortar throughout",
-      "Timber sash windows to heritage profile",
-      "Internal breathable insulation upgrade",
+      "Lime plaster and lime pointing to solid walls",
+      "Full rewire and new gas boiler",
+      "Mid-range fitted kitchen and appliances",
+      "Vinyl and porcelain flooring",
+      "Breathable emulsion throughout",
+    ],
+    photos: [],
+  },
+  {
+    slug: "oakwood-garden-landscaping",
+    title: "Sloping garden terraced and turfed",
+    location: "Oakwood",
+    postcode: "DE21",
+    serviceSlugs: ["landscape-gardening", "brickwork"],
+    propertyType: "1990s detached",
+    year: "2024",
+    duration: "4 weeks",
+    summary:
+      "A steep, waterlogged lawn turned into two usable terraces with a patio and new fencing.",
+    brief:
+      "The garden dropped more than a metre across its length and held water at the bottom all winter. The family wanted somewhere flat for a table and somewhere flat for children to play.",
+    challenge:
+      "Heavy clay with no fall to anywhere. Terracing meant retaining a metre of soil, and the neighbouring fence line was already leaning under the pressure of the existing level difference.",
+    solution:
+      "Two terraces formed with a rendered blockwork retaining wall, drained behind with a perforated pipe and clean stone rather than relying on weep holes alone. Porcelain patio at house level on a full mortar bed, turf above, and the boundary refenced on concrete posts.",
+    outcome:
+      "Two flat, usable levels and a garden that drains. The neighbour’s fence line came back to vertical as part of the same job.",
+    materials: [
+      "Rendered blockwork retaining wall on concrete footings",
+      "Perforated land drain and clean stone backfill",
+      "Porcelain paving on a full mortar bed",
+      "Concrete posts and feather-edge fencing",
+      "Topsoil and cultivated turf",
     ],
     photos: [],
   },

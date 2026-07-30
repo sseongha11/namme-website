@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { LogoMark } from "@/components/logo";
 import { areas } from "@/content/areas";
 import { serviceGroups, servicesByGroup } from "@/content/services";
-import { accreditations, site } from "@/content/site";
+import { site } from "@/content/site";
 
 export function SiteFooter() {
   return (
@@ -45,8 +45,6 @@ export function SiteFooter() {
               <li className="flex items-start gap-3 text-white/60">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-clay" aria-hidden />
                 <span>
-                  {site.address.line1}
-                  <br />
                   {site.address.city} {site.address.postcode}
                 </span>
               </li>
@@ -86,10 +84,10 @@ export function SiteFooter() {
 
             <div>
               <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-clay">
-                Renovations
+                Inside
               </h3>
               <ul className="mt-4 space-y-2.5">
-                {servicesByGroup("Renovations").map((s) => (
+                {servicesByGroup("Inside").map((s) => (
                   <li key={s.slug}>
                     <Link
                       href={`/services/${s.slug}`}
@@ -122,30 +120,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Accreditations — named with what they mean, not a bare logo wall */}
-        <div className="mt-14 border-t border-white/10 pt-10">
-          <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
-            {accreditations.map((a) => (
-              <li key={a.name} className="flex gap-3.5">
-                <span
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-clay"
-                  aria-hidden
-                />
-                <div>
-                  <p className="text-[13.5px] font-semibold">
-                    {a.name}{" "}
-                    <span className="font-normal text-white/40">— {a.full}</span>
-                  </p>
-                  <p className="mt-0.5 text-[13px] leading-relaxed text-white/50">
-                    {a.meaning}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-7 text-[13px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-7 text-[13px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>

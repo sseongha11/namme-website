@@ -1,10 +1,14 @@
 /**
  * Services.
  *
- * Deliberately granular: "rear extension", "side return" and "wrap-around" are
- * three separate searches with three separate intents. One combined
- * "Extensions" page competes for none of them well. Each child below becomes
- * its own indexable page at /services/[slug].
+ * Taken directly from Namme's business card — brickwork, landscape gardening,
+ * extensions, driveways, rendering, refurbishments, roofing, tiling, bathrooms,
+ * painting & decorating and kitchen fitting.
+ *
+ * Deliberately granular: someone searching "driveways Derby" and someone
+ * searching "rendering Derby" are two different jobs with two different
+ * intents. One combined "building services" page competes for neither well.
+ * Each entry below becomes its own indexable page at /services/[slug].
  */
 
 export type Service = {
@@ -12,7 +16,7 @@ export type Service = {
   title: string;
   /** Short label for nav and cards */
   short: string;
-  group: "Extensions" | "Loft conversions" | "Renovations";
+  group: "Building work" | "Outside" | "Inside";
   /** One-line summary used on cards and in metadata */
   summary: string;
   /** Opening paragraphs for the service page */
@@ -23,344 +27,371 @@ export type Service = {
   /** What actually drives the price up or down. Ranges alone are useless. */
   priceDrivers: string[];
   duration: string;
+  /** Permission, notification or certification route — "none needed" is an answer */
   planning: string;
   includes: string[];
 };
 
 export const services: Service[] = [
-  // ── Extensions ─────────────────────────────────────────────
+  // ── Building work ──────────────────────────────────────────
   {
-    slug: "rear-extensions",
-    title: "Rear extensions",
-    short: "Rear extensions",
-    group: "Extensions",
+    slug: "extensions",
+    title: "Extensions",
+    short: "Extensions",
+    group: "Building work",
     summary:
-      "Open up the back of the house and connect the kitchen to the garden.",
+      "Single and two-storey extensions — more room without moving house.",
     intro: [
-      "A single-storey rear extension is the most common way to fix the thing most period homes get wrong: a dark, cut-off kitchen at the back of the house. Done well, it turns three cramped rooms into one space you actually live in.",
-      "We handle the whole thing — design, structural calculations, planning or permitted development, and the build itself. One contract, one point of contact, one team responsible for the result.",
+      "A single-storey rear extension is the most common way to fix the thing most older Derby houses get wrong: a dark, cut-off kitchen at the back of the house. Done properly it turns two or three cramped rooms into one space you actually live in.",
+      "We take on the whole job — groundworks, structure, roof, glazing, then the trades that finish it. Same team throughout, one written specification, and staged payments against work that is actually done.",
     ],
-    priceFrom: "£32,000",
-    priceTo: "£62,000",
+    priceFrom: "£30,000",
+    priceTo: "£75,000",
     priceDrivers: [
-      "Depth and width — the structural opening is the single biggest cost jump",
-      "Glazing specification: standard doors versus structural or slimline aluminium",
-      "Ground conditions, drainage runs and whether a manhole needs relocating",
-      "Kitchen and finishes, which can vary by more than the shell itself",
-      "Whether the roof is flat, pitched, or carries rooflights",
+      "Depth and width — the structural opening into the existing house is the biggest single jump",
+      "Glazing: standard patio doors versus a wide sliding or bi-fold set",
+      "Ground conditions, drainage runs, and whether a manhole has to be moved",
+      "Whether a new kitchen or bathroom goes into the finished space",
+      "Roof type — flat with rooflights, or pitched and tied into the existing roof",
     ],
-    duration: "12–16 weeks on site",
+    duration: "12–18 weeks on site",
     planning:
-      "Usually permitted development up to 3m (terraced/semi) or 4m (detached), or up to 6m/8m under the larger home extension scheme with prior approval. We confirm this before you commit to anything.",
+      "Often permitted development up to 3m deep (terraced or semi-detached) or 4m (detached), and up to 6m/8m with prior approval. Building Control approval is needed either way. We check where you stand before you commit to anything.",
     includes: [
-      "Measured survey and architectural drawings",
-      "Structural engineer’s calculations",
-      "Planning or permitted development application",
-      "Building Control liaison and sign-off",
-      "Groundworks, structure, roofing and glazing",
+      "Foundations, drainage and groundworks",
+      "Brickwork matched to the existing house",
+      "Structural steel to the opening, to the engineer’s design",
+      "Roof, guttering and weathering into the existing building",
+      "Windows, doors and rooflights",
       "First and second fix, plastering and decoration",
     ],
   },
   {
-    slug: "side-return-extensions",
-    title: "Side return extensions",
-    short: "Side returns",
-    group: "Extensions",
+    slug: "refurbishments",
+    title: "Refurbishments",
+    short: "Refurbishments",
+    group: "Building work",
     summary:
-      "Claim the dead alleyway beside a Victorian terrace and widen the whole ground floor.",
+      "Whole-house or room-by-room refurbishment, from strip-out to final coat.",
     intro: [
-      "The side return is the narrow strip of unused land running alongside the back of a Victorian or Edwardian terrace. Filling it in is one of the highest-value square metres in the Victorian terrace stock — you gain width where the house is at its most cramped, usually without touching the garden.",
-      "It is also the least forgiving job on this list. Party wall agreements, existing drainage and steel design all have to be right, and there is very little room for error once the wall comes out.",
+      "Refurbishment covers everything between a tired house and a finished one: taking out what has failed, putting the structure and services right, then rebuilding the finishes. It is the right call when the problems have stopped being cosmetic.",
+      "We do the unglamorous half first — damp, wiring, plumbing, floors, plaster — because a good-looking room built on top of a bad one does not stay good-looking for long. Landlords and letting agents are welcome, and so is anyone who has just bought somewhere that needs work before they move in.",
     ],
-    priceFrom: "£38,000",
-    priceTo: "£75,000",
+    priceFrom: "£12,000",
+    priceTo: "£90,000",
     priceDrivers: [
-      "Party wall awards — you will usually need agreements with one or both neighbours",
-      "Steel design: a single goalpost frame versus a more complex arrangement",
-      "Rooflight specification, which drives most of the visual result",
-      "Existing drainage under the return and whether it can stay",
-      "Whether the extension is combined with a rear extension (wrap-around)",
+      "How much comes out — a full strip-back costs far more than replacing finishes",
+      "Whether the wiring, plumbing and heating are being replaced wholesale",
+      "Damp, rot or failed lintels found once the plaster comes off",
+      "Structural changes such as removing a wall or forming a new opening",
+      "Specification of the kitchen, bathroom and joinery at the end of it",
     ],
-    duration: "14–18 weeks on site",
+    duration: "4–16 weeks",
     planning:
-      "Frequently permitted development, but conservation areas and previously extended properties often need a full application. Party wall notices are a legal requirement, not an optional extra.",
+      "Internal work needs no planning permission unless the building is listed. Structural openings, new circuits and drainage alterations are notifiable to Building Control, which we handle.",
     includes: [
-      "Party wall notices and surveyor coordination",
-      "Structural steel design and installation",
-      "Underpinning where required",
-      "Drainage alteration and build-over agreement",
-      "Structural glazing and rooflights",
-      "Full internal fit-out",
+      "Strip-out and waste removal",
+      "Damp treatment and making good",
+      "Structural alterations and new openings",
+      "Rewire and replumb where needed",
+      "Plastering, joinery and flooring",
+      "Kitchens, bathrooms, tiling and decoration",
     ],
   },
   {
-    slug: "wrap-around-extensions",
-    title: "Wrap-around extensions",
-    short: "Wrap-arounds",
-    group: "Extensions",
+    slug: "brickwork",
+    title: "Brickwork",
+    short: "Brickwork",
+    group: "Building work",
     summary:
-      "Side return and rear extension combined — the largest ground-floor gain available.",
+      "Garden walls, piers, repointing and repairs — matched to what is already there.",
     intro: [
-      "A wrap-around does both jobs at once: fills the side return and pushes out at the back, producing an L-shaped extension that transforms the entire ground floor rather than adding a room to it.",
-      "Because both elements share scaffolding, groundworks and structure, doing them together is meaningfully cheaper than doing them two years apart — and avoids living through the disruption twice.",
+      "Brickwork is the trade this business was built on. Garden and boundary walls, gate piers, chimney rebuilds, new openings, lintel replacement, and repointing where the mortar has gone soft and started letting water in.",
+      "Most of the job is in the matching. Derby has everything from soft Victorian reds to 1970s commons, and a repair in the wrong brick and the wrong mortar is visible from the pavement for the next fifty years. We match brick, bond and mortar colour before we start.",
     ],
-    priceFrom: "£58,000",
-    priceTo: "£112,000",
+    priceFrom: "£800",
+    priceTo: "£12,000",
     priceDrivers: [
-      "Total footprint and the resulting steel schedule",
-      "Whether the rear element exceeds permitted development depth",
-      "Extent of structural glazing across two elevations",
-      "Reconfiguration of the retained house — moving stairs or a WC adds cost fast",
-      "Level of kitchen and joinery specification",
+      "Area and height — walls over 1m need thicker construction and proper footings",
+      "Brick matching, where reclaimed stock can cost several times new",
+      "Repointing: raking out by hand is slower than it looks, and the only way that lasts",
+      "Access and scaffolding, especially on chimney and gable work",
+      "Whether foundations, drainage or a damp course have to be put right first",
     ],
-    duration: "18–24 weeks on site",
+    duration: "2 days – 4 weeks",
     planning:
-      "Usually requires full planning permission, since the combined footprint typically exceeds permitted development allowances. Allow 8–10 weeks for determination.",
+      "Garden walls up to 2m need no permission — 1m where they front a highway, and less in a conservation area or against a listed building. Repointing needs none, though listed buildings usually require a lime mortar and consent.",
     includes: [
-      "Full architectural design and 3D visualisation",
-      "Planning application and drawings",
-      "Party wall process",
-      "Structural design across both elevations",
-      "Complete ground-floor reconfiguration",
-      "Kitchen installation and decoration",
+      "Brick and mortar matching before work starts",
+      "Concrete footings dug and poured",
+      "Walls, piers, copings and caps",
+      "Lintel replacement and new openings",
+      "Hand-raked repointing in a matched mix",
+      "Chimney repairs and rebuilds",
     ],
   },
   {
-    slug: "double-storey-extensions",
-    title: "Double-storey extensions",
-    short: "Double-storey",
-    group: "Extensions",
+    slug: "rendering",
+    title: "Rendering",
+    short: "Rendering",
+    group: "Building work",
     summary:
-      "Add a bedroom and a bathroom above a new ground-floor space in one build.",
+      "Silicone, monocouche and sand-and-cement render, plus patch repairs.",
     intro: [
-      "Extending over two floors costs far less per square metre than extending once and returning later, because you build the foundations, scaffolding and roof only once. It is the most efficient way to add a genuine extra bedroom.",
-      "It is also more visible from the street and to your neighbours, so the design has to earn its planning permission rather than assume it.",
+      "Render either protects a wall or traps water inside it, and which one you end up with comes down to the mix and the preparation rather than the finish coat. Cement render over a solid old wall with no damp course is a common and expensive mistake — the wall can no longer dry outward, so the damp appears somewhere else instead.",
+      "We look at what the wall is actually built of first, then specify: silicone thin-coat for a low-maintenance coloured finish, monocouche for a through-coloured single application, sand and cement where it suits, and lime on solid walls that need to breathe.",
     ],
-    priceFrom: "£68,000",
-    priceTo: "£125,000",
+    priceFrom: "£3,000",
+    priceTo: "£14,000",
     priceDrivers: [
-      "Foundation depth — two storeys of load usually means deeper footings",
-      "Roof design and how it ties into the existing roofline",
-      "Whether the upper floor includes a bathroom (drainage and waterproofing)",
-      "Matching existing brickwork, which can be difficult on older properties",
-      "Scaffolding duration across a longer programme",
+      "Wall area and number of elevations — a whole house costs far less per m² than one gable",
+      "System: sand and cement, monocouche, or silicone thin-coat over a basecoat",
+      "Whether existing render has to come off, and what is found underneath",
+      "Scaffolding, which is a largely fixed cost however much render goes on",
+      "Beading, detailing around openings, and rendering onto insulation",
     ],
-    duration: "20–28 weeks on site",
+    duration: "1–3 weeks",
     planning:
-      "Almost always a full planning application. Rear two-storey extensions have tighter permitted development limits and are assessed on overlooking and daylight impact on neighbours.",
+      "Usually permitted development on a house. Conservation areas, Article 4 areas and listed buildings are the exception — there, rendering and cladding commonly need consent, and cement render on a solid wall is often refused for sound technical reasons.",
     includes: [
-      "Design developed with planning risk in mind",
-      "Pre-application advice where the case is marginal",
-      "Deep foundations and structural frame",
-      "Roof construction and weathering into the existing house",
-      "New bedroom and en-suite fit-out",
-      "Full decoration and making good",
-    ],
-  },
-
-  // ── Loft conversions ───────────────────────────────────────
-  {
-    slug: "dormer-loft-conversions",
-    title: "Dormer loft conversions",
-    short: "Dormer lofts",
-    group: "Loft conversions",
-    summary:
-      "The standard-bearer: maximum head height and floor area for the money.",
-    intro: [
-      "A dormer extends vertically from the existing roof slope to create a flat-ceilinged box, converting an unusable triangular void into a full room with standing height throughout. For most terraced and semi-detached houses it is the right answer.",
-      "It typically adds a double bedroom and an en-suite, and it is the loft conversion type most likely to fall entirely within permitted development.",
-    ],
-    priceFrom: "£36,000",
-    priceTo: "£60,000",
-    priceDrivers: [
-      "Volume of the dormer — permitted development caps it at 40m³ (terraced) or 50m³ (semi/detached)",
-      "Staircase position, and whether a bedroom below has to be reconfigured",
-      "En-suite inclusion and how far the soil stack has to move",
-      "Steel requirement where existing ceiling joists cannot carry a floor load",
-      "Whether the roof is trussed or cut — trussed roofs need more structural work",
-    ],
-    duration: "8–12 weeks on site",
-    planning:
-      "Commonly permitted development, provided the volume allowance is not exceeded and the dormer does not face the highway. Conservation areas are the main exception.",
-    includes: [
-      "Loft survey and head-height assessment",
-      "Structural steel and new floor construction",
-      "Building-regulation-compliant staircase",
-      "Fire safety: doors, alarms and protected escape route",
-      "Insulation to current Part L standards",
-      "En-suite, electrics, heating and decoration",
+      "Survey of the substrate and any existing render",
+      "Scaffolding, and protection to windows and ground",
+      "Hacking off failed render and disposal",
+      "Beading, mesh reinforcement and basecoat",
+      "Topcoat in your chosen system and colour",
+      "Sills, drips and detailing that keeps water off the wall",
     ],
   },
   {
-    slug: "mansard-loft-conversions",
-    title: "Mansard loft conversions",
-    short: "Mansard lofts",
-    group: "Loft conversions",
+    slug: "roofing",
+    title: "Roofing",
+    short: "Roofing",
+    group: "Building work",
     summary:
-      "The largest possible loft: rebuild the roof at a near-vertical pitch.",
+      "Re-roofs, repairs, flat roofs, fascias and guttering — pitched and flat.",
     intro: [
-      "A mansard replaces one or both roof slopes with a near-vertical wall at around 70 degrees, topped with a shallow flat roof. It produces significantly more usable floor area than a dormer and reads as part of the original building rather than an addition — which is why it is often the only loft type permitted in conservation areas.",
-      "It is a rebuild rather than a conversion, so it costs more and takes longer. Where it applies, nothing else comes close on space gained.",
+      "Most roof calls start as a stain on a bedroom ceiling. Sometimes that is two slipped tiles; sometimes the battens have gone and the felt underneath has perished. We tell you which, with photographs, before quoting anything larger.",
+      "Pitched roofs in tile and slate, flat roofs in EPDM and GRP, and all the detail at the edges — ridge and verge, valleys, flashings, fascias, soffits and gutters, which is where a surprising share of leaks actually begin.",
     ],
-    priceFrom: "£54,000",
-    priceTo: "£92,000",
+    priceFrom: "£350",
+    priceTo: "£16,000",
     priceDrivers: [
-      "The existing roof is largely demolished and rebuilt — that is the base cost",
-      "Party wall awards with both neighbours on a terrace",
-      "Brick or slate matching to satisfy conservation officers",
-      "Two rooms versus one, and the bathroom drainage that follows",
-      "Scaffolding and temporary roofing across a longer programme",
+      "Repair versus full re-roof — stripping back to the rafters is a different job entirely",
+      "Covering: concrete tile, clay tile or natural slate, which can double the material cost",
+      "Whether battens, membrane and insulation are replaced at the same time",
+      "Scaffolding and access, especially on three-storey or terraced properties",
+      "Chimneys, valleys and dormers, which take the time plain runs of tile do not",
     ],
-    duration: "12–16 weeks on site",
+    duration: "1 day – 3 weeks",
     planning:
-      "Nearly always requires full planning permission. Derby City and the surrounding district councils apply conservation area guidance to roof alterations, and following it closely is the difference between approval and refusal.",
+      "Repairs and like-for-like re-roofing need no permission. A change of covering may, on a listed building or in a conservation area. Re-roofing more than 25% of a roof surface is notifiable to Building Control and triggers an insulation upgrade.",
     includes: [
-      "Design to borough-specific mansard guidance",
-      "Full planning application and heritage statement where needed",
-      "Party wall process for both neighbours",
-      "Roof demolition, temporary weatherproofing and rebuild",
-      "Structural floor, staircase and fire strategy",
-      "Complete fit-out and decoration",
-    ],
-  },
-  {
-    slug: "hip-to-gable-loft-conversions",
-    title: "Hip-to-gable conversions",
-    short: "Hip-to-gable",
-    group: "Loft conversions",
-    summary:
-      "Square off a sloping side roof to unlock the space a semi or end-terrace is wasting.",
-    intro: [
-      "Semi-detached and end-of-terrace houses have a hipped roof that slopes on three sides, which wastes the volume where you most need head height. Extending the sloping side up into a vertical gable wall recovers it.",
-      "It is usually combined with a rear dormer, and the two together produce a loft close to the size of the floor below.",
-    ],
-    priceFrom: "£43,000",
-    priceTo: "£72,000",
-    priceDrivers: [
-      "Whether it is combined with a rear dormer (most are)",
-      "New gable wall construction and how it ties into the party wall",
-      "Roof structure — cut roofs convert more easily than trussed",
-      "Brick matching on a highly visible elevation",
-      "Number of rooms and bathrooms created",
-    ],
-    duration: "10–14 weeks on site",
-    planning:
-      "Often permitted development for semi-detached and end-terrace properties within the 50m³ allowance, though the gable is prominent enough that some councils take a closer interest.",
-    includes: [
-      "Structural assessment of the existing roof",
-      "New gable wall construction",
-      "Combined rear dormer where appropriate",
-      "Floor structure, staircase and fire strategy",
-      "Insulation, heating and electrics",
-      "Bedroom and en-suite fit-out",
+      "Roof inspection with photographs of what we find",
+      "Scaffolding and edge protection",
+      "Strip, dispose, and new battens and membrane",
+      "Tiling or slating, ridge, hip and verge",
+      "Lead flashings, valleys and chimney work",
+      "Fascias, soffits, guttering and downpipes",
     ],
   },
 
-  // ── Renovations ────────────────────────────────────────────
+  // ── Outside ────────────────────────────────────────────────
   {
-    slug: "full-house-renovations",
-    title: "Full house renovations",
-    short: "Full renovations",
-    group: "Renovations",
+    slug: "driveways",
+    title: "Driveways",
+    short: "Driveways",
+    group: "Outside",
     summary:
-      "Strip back to brick and rebuild the house around how you actually live.",
+      "Block paving, resin, tarmac and gravel — laid on a base that lasts.",
     intro: [
-      "A full renovation is the right call when the problems are structural rather than cosmetic: failing services, poor insulation, a layout that fights you daily. Working room by room over years costs more in the end and never quite resolves.",
-      "We take the house back to what is worth keeping, replace what isn’t, and rebuild to a single coherent specification. Most clients move out for the duration; we plan the programme around that.",
+      "A driveway is mostly the part you cannot see. Sunken block paving and cracked tarmac are nearly always a sub-base failure rather than a surface failure — dug too shallow, not compacted, or laid straight onto soft ground.",
+      "We excavate to the right depth, lay and compact a proper MOT Type 1 sub-base in layers, and get the falls and drainage right before any surfacing goes down. Block paving, resin-bound, tarmac or gravel, with the edge restraints that stop it spreading.",
     ],
-    priceFrom: "£95,000",
-    priceTo: "£350,000+",
+    priceFrom: "£2,800",
+    priceTo: "£14,000",
     priceDrivers: [
-      "Whether services — wiring, plumbing, heating — are replaced wholesale",
-      "Structural alterations: removing walls, moving stairs, underpinning",
-      "Damp, rot or subsidence found once the plaster comes off",
-      "Listed status or conservation area constraints on materials",
-      "Specification level, which on a full renovation can double the figure",
+      "Area, and how much excavated material has to be carted away",
+      "Surface: gravel, tarmac, block paving or resin-bound, in roughly that price order",
+      "Drainage — a permeable build-up, or a channel drain and soakaway",
+      "A dropped kerb, if you are creating a new access onto the highway",
+      "Retaining walls, steps or levelling on a sloping plot",
     ],
-    duration: "6–12 months",
+    duration: "3 days – 2 weeks",
     planning:
-      "Internal work is usually permission-free unless the building is listed. External alterations, extensions and window replacement in conservation areas will need consent.",
+      "No permission needed if the surface is permeable, or if run-off drains to a soakaway or border rather than into the road. More than 5m² of impermeable surfacing draining to the highway does need planning permission. A new dropped kerb needs approval from the council’s highways team.",
     includes: [
-      "Full survey including damp and timber report",
-      "Complete architectural and interior design",
-      "Strip-out and structural alterations",
-      "Rewire, replumb and new heating system",
-      "Insulation upgrade and Part L compliance",
-      "Joinery, kitchens, bathrooms and decoration",
+      "Excavation and removal of spoil",
+      "Compacted MOT Type 1 sub-base in layers",
+      "Falls set away from the house and airbricks",
+      "Drainage: permeable build-up, channel drain or soakaway",
+      "Edge restraints haunched in concrete",
+      "Surfacing, jointing and final compaction",
     ],
   },
   {
-    slug: "kitchen-renovations",
-    title: "Kitchen renovations",
-    short: "Kitchens",
-    group: "Renovations",
+    slug: "landscape-gardening",
+    title: "Landscape gardening",
+    short: "Landscaping",
+    group: "Outside",
     summary:
-      "Rebuild the room the house revolves around — structure, services and all.",
+      "Patios, paths, fencing, decking, turf and garden walls — hard and soft.",
     intro: [
-      "Most kitchen projects are not really kitchen projects. They involve moving a wall, relocating drainage, upgrading a consumer unit and reworking how the room meets the garden — which is builder’s work with a kitchen fitted at the end.",
-      "We do the structural and services work properly first, then install to a standard that survives twenty years of daily use.",
+      "Most gardens we are called to have the same three problems: nowhere flat to sit, a fence that has had it, and a lawn that holds water all winter. Fixing those is groundwork and drainage before it is planting.",
+      "We do the hard landscaping — patios, paths, steps, retaining and garden walls, fencing and decking — and the soft work that goes with it: levelling, topsoil, turf and beds. Whether it still looks right in five years is a question about drainage and foundations, not about slabs.",
     ],
-    priceFrom: "£20,000",
-    priceTo: "£62,000",
+    priceFrom: "£1,500",
+    priceTo: "£25,000",
     priceDrivers: [
-      "Structural openings — removing a wall between kitchen and dining room",
-      "Moving drainage, gas or the consumer unit",
-      "Cabinetry: trade-supplied versus bespoke joinery",
-      "Worktop material, where stone can be a five-figure line on its own",
-      "Underfloor heating and floor build-up",
+      "Levels — terracing a sloping garden means retaining walls, which carry most of the cost",
+      "Paving material: concrete slab, natural sandstone or porcelain, roughly doubling as you go up",
+      "Access, and whether materials and spoil have to come through the house",
+      "Drainage, particularly on the clay soils common around Derby",
+      "How much is hard landscaping versus turf and planting",
     ],
-    duration: "6–10 weeks",
+    duration: "1–4 weeks",
     planning:
-      "No permission needed for internal work. Building Control notification is required for structural openings, new circuits and drainage alterations.",
+      "Patios, paths, fences up to 2m (1m next to a highway) and decking under 30cm high need no permission. Raised decking, taller walls and fences, and anything against a listed building or in a conservation area may.",
     includes: [
-      "Layout design and 3D visuals",
-      "Structural openings and steelwork",
-      "Full electrical and plumbing first fix",
-      "Underfloor heating where specified",
-      "Cabinetry, worktops and appliance installation",
-      "Tiling, flooring and decoration",
+      "Clearance, levelling and spoil removal",
+      "Compacted sub-base to patios and paths",
+      "Paving laid on a full mortar bed, falling away from the house",
+      "Retaining and garden walls on proper footings",
+      "Fencing, gates, decking and sleeper edging",
+      "Topsoil, turf, beds and planting",
+    ],
+  },
+
+  // ── Inside ─────────────────────────────────────────────────
+  {
+    slug: "kitchen-fitting",
+    title: "Kitchen fitting",
+    short: "Kitchen fitting",
+    group: "Inside",
+    summary:
+      "Full kitchen installation — and the building work most kitchens actually need.",
+    intro: [
+      "Very few kitchen jobs are only a kitchen. They usually involve moving a radiator, taking out a wall, re-routing waste, adding circuits and levelling a floor that has never been level — builder’s work, with units fitted at the end of it.",
+      "We fit kitchens from any supplier, including ones you have already bought. Because we do the building work as well, there is no gap between the trade that takes the wall out and the trade that fits the units against it.",
+    ],
+    priceFrom: "£3,500",
+    priceTo: "£15,000",
+    priceDrivers: [
+      "Fitting alone, or fitting plus the plastering, flooring and electrics around it",
+      "Whether a wall comes out, or an opening is formed between kitchen and dining room",
+      "Moving the sink, waste, gas point or consumer unit",
+      "Worktop material — laminate, solid timber, or stone that has to be templated",
+      "Floor levelling, and whether underfloor heating goes down first",
+    ],
+    duration: "1–4 weeks",
+    planning:
+      "None needed. New circuits are notifiable under Part P, gas work must be carried out by a Gas Safe registered engineer, and any structural opening needs Building Control sign-off.",
+    includes: [
+      "Strip-out and disposal of the old kitchen",
+      "Wall removal or new opening where required",
+      "Plumbing and electrical first fix",
+      "Plastering, floor levelling and preparation",
+      "Units, worktops, appliances and extraction",
+      "Tiling, flooring, sealing and decoration",
     ],
   },
   {
-    slug: "bathroom-renovations",
-    title: "Bathroom renovations",
+    slug: "bathrooms",
+    title: "Bathrooms",
     short: "Bathrooms",
-    group: "Renovations",
+    group: "Inside",
     summary:
-      "Waterproofed properly, ventilated properly, and built to last two decades.",
+      "Full bathroom and wet room installation, waterproofed and ventilated properly.",
     intro: [
-      "Bathrooms fail for two reasons: bad waterproofing and bad ventilation. Both are invisible once the tiles go on, which is exactly why they get skipped.",
-      "We tank wet areas fully, specify extraction that actually clears the moisture, and only then start on the part you can see.",
+      "Bathrooms fail for two reasons: bad waterproofing and bad ventilation. Both are invisible once the tiles are on, which is exactly why they are the two things a cheap quote leaves out.",
+      "We tank the wet areas properly, fit extraction that clears the moisture rather than just making a noise, and only then start on the part you can see. Family bathrooms, shower rooms, wet rooms, en-suites and downstairs WCs.",
     ],
-    priceFrom: "£8,500",
-    priceTo: "£28,000",
+    priceFrom: "£5,000",
+    priceTo: "£16,000",
     priceDrivers: [
-      "Moving the soil stack or WC position",
-      "Tanking and wetroom formation versus a standard enclosure",
-      "Tile format — large-format and stone need more preparation and labour",
-      "Brassware and sanitaryware specification",
-      "Whether the water pressure needs a pump or system upgrade",
+      "Moving the WC or soil pipe — the single most expensive change in a bathroom",
+      "Wet room formation and full tanking, versus a standard tray and enclosure",
+      "Tile format: large-format and natural stone need more preparation and more labour",
+      "Sanitaryware and brassware, which can vary fivefold for the same layout",
+      "Whether the water pressure needs a pump or a system upgrade to work properly",
     ],
-    duration: "3–5 weeks",
+    duration: "1.5 – 4 weeks",
     planning:
-      "No planning permission required. Electrical work in bathroom zones is notifiable under Part P and must be certified.",
+      "No planning permission needed. Electrical work in bathroom zones is notifiable under Part P and certified on completion, and a new soil connection is notifiable to Building Control.",
     includes: [
-      "Design and material selection",
-      "Strip-out and waste alteration",
-      "Full tanking to wet areas",
+      "Strip-out and removal",
+      "Waste, soil and pipework alterations",
+      "Tanking to all wet areas",
       "Zone-compliant electrics and extraction",
-      "Underfloor heating, tiling and installation",
-      "Certification on completion",
+      "Underfloor heating where specified",
+      "Tiling, sanitaryware, screens and sealing",
     ],
   },
-
+  {
+    slug: "tiling",
+    title: "Tiling",
+    short: "Tiling",
+    group: "Inside",
+    summary: "Wall and floor tiling in ceramic, porcelain and natural stone.",
+    intro: [
+      "Good tiling is decided before the first tile goes on: a flat, dry, properly primed background, the right adhesive for that tile on that substrate, and a set-out that puts the cuts where nobody looks.",
+      "Kitchens, bathrooms, hallways, porches and utility rooms — floors and walls, ceramic, porcelain and natural stone, including large-format and tiling over underfloor heating.",
+    ],
+    priceFrom: "£500",
+    priceTo: "£5,000",
+    priceDrivers: [
+      "Area, and how many cuts the shape of the room forces",
+      "Tile size — large-format needs levelling systems and two people to place",
+      "Preparation: overboarding, screeding or levelling an uneven floor",
+      "Natural stone, which needs sealing before and after grouting",
+      "Patterns such as herringbone or brick bond, which add cutting and waste",
+    ],
+    duration: "2 days – 2 weeks",
+    planning:
+      "None needed. Where tiling goes over underfloor heating or into a wet area, the build-up and the waterproofing beneath matter far more than the tile.",
+    includes: [
+      "Substrate check, priming and levelling",
+      "Overboarding or tile backer board where needed",
+      "Tanking to showers and wet areas",
+      "Set-out agreed with you before fixing",
+      "Fixing, grouting and silicone",
+      "Sealing to natural stone, and clean down",
+    ],
+  },
+  {
+    slug: "painting-decorating",
+    title: "Painting & decorating",
+    short: "Painting & decorating",
+    group: "Inside",
+    summary:
+      "Interior and exterior decoration, with the preparation that makes it last.",
+    intro: [
+      "Decorating is preparation with paint at the end. Filling, sanding, caulking, stain-blocking and priming are what decide whether it still looks right in three years — the topcoat is the quick part.",
+      "Whole houses, single rooms, new plaster, woodwork and ceilings, and exterior work including render, masonry, fascias and timber.",
+    ],
+    priceFrom: "£400",
+    priceTo: "£7,000",
+    priceDrivers: [
+      "Condition — cracked, papered or badly painted surfaces need real preparation time",
+      "New plaster, which needs a mist coat and usually an extra coat on top",
+      "Woodwork: doors, skirting, architrave and windows are slow compared with walls",
+      "Ceiling height and access, and whether furniture has to be moved and protected",
+      "Exterior work, which carries tower or scaffold hire and depends on the weather",
+    ],
+    duration: "2 days – 3 weeks",
+    planning:
+      "None needed internally. Externally, painting previously unpainted brick or stone can need consent on a listed building or in a conservation area — and is usually a bad idea on a solid wall in any case.",
+    includes: [
+      "Protection of floors, furniture and fittings",
+      "Filling, sanding, caulking and making good",
+      "Stain blocking and priming as needed",
+      "Mist coat to new plaster",
+      "Two full topcoats to walls and ceilings",
+      "Woodwork, exterior masonry and clean down",
+    ],
+  },
 ];
 
-export const serviceGroups = [
-  "Extensions",
-  "Loft conversions",
-  "Renovations",
-] as const;
+export const serviceGroups = ["Building work", "Outside", "Inside"] as const;
 
 export function servicesByGroup(group: string) {
   return services.filter((s) => s.group === group);

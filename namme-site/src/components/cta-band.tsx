@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
 
 export function CtaBand({
-  title = "Tell us what you’re thinking of building.",
-  lead = "A free consultation, a measured survey and an honest view of what it will cost — before anyone asks you for money.",
+  title = "Tell us what needs doing.",
+  lead = "We come out, look at the job, and give you a written quote — free, no obligation, and however small the job is.",
 }: {
   title?: string;
   lead?: string;
@@ -24,7 +24,7 @@ export function CtaBand({
         <div className="flex shrink-0 flex-wrap gap-3">
           <Button asChild size="lg" variant="onDark">
             <Link href="/contact">
-              Book a consultation <ArrowRight aria-hidden />
+              Get a free quote <ArrowRight aria-hidden />
             </Link>
           </Button>
           <Button asChild size="lg" variant="outlineDark">

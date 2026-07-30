@@ -143,7 +143,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
               <input
                 id="postcode"
                 className={field}
-                placeholder="N16 8AB"
+                placeholder="DE22 3QQ"
                 {...register("postcode")}
               />
               <FieldError msg={errors.postcode?.message} />
@@ -188,7 +188,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
                 id="message"
                 rows={5}
                 className={cn(field, "h-auto py-3.5 leading-[1.6]")}
-                placeholder="What you’re hoping to achieve, anything you already know about the property, whether you have drawings already…"
+                placeholder="What needs doing, roughly when you’d like it done, and anything you already know about the property…"
                 {...register("message")}
               />
               <FieldError msg={errors.message?.message} />

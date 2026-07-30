@@ -13,8 +13,8 @@
       <stop offset="0%" stop-color="#a8ae87"/>
       <stop offset="100%" stop-color="#8f9670"/>
     </linearGradient>
-    <filter id="grain-197" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="197" result="n"/>
+    <filter id="grain-413" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="413" result="n"/>
       <feColorMatrix in="n" type="saturate" values="0"/>
       <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
     </filter>
@@ -25,28 +25,28 @@
 <rect width="1600" height="1100" fill="url(#sky)"/><ellipse cx="1120" cy="176" rx="384" ry="110" fill="#fff" opacity="0.5" filter="url(#soft)"/><path d="M712 220 L1072 65.99999999999997 L1432 220 Z" fill="#4a4f52"/><path d="M763.4285714285714 198 L1380.5714285714287 198" stroke="#3a3e41" stroke-width="3" opacity="0.4"/><path d="M814.8571428571429 176 L1329.142857142857 176" stroke="#3a3e41" stroke-width="3" opacity="0.4"/><path d="M866.2857142857142 154 L1277.7142857142858 154" stroke="#3a3e41" stroke-width="3" opacity="0.4"/><path d="M917.7142857142857 132 L1226.2857142857142 132" stroke="#3a3e41" stroke-width="3" opacity="0.4"/><path d="M969.1428571428571 109.99999999999997 L1174.857142857143 109.99999999999997" stroke="#3a3e41" stroke-width="3" opacity="0.4"/><path d="M1020.5714285714286 87.99999999999997 L1123.4285714285716 87.99999999999997" stroke="#3a3e41" stroke-width="3" opacity="0.4"/>
   <g>
     <pattern id="brick-ch1206" width="34" height="16" patternUnits="userSpaceOnUse">
-      <rect width="34" height="16" fill="#a85c43"/>
-      <rect width="34" height="1.4" y="14.6" fill="#c99381" opacity="0.75"/>
-      <rect width="1.4" height="8" x="0" y="0" fill="#c99381" opacity="0.6"/>
-      <rect width="1.4" height="8" x="17" y="7" fill="#c99381" opacity="0.6"/>
-      <rect width="34" height="1.4" y="6.6" fill="#c99381" opacity="0.45"/>
+      <rect width="34" height="16" fill="#c9bda3"/>
+      <rect width="34" height="1.4" y="14.6" fill="#ded6c4" opacity="0.75"/>
+      <rect width="1.4" height="8" x="0" y="0" fill="#ded6c4" opacity="0.6"/>
+      <rect width="1.4" height="8" x="17" y="7" fill="#ded6c4" opacity="0.6"/>
+      <rect width="34" height="1.4" y="6.6" fill="#ded6c4" opacity="0.45"/>
     </pattern>
     <rect x="1206.4" y="0" width="52" height="220" fill="url(#brick-ch1206)"/>
-    <rect x="1206.4" y="0" width="52" height="220" fill="#8f4a35" opacity="0.18"/>
+    <rect x="1206.4" y="0" width="52" height="220" fill="#b3a68c" opacity="0.18"/>
   </g>
-    <rect x="1200.4" y="0" width="64" height="10" fill="#8f4a35"/>
+    <rect x="1200.4" y="0" width="64" height="10" fill="#b3a68c"/>
     <rect x="1214.4" y="-16" width="16" height="18" fill="#575e63"/>
     <rect x="1232.4" y="-16" width="16" height="18" fill="#575e63"/>
   <g>
     <pattern id="brick-main" width="34" height="16" patternUnits="userSpaceOnUse">
-      <rect width="34" height="16" fill="#a85c43"/>
-      <rect width="34" height="1.4" y="14.6" fill="#c99381" opacity="0.75"/>
-      <rect width="1.4" height="8" x="0" y="0" fill="#c99381" opacity="0.6"/>
-      <rect width="1.4" height="8" x="17" y="7" fill="#c99381" opacity="0.6"/>
-      <rect width="34" height="1.4" y="6.6" fill="#c99381" opacity="0.45"/>
+      <rect width="34" height="16" fill="#c9bda3"/>
+      <rect width="34" height="1.4" y="14.6" fill="#ded6c4" opacity="0.75"/>
+      <rect width="1.4" height="8" x="0" y="0" fill="#ded6c4" opacity="0.6"/>
+      <rect width="1.4" height="8" x="17" y="7" fill="#ded6c4" opacity="0.6"/>
+      <rect width="34" height="1.4" y="6.6" fill="#ded6c4" opacity="0.45"/>
     </pattern>
     <rect x="736" y="220" width="672" height="682" fill="url(#brick-main)"/>
-    <rect x="736" y="220" width="672" height="682" fill="#8f4a35" opacity="0.18"/>
+    <rect x="736" y="220" width="672" height="682" fill="#b3a68c" opacity="0.18"/>
   </g>
   <g>
     <rect x="710" y="206" width="724" height="14" fill="#3a3e41"/>
@@ -92,15 +92,15 @@
   </g>
   <g>
     <pattern id="brick-ext" width="34" height="16" patternUnits="userSpaceOnUse">
-      <rect width="34" height="16" fill="#a85c43"/>
-      <rect width="34" height="1.4" y="14.6" fill="#c99381" opacity="0.75"/>
-      <rect width="1.4" height="8" x="0" y="0" fill="#c99381" opacity="0.6"/>
-      <rect width="1.4" height="8" x="17" y="7" fill="#c99381" opacity="0.6"/>
-      <rect width="34" height="1.4" y="6.6" fill="#c99381" opacity="0.45"/>
+      <rect width="34" height="16" fill="#c9bda3"/>
+      <rect width="34" height="1.4" y="14.6" fill="#ded6c4" opacity="0.75"/>
+      <rect width="1.4" height="8" x="0" y="0" fill="#ded6c4" opacity="0.6"/>
+      <rect width="1.4" height="8" x="17" y="7" fill="#ded6c4" opacity="0.6"/>
+      <rect width="34" height="1.4" y="6.6" fill="#ded6c4" opacity="0.45"/>
     </pattern>
     <rect x="192" y="572" width="544" height="330" fill="url(#brick-ext)"/>
-    <rect x="192" y="572" width="544" height="330" fill="#8f4a35" opacity="0.18"/>
-  </g><rect x="178" y="552" width="564" height="26" fill="#8f4a35"/>
+    <rect x="192" y="572" width="544" height="330" fill="#b3a68c" opacity="0.18"/>
+  </g><rect x="178" y="552" width="564" height="26" fill="#b3a68c"/>
   <g>
     <rect x="232" y="624" width="454" height="278" fill="url(#glassGrad)"/>
     <path d="M232 902 L481.70000000000005 624 L586.12 624 L304.64 902 Z"
@@ -128,5 +128,5 @@
     <circle cx="84.47" cy="740.88" r="42.635999999999996" fill="#a8ae87" opacity="0.9"/>
     <circle cx="152.3" cy="705.35" r="37.467999999999996" fill="#a8ae87" opacity="0.85"/>
   </g>
-<rect width="1600" height="1100" filter="url(#grain-197)" opacity="0.5"/>
+<rect width="1600" height="1100" filter="url(#grain-413)" opacity="0.5"/>
 </svg>

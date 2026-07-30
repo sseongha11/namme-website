@@ -7,11 +7,11 @@ import { PageHeader } from "@/components/page-header";
 import { Process } from "@/components/process";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHeading } from "@/components/section";
-import { accreditations, site } from "@/content/site";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About — who we are and how we work",
-  description: `${site.name} are builders based in ${site.primaryLocation}, specialising in extensions, loft conversions and full renovations across Derby and Derbyshire.`,
+  description: `${site.name} are a small, local, friendly ${site.primaryLocation}-based general building company, providing a quality and reliable service at an affordable price.`,
   alternates: { canonical: "/about" },
 };
 
@@ -31,19 +31,21 @@ export default function AboutPage() {
             {/* TODO: replace with Namme’s real history — founding year, who
                 started it, what they did before. Specific beats polished. */}
             <p className="text-[19px] leading-[1.75] text-ink-soft">
-              Namme has been building in Derby since 2011. We started as a small
-              team doing extensions on the Victorian terraces around Normanton, and
-              the work has grown outward from there — into the inter-war semis of
-              Littleover and Mickleover, the estates at Oakwood, and the stone
-              properties out toward Belper and the Dales.
+              We are a small, local, friendly, Derby based general building
+              company, providing a quality and reliable service at an affordable
+              price. That sentence has been on our business card for years and it
+              is still the honest description: brickwork and groundwork to start
+              with, and everything that grew out of it — extensions, roofing,
+              rendering, driveways, landscaping, and the kitchens, bathrooms,
+              tiling and decorating that finish a house off.
             </p>
             <p className="mt-6 text-[17px] leading-[1.75] text-ink-soft">
-              We are builders rather than a design-and-build practice, and we say so
-              plainly because the distinction matters when you’re choosing. If you
-              have drawings, we’ll price them and tell you honestly what will be
-              awkward to construct. If you don’t, we’ll tell you what level of
-              drawing your project actually needs — which is often less than you’ve
-              been told — and point you to architects we’ve worked with locally.
+              Small is deliberate. It means the person who quotes your job is on
+              site while it happens, and that a day’s repointing gets the same
+              attention as a twelve-week extension. If a job needs a trade we
+              don’t have — gas, electrics, structural design — we bring in people
+              we have used for years and who can certify their own work, rather
+              than pretending it is all in-house.
             </p>
             <p className="mt-6 text-[17px] leading-[1.75] text-ink-soft">
               Our team is originally from Syria. In practice that means you can deal
@@ -59,12 +61,12 @@ export default function AboutPage() {
             </h2>
             <p className="mt-5 text-[17px] leading-[1.75] text-ink-soft">
               Most complaints about builders aren’t about the brickwork. They’re
-              about not knowing what’s happening, costs arriving unannounced, and
-              nobody taking responsibility when two trades disagree. So that’s what
-              we’ve built the business around: an itemised written specification
-              before anything starts, a weekly written update with photographs, one
-              named site manager who answers for the whole job, and no charge for
-              anything you haven’t approved in writing first.
+              about not turning up, not knowing what’s happening, costs arriving
+              unannounced, and nobody taking responsibility when two trades
+              disagree. So that’s what we’ve built the business around: an
+              itemised written quote before anything starts, agreed start and
+              finish dates, one person who answers for the whole job, and no
+              charge for anything you haven’t agreed first.
             </p>
             <p className="mt-6 text-[17px] leading-[1.75] text-ink-soft">
               None of that is glamorous and none of it is hard. It’s just
@@ -83,16 +85,6 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-px border border-line bg-line">
-              {site.stats.map((s) => (
-                <div key={s.label} className="bg-paper p-7">
-                  <p className="numeral text-[32px] leading-none">{s.value}</p>
-                  <p className="mt-2 text-[13px] uppercase tracking-[0.1em] text-ink-muted">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </Reveal>
         </div>
       </Section>
@@ -104,25 +96,6 @@ export default function AboutPage() {
           title="Five stages, and you always know which one you’re in."
         />
         <Process />
-      </Section>
-
-      <Section tone="paper-2">
-        <SectionHeading
-          eyebrow="Accreditations"
-          title="What the badges actually mean."
-          lead="A wall of logos proves nothing on its own. Here’s what each of ours commits us to — and every one of them can be verified independently on the relevant register."
-        />
-        <ul className="mt-14 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
-          {accreditations.map((a, i) => (
-            <Reveal as="li" key={a.name} delay={(i % 3) * 0.06}>
-              <p className="text-[17px] font-semibold">{a.name}</p>
-              <p className="mt-1 text-[13.5px] text-ink-muted">{a.full}</p>
-              <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                {a.meaning}
-              </p>
-            </Reveal>
-          ))}
-        </ul>
       </Section>
 
       <CtaBand />

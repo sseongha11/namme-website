@@ -6,18 +6,18 @@ import { Reveal } from "@/components/reveal";
 import { serviceGroups, servicesByGroup } from "@/content/services";
 
 const GROUP_IMAGE: Record<string, string> = {
-  Extensions: "/images/service-extensions.svg",
-  "Loft conversions": "/images/service-lofts.svg",
-  Renovations: "/images/service-renovations.svg",
+  "Building work": "/images/service-group-building-work.svg",
+  Outside: "/images/service-group-outside.svg",
+  Inside: "/images/service-group-inside.svg",
 };
 
 const GROUP_BLURB: Record<string, string> = {
-  Extensions:
-    "Rear, side return, wrap-around and double-storey — the ground floor rebuilt around how you actually use it.",
-  "Loft conversions":
-    "Dormer, mansard and hip-to-gable. A bedroom and bathroom out of space you already own.",
-  Renovations:
-    "Whole-house refurbishment, kitchens and bathrooms — services and structure first, finishes second.",
+  "Building work":
+    "Extensions, refurbishments, brickwork, rendering and roofing — the structural half of the job, done by our own trades.",
+  Outside:
+    "Driveways and landscape gardening, built on a proper base with somewhere for the water to go.",
+  Inside:
+    "Kitchens, bathrooms, tiling and decorating — including all the building work that gets hidden behind them.",
 };
 
 export function ServicesGrid() {

@@ -38,7 +38,7 @@ const arabic = IBM_Plex_Sans_Arabic({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline} in ${site.primaryLocation}`,
+    default: `${site.name} — builders in ${site.primaryLocation} | brickwork, extensions, roofing, driveways`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -56,13 +56,12 @@ export const metadata: Metadata = {
 };
 
 /**
- * LocalBusiness structured data — what populates the knowledge panel and the
- * review stars in search results. Roughly the highest-leverage 40 lines on a
- * builder’s site.
+ * LocalBusiness structured data — what populates the knowledge panel in search
+ * results. No aggregateRating block: publishing a review score as structured
+ * data states it to search engines as fact, so it goes in only once there are
+ * real reviews on a real platform to back it.
  */
 function OrganisationJsonLd() {
-  // Structured data publishes the review score and accreditations to search
-  // engines as fact. Withhold it entirely until those numbers are verified.
   if (isPreview) return null;
 
   const json = {
@@ -76,15 +75,9 @@ function OrganisationJsonLd() {
     email: site.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.address.line1,
       addressLocality: site.address.city,
       postalCode: site.address.postcode,
       addressCountry: "GB",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: site.rating.score,
-      reviewCount: site.rating.count,
     },
     areaServed: site.primaryLocation,
   };

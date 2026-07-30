@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Check, Mail, MapPin, Phone, ShieldCheck, Star } from "lucide-react";
+import { ArrowLeft, Check, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 import { FaqSection } from "@/components/faq-section";
 import { QuoteForm } from "@/components/quote-form";
@@ -12,9 +12,9 @@ import { ar } from "@/content/ar";
 import { site } from "@/content/site";
 
 const SERVICE_IMAGE = [
-  "/images/service-extensions.svg",
-  "/images/service-lofts.svg",
-  "/images/service-renovations.svg",
+  "/images/service-group-building-work.svg",
+  "/images/service-group-outside.svg",
+  "/images/service-group-inside.svg",
 ];
 
 export default function ArabicPage() {
@@ -59,21 +59,11 @@ export default function ArabicPage() {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4 border-t border-line pt-7">
-              <div className="flex items-center gap-2.5">
-                <div className="flex gap-0.5" aria-hidden>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="size-4 fill-clay text-clay" />
-                  ))}
-                </div>
-                <p className="text-[14px] text-ink-soft">
-                  <span className="font-semibold text-ink">{site.rating.score}</span>{" "}
-                  {ar.hero.trustRating}
-                </p>
-              </div>
+              <p className="text-[14px] text-ink-soft">{ar.hero.trustQuote}</p>
               <div className="h-4 w-px bg-line" aria-hidden />
-              <p className="text-[14px] text-ink-soft">{ar.hero.trustAccred}</p>
+              <p className="text-[14px] text-ink-soft">{ar.hero.trustSmallJobs}</p>
               <div className="hidden h-4 w-px bg-line sm:block" aria-hidden />
-              <p className="text-[14px] text-ink-soft">{ar.hero.trustWarranty}</p>
+              <p className="text-[14px] text-ink-soft">{ar.hero.trustArea}</p>
             </div>
           </div>
 
@@ -88,20 +78,6 @@ export default function ArabicPage() {
               className="object-cover"
             />
           </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="border-y border-line bg-paper-2">
-        <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-px px-6 lg:grid-cols-4">
-          {ar.stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.06} className="py-9 lg:py-11">
-              <p className="text-[38px] font-bold leading-none text-ink" dir="ltr">
-                {s.value}
-              </p>
-              <p className="mt-2.5 text-[14px] text-ink-muted">{s.label}</p>
-            </Reveal>
-          ))}
         </div>
       </section>
 
@@ -330,7 +306,7 @@ export default function ArabicPage() {
                 <div>
                   <p className="text-[12px] text-ink-muted">{ar.contact.addressLabel}</p>
                   <p className="mt-0.5 text-[16px]" dir="ltr">
-                    {site.address.line1}, {site.address.city} {site.address.postcode}
+                    {site.address.city} {site.address.postcode}
                   </p>
                 </div>
               </li>

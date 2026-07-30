@@ -9,13 +9,12 @@ import { ProjectCarousel } from "@/components/project-carousel";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHeading } from "@/components/section";
 import { ServicesGrid } from "@/components/services-grid";
-import { StatsBar } from "@/components/stats-bar";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { Button } from "@/components/ui/button";
 import { areas } from "@/content/areas";
 import { guides } from "@/content/guides";
 import { projects } from "@/content/projects";
-import { faqs, site } from "@/content/site";
+import { faqs } from "@/content/site";
 
 const DIFFERENTIATORS = [
   {
@@ -23,24 +22,24 @@ const DIFFERENTIATORS = [
     body: "Our quotes are itemised line by line, so you can compare them properly and see instantly what any change costs. A single figure on one page is not a quote.",
   },
   {
-    title: "Written weekly updates",
-    body: "Every Friday: what happened this week, what happens next, and photographs. You never have to ask how it’s going.",
+    title: "Small jobs welcome",
+    body: "A day’s tiling and a full extension get quoted the same way and turned up for on the same day we said. Plenty of builders won’t take the small ones. We do.",
   },
   {
-    title: "Staged payments only",
-    body: "You pay for completed work, never in advance of it. No deposit larger than the materials it covers.",
+    title: "You pay for finished work",
+    body: "Never large sums up front. Any deposit covers materials we’ve had to order, and never more than they cost.",
   },
   {
-    title: "Variations in writing first",
-    body: "Nothing is charged without your written approval. Surprises at the end are a failure of process, not a fact of building.",
+    title: "Nothing charged you haven’t agreed",
+    body: "If we find rot, soft ground or a failed lintel, you see it, you get the price to put it right, and you decide. Surprises at the end are a failure of process.",
   },
   {
-    title: "Directly employed trades",
-    body: "Groundworks, carpentry, brickwork and site management are our own people, not whoever happened to be free that week.",
+    title: "Our own trades",
+    body: "Brickwork, groundworks, roofing, tiling and decorating are our own people. Gas and electrics go to registered engineers so the work can be certified.",
   },
   {
-    title: "Six-month callback",
-    body: "We ring you half a year after handover to check everything is still performing. Most of the time it is.",
+    title: "We tidy up",
+    body: "Swept down at the end of each day, the skip kept off the road where we can, and everything taken away at the end. Your neighbours still have to live there too.",
   },
 ];
 
@@ -48,14 +47,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <StatsBar />
 
       {/* Services */}
       <Section>
         <SectionHeading
           eyebrow="What we do"
-          title="Three things, done to one standard."
-          lead="Almost all our work is one of these. Each is priced, programmed and managed the same way — the difference is only what we’re building."
+          title="Eleven trades, one team, one standard."
+          lead="Brickwork, landscape gardening, extensions, driveways, rendering, refurbishments, roofing, tiling, bathrooms, painting &amp; decorating and kitchen fitting. Priced and run the same way whatever the size of the job."
           action={
             <Button asChild variant="outline">
               <Link href="/projects">
@@ -119,8 +117,8 @@ export default function HomePage() {
       <Section>
         <SectionHeading
           eyebrow="What clients say"
-          title={`${site.rating.score} out of 5, across ${site.rating.count}+ reviews.`}
-          lead="A star average tells you very little, so these say what the project was and what we actually did."
+          title="In their words, not ours."
+          lead="A star average tells you very little, so these say what the job was and what we actually did."
         />
         <TestimonialsSection />
       </Section>

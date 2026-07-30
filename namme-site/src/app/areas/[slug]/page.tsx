@@ -26,8 +26,8 @@ export async function generateMetadata(
   if (!area) return {};
 
   return {
-    title: `Builders in ${area.name} — extensions, lofts and renovations`,
-    description: `Extensions, loft conversions and renovations across ${area.name} (${area.postcodes.join(", ")}). ${area.planningNotes.slice(0, 110)}…`,
+    title: `Builders in ${area.name} — extensions, roofing, driveways and more`,
+    description: `Brickwork, extensions, roofing, rendering, driveways, bathrooms and decorating across ${area.name} (${area.postcodes.join(", ")}). ${area.planningNotes.slice(0, 110)}…`,
     alternates: { canonical: `/areas/${area.slug}` },
   };
 }
@@ -49,7 +49,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
       <PageHeader
         eyebrow="Areas we cover"
         title={`Builders in ${area.name}`}
-        lead={`Extensions, loft conversions and full renovations across ${area.postcodes.join(", ")}. Same team, same specification, same weekly updates.`}
+        lead={`Everything from a day\u2019s repointing to a full extension, across ${area.postcodes.join(", ")}. Same team, same trades, same free written quote.`}
         trail={[{ label: "Areas", href: "/areas" }, { label: area.name }]}
       />
 

@@ -9,9 +9,9 @@ import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `Projects — extensions, lofts and renovations across ${site.primaryLocation}`,
+  title: `Projects — recent work across ${site.primaryLocation}`,
   description:
-    "Completed extensions, loft conversions and renovations across Derby, Derbyshire, Nottingham and Leicester, including what went wrong on each and how it was resolved.",
+    "Completed extensions, driveways, roofs, bathrooms, brickwork and refurbishments across Derby, Derbyshire, Nottingham and Leicester, including what went wrong on each and how it was resolved.",
   alternates: { canonical: "/projects" },
 };
 

@@ -57,7 +57,7 @@ export function SiteHeader() {
       <div className="hidden bg-deep text-paper md:block">
         <div className="mx-auto flex h-10 max-w-[1240px] items-center justify-between px-6 text-[12.5px]">
           <p className="text-white/70">
-            Free consultation and written estimate · No obligation
+            Call your local trader now for a free, no-obligation quote
           </p>
           <div className="flex items-center gap-6">
             <Link
@@ -69,9 +69,6 @@ export function SiteHeader() {
             >
               العربية
             </Link>
-            <span className="text-white/70">
-              {site.rating.score} ★ from {site.rating.count}+ reviews
-            </span>
             <a
               href={site.phoneHref}
               className="flex items-center gap-2 font-semibold transition-colors hover:text-clay-light"
@@ -169,7 +166,7 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-3">
             <Button asChild size="sm" className="hidden sm:inline-flex">
-              <Link href="/contact">Book a consultation</Link>
+              <Link href="/contact">Get a free quote</Link>
             </Button>
             <button
               className="-mr-2 p-2 lg:hidden"
@@ -227,7 +224,7 @@ export function SiteHeader() {
               </ul>
               <div className="mt-8 flex flex-col gap-3">
                 <Button asChild size="lg">
-                  <Link href="/contact">Book a consultation</Link>
+                  <Link href="/contact">Get a free quote</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <a href={site.phoneHref}>
