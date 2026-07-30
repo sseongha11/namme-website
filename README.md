@@ -32,7 +32,7 @@ so you can change text without touching layout code.
 
 | File | What it holds |
 | --- | --- |
-| `content/site.ts` | **Phone, email, address, hours, the 5-stage process, FAQs.** Start here. |
+| `content/site.ts` | **Phone, email, address, hours, canonical URL, the 5-stage process, FAQs.** Start here. |
 | `content/services.ts` | The 11 trades, with prices, timescales and permission routes |
 | `content/projects.ts` | Portfolio case studies |
 | `content/areas.ts` | Service areas and their local planning notes |
@@ -58,12 +58,21 @@ Anything marked `TODO` in those files is a placeholder waiting for real data.
 
 These are blocking:
 
-1. **Wire up the enquiry form.** `src/app/api/enquiry/route.ts` currently
-   validates and logs but sends nothing. Connect it to email (Resend or
-   Postmark) or a CRM. A form that silently discards enquiries is worse than no
-   form at all.
-2. **Confirm the company registration name** in `content/site.ts` (`legalName`
-   is still a guess), and the domain in `url`.
+1. **Add `RESEND_API_KEY` in Vercel.** The enquiry form posts to
+   `src/app/api/enquiry/route.ts`, which emails it to the address in
+   `content/site.ts`. Without the key the endpoint returns an error and the form
+   tells the customer to ring instead — deliberately, because a form that
+   silently discards enquiries is worse than no form. Sign up at resend.com with
+   the same Gmail the enquiries go to, create a key, then:
+
+   ```
+   vercel env add RESEND_API_KEY production
+   ```
+
+   Optional: `ENQUIRY_TO` to send somewhere other than the site email, and
+   `ENQUIRY_FROM` if a verified sending domain is ever set up.
+2. **Confirm the company registration name** in `content/site.ts` — `legalName`
+   is still a guess, and it appears in the footer copyright line.
 3. **Replace the projects and testimonials with real ones.** The seven case
    studies and six reviews in there now are realistic but invented, and are
    marked as such. This is the last remaining placeholder content on the site.

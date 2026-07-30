@@ -28,8 +28,12 @@ export const site = {
   /** Primary town/city used across headings and metadata */
   primaryLocation: "Derby",
 
-  /** Used for canonical URLs, sitemap and Open Graph */
-  url: "https://www.namme.co.uk", // TODO confirm domain
+  /**
+   * Used for canonical URLs, sitemap, Open Graph and structured data.
+   * The vercel.app address is the real one — there is no custom domain, and
+   * pointing canonicals at a domain nobody owns would deindex the live pages.
+   */
+  url: "https://namme-site.vercel.app",
 
   hours: [
     { days: "Monday – Thursday", time: "8:00 – 18:00" },

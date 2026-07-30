@@ -26,8 +26,11 @@ export const enquirySchema = z.object({
     .max(2000, "Please keep this under 2000 characters")
     .optional()
     .or(z.literal("")),
-  // Honeypot — real users never fill this; bots usually do.
-  company: z.string().max(0).optional().or(z.literal("")),
+  // Honeypot — real users never fill this; bots usually do. Deliberately
+  // permissive: rejecting it here would return a validation error naming the
+  // trap, which teaches a bot exactly which field to leave alone. The route
+  // accepts the submission and drops it instead.
+  company: z.string().optional(),
 });
 
 export type EnquiryInput = z.infer<typeof enquirySchema>;

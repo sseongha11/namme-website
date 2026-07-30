@@ -14,6 +14,7 @@ import {
   enquirySchema,
   type EnquiryInput,
 } from "@/lib/enquiry-schema";
+import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 const field =
@@ -70,7 +71,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       setSent(true);
     } catch {
       setFailed(
-        "Something went wrong sending that. Please call us instead — we’d rather not lose your enquiry to a form.",
+        `Something went wrong sending that, so we haven’t received it. Please ring ${site.phone} or send us a WhatsApp instead — we’d rather not lose your enquiry to a form.`,
       );
     }
   }
