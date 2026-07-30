@@ -40,7 +40,7 @@ export const areas: Area[] = [
     planningNotes:
       "Conservation areas at Friar Gate, Strutt’s Park, Little Chester and the Railway Conservation Area, where permitted development is restricted and materials are scrutinised — rendering and replacement roof coverings in particular. Outside them, most single-storey rear extensions and repairs proceed without a planning application.",
     popularServices: ["extensions", "brickwork", "refurbishments"],
-    projectSlugs: ["normanton-rear-extension"],
+    projectSlugs: [],
   },
   {
     slug: "allestree",
@@ -52,7 +52,7 @@ export const areas: Area[] = [
     planningNotes:
       "Largely unconstrained, which makes extensions, rendering and driveway work straightforward here in most cases. Note the Derwent Valley Mills World Heritage Site buffer along the river to the east — schemes near it attract closer heritage scrutiny.",
     popularServices: ["rendering", "driveways", "extensions"],
-    projectSlugs: ["allestree-render-and-brickwork"],
+    projectSlugs: [],
   },
   {
     slug: "mickleover",
@@ -64,7 +64,7 @@ export const areas: Area[] = [
     planningNotes:
       "A small conservation area covers the historic village centre around the church; the surrounding estates are unconstrained. Some newer estates carry restrictive covenants on extensions — worth checking your deeds as well as the planning position.",
     popularServices: ["roofing", "extensions", "driveways"],
-    projectSlugs: ["mickleover-re-roof"],
+    projectSlugs: [],
   },
   {
     slug: "littleover",
@@ -76,7 +76,7 @@ export const areas: Area[] = [
     planningNotes:
       "Conservation area around the old village on Constable Lane and the church. Elsewhere the main constraints are practical rather than policy — drainage runs and boundary distances rather than heritage.",
     popularServices: ["bathrooms", "extensions", "kitchen-fitting"],
-    projectSlugs: ["littleover-bathroom"],
+    projectSlugs: [],
   },
   {
     slug: "oakwood-chaddesden",
@@ -88,10 +88,7 @@ export const areas: Area[] = [
     planningNotes:
       "Few heritage constraints. The recurring issues are practical: heavy clay that needs a real soakaway rather than a surface fall, and estate covenants on some of the newer Oakwood roads that restrict what you can do to a frontage. Worth checking your deeds as well as the planning position.",
     popularServices: ["driveways", "landscape-gardening", "roofing"],
-    projectSlugs: [
-      "chaddesden-block-paved-driveway",
-      "oakwood-garden-landscaping",
-    ],
+    projectSlugs: [],
   },
   {
     slug: "chellaston-melbourne",
@@ -115,7 +112,7 @@ export const areas: Area[] = [
     planningNotes:
       "Belper sits inside the Derwent Valley Mills World Heritage Site, which is the most significant planning constraint in our whole coverage area. Alterations visible in the streetscape are assessed against the WHS management plan, and materials matter enormously. Do not assume permitted development here.",
     popularServices: ["refurbishments", "rendering", "brickwork"],
-    projectSlugs: ["belper-terrace-refurbishment"],
+    projectSlugs: [],
   },
   {
     slug: "ilkeston-long-eaton",
@@ -174,12 +171,8 @@ export const areas: Area[] = [
       "Victorian terraces close to the town centre and the university, inter-war semis through Shelthorpe and Thorpe Acre, and newer estate housing on the edges.",
     planningNotes:
       "An Article 4 direction covers the streets around the university and removes permitted development rights for conversion to shared housing — worth knowing if the property is or has been a student let. Conservation areas cover the town centre and Queen's Park. Standard householder extensions elsewhere are generally straightforward.",
-    popularServices: [
-      "extensions",
-      "painting-decorating",
-      "driveways",
-    ],
-    projectSlugs: [],
+    popularServices: ["refurbishments", "bathrooms", "painting-decorating"],
+    projectSlugs: ["loughborough-first-floor-renovation"],
   },
   {
     slug: "leicester",

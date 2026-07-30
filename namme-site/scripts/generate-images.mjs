@@ -594,6 +594,83 @@ function sceneGarden(rng, w, h, stage) {
   return s;
 }
 
+/**
+ * A plain room: door, window, skirting and new flooring in perspective.
+ * Used for interior renovation work, where the kitchen scene would be wrong.
+ */
+function sceneRoom(rng, w, h, stage) {
+  const floorY = h * 0.72;
+  const wallTop = h * 0.06;
+  const skirt = h * 0.035;
+
+  let s = `<rect width="${w}" height="${h}" fill="#efe9df"/>`;
+  s += `<rect x="0" y="${wallTop}" width="${w}" height="${floorY - wallTop}" fill="#e7e0d4"/>`;
+  // light falling from the window
+  s += `<ellipse cx="${w * 0.66}" cy="${floorY - h * 0.02}" rx="${w * 0.3}" ry="${h * 0.12}" fill="#fff" opacity="0.4" filter="url(#soft)"/>`;
+
+  // window on the right, with a sill and a radiator beneath it
+  const wx = w * 0.58,
+    wy = wallTop + h * 0.12,
+    ww = w * 0.26,
+    wh = h * 0.34;
+  s += `<rect x="${wx - 12}" y="${wy - 12}" width="${ww + 24}" height="${wh + 24}" fill="${P.paper}"/>`;
+  s += `<rect x="${wx}" y="${wy}" width="${ww}" height="${wh}" fill="url(#glassGrad)"/>`;
+  s += `<rect x="${wx + ww / 2 - 4}" y="${wy}" width="8" height="${wh}" fill="${P.paper}"/>`;
+  s += `<rect x="${wx}" y="${wy + wh * 0.5 - 4}" width="${ww}" height="8" fill="${P.paper}"/>`;
+  s += `<rect x="${wx - 22}" y="${wy + wh + 12}" width="${ww + 44}" height="10" fill="#d8d0be"/>`;
+  s += `<rect x="${wx + ww * 0.12}" y="${floorY - h * 0.17}" width="${ww * 0.76}" height="${h * 0.13}" fill="#dcd6c9"/>`;
+  for (let i = 0; i < 9; i++)
+    s += `<rect x="${wx + ww * 0.12 + (ww * 0.76 * i) / 9 + 3}" y="${floorY - h * 0.17}" width="6" height="${h * 0.13}" fill="#cbc4b5"/>`;
+
+  // panelled door on the left
+  const dx = w * 0.1,
+    dw = w * 0.19,
+    dtop = wallTop + h * 0.08;
+  s += `<rect x="${dx - 13}" y="${dtop - 13}" width="${dw + 26}" height="${floorY - dtop + 13}" fill="${P.paper}"/>`;
+  s += `<rect x="${dx}" y="${dtop}" width="${dw}" height="${floorY - dtop}" fill="#e2dbcd"/>`;
+  for (let i = 0; i < 2; i++)
+    s += `<rect x="${dx + dw * 0.16}" y="${dtop + h * 0.06 + i * h * 0.2}" width="${dw * 0.68}" height="${h * 0.15}" fill="none" stroke="#c8c0af" stroke-width="5"/>`;
+  s += `<circle cx="${dx + dw * 0.86}" cy="${dtop + (floorY - dtop) * 0.5}" r="6" fill="#8d8577"/>`;
+
+  // extract vent high on the wall — the ventilation work, visible
+  s += `<rect x="${w * 0.42}" y="${wallTop + h * 0.07}" width="${w * 0.075}" height="${w * 0.075}" fill="#e2dbcd" stroke="#c8c0af" stroke-width="4"/>`;
+  for (let i = 1; i < 4; i++)
+    s += `<rect x="${w * 0.425}" y="${wallTop + h * 0.07 + (w * 0.075 * i) / 4}" width="${w * 0.065}" height="4" fill="#c8c0af"/>`;
+
+  // skirting and floor, boards converging slightly
+  s += `<rect x="0" y="${floorY - skirt}" width="${w}" height="${skirt}" fill="${P.paper}"/>`;
+  s += `<rect x="0" y="${floorY}" width="${w}" height="${h - floorY}" fill="#cfc3ac"/>`;
+  const boards = 9;
+  for (let i = 0; i <= boards; i++) {
+    const bx = (w * i) / boards;
+    s += `<path d="M${bx} ${floorY} L${bx + (bx - w / 2) * 0.22} ${h}" stroke="#bcae94" stroke-width="3"/>`;
+  }
+  for (let i = 1; i < 4; i++) {
+    const by = floorY + ((h - floorY) * i) / 4;
+    s += `<path d="M0 ${by} H${w}" stroke="#c5b79d" stroke-width="2" opacity="0.8"/>`;
+  }
+
+  // mid-job: floor not down yet, dust sheets, ladder and a paint tin
+  if (stage === "during") {
+    s += `<rect x="0" y="${floorY}" width="${w}" height="${h - floorY}" fill="#b6ac97"/>`;
+    s += `<path d="M0 ${floorY - h * 0.01} H${w} V${h} H0 Z" fill="#e8e4da" opacity="0.9"/>`;
+    for (let i = 0; i < 5; i++)
+      s += `<path d="M${w * (0.04 + i * 0.21)} ${floorY} L${w * (0.1 + i * 0.21)} ${h}" stroke="#d3cec2" stroke-width="7"/>`;
+    const lx = w * 0.36;
+    const ly = wallTop + h * 0.1;
+    s += `<path d="M${lx} ${ly} L${lx - w * 0.045} ${floorY}" stroke="#8a7b63" stroke-width="10"/>`;
+    s += `<path d="M${lx + 12} ${ly} L${lx + w * 0.045} ${floorY}" stroke="#8a7b63" stroke-width="10"/>`;
+    for (let i = 1; i < 4; i++) {
+      const ry = ly + ((floorY - ly) * i) / 4;
+      const rw = w * 0.022 * i;
+      s += `<path d="M${lx - rw * 0.5} ${ry} H${lx + rw * 0.5 + 12}" stroke="#8a7b63" stroke-width="8"/>`;
+    }
+    s += `<rect x="${w * 0.78}" y="${floorY - h * 0.06}" width="${w * 0.07}" height="${h * 0.06}" fill="${P.clay}" opacity="0.9"/>`;
+    s += `<rect x="${w * 0.775}" y="${floorY - h * 0.065}" width="${w * 0.08}" height="8" fill="#8d4023"/>`;
+  }
+  return s;
+}
+
 /** Blueprint line drawing — used for the design service. */
 function sceneBlueprint(rng, w, h) {
   const g = 44;
@@ -638,6 +715,7 @@ const SCENES = {
   frontage: sceneFrontage,
   garden: sceneGarden,
   interior: sceneInterior,
+  room: sceneRoom,
   blueprint: (rng, w, h) => sceneBlueprint(rng, w, h),
 };
 
@@ -678,21 +756,10 @@ const IMAGES = [
   { name: "service-tiling", kind: "interior" },
   { name: "service-painting-decorating", kind: "interior" },
 
-  // projects — after + during, because in-progress shots carry more weight
-  { name: "project-normanton-rear-extension-after", kind: "extension" },
-  { name: "project-normanton-rear-extension-during", kind: "extension", stage: "during" },
-  { name: "project-chaddesden-block-paved-driveway-after", kind: "frontage" },
-  { name: "project-chaddesden-block-paved-driveway-during", kind: "frontage", stage: "during" },
-  { name: "project-mickleover-re-roof-after", kind: "loft" },
-  { name: "project-mickleover-re-roof-during", kind: "loft", stage: "during" },
-  { name: "project-allestree-render-and-brickwork-after", kind: "house" },
-  { name: "project-allestree-render-and-brickwork-during", kind: "house", stage: "during" },
-  { name: "project-littleover-bathroom-after", kind: "interior" },
-  { name: "project-littleover-bathroom-during", kind: "interior", stage: "during" },
-  { name: "project-belper-terrace-refurbishment-after", kind: "house" },
-  { name: "project-belper-terrace-refurbishment-during", kind: "house", stage: "during" },
-  { name: "project-oakwood-garden-landscaping-after", kind: "garden" },
-  { name: "project-oakwood-garden-landscaping-during", kind: "garden", stage: "during" },
+  // projects — after + during, because in-progress shots carry more weight.
+  // One entry, because there is one real project. See src/content/projects.ts.
+  { name: "project-loughborough-first-floor-renovation-after", kind: "room" },
+  { name: "project-loughborough-first-floor-renovation-during", kind: "room", stage: "during" },
 
   // interiors used as secondary project frames
   { name: "interior-kitchen-1", kind: "interior" },

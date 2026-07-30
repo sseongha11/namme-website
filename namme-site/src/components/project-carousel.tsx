@@ -39,6 +39,18 @@ export function ProjectCarousel({ projects }: { projects: Project[] }) {
     };
   }, [embla, onSelect]);
 
+  // One project is not a carousel. Dots and arrows on a single slide read as
+  // broken, so it renders as a plain card at a readable width instead.
+  if (projects.length < 2) {
+    return (
+      <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((p) => (
+          <ProjectCard key={p.slug} project={p} priority />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="mt-14">
       <div className="overflow-hidden" ref={emblaRef}>

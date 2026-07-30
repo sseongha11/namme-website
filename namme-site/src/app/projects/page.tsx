@@ -25,8 +25,8 @@ export default function ProjectsPage() {
     <>
       <PageHeader
         eyebrow="Our work"
-        title="Every project here had a problem in it."
-        lead="Drainage that couldn’t move, rot under the floor, a refusal, an objection from next door. Showing only the finished photograph hides the part that actually tells you whether a builder is any good."
+        title="Real jobs, written up properly."
+        lead="One case study for now, and it is a real house with real customers. We would rather show you a single job honestly — brief, sequence, timescale and what it cost to run — than fill a page with stock photographs of other people’s work."
         trail={[{ label: "Projects" }]}
       />
 

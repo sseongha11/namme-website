@@ -166,7 +166,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
         <Section>
           <SectionHeading
             eyebrow="Recent work"
-            title={`${service.title} we’ve delivered.`}
+            title={`${service.title} we’ve done.`}
             action={
               <Button asChild variant="outline">
                 <Link href="/projects">

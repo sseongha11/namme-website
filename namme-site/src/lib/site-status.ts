@@ -9,16 +9,15 @@
 export const isPreview = process.env.NEXT_PUBLIC_SITE_STATUS !== "live";
 
 /**
- * Portfolio and reviews: off until they are real.
+ * Portfolio and reviews.
  *
- * `src/content/projects.ts` and `src/content/testimonials.ts` still hold
- * invented placeholder entries. Rather than show made-up case studies and
- * made-up reviews, everything that renders them is hidden behind this flag:
- * the homepage sections, the Projects nav item, the /projects routes, the
- * related-work strips on service and area pages, and the sitemap entries.
+ * ON, because the one project and the one review in `src/content/projects.ts`
+ * and `src/content/testimonials.ts` are real. It was off while those files
+ * held invented placeholders.
  *
- * To switch it back on: replace the contents of those two files with real
- * jobs and real reviews, add photographs (see IMAGES.md), then flip this to
- * `true`. Nothing else needs changing.
+ * This flag controls the homepage sections, the Projects nav item, the
+ * /projects routes, the related-work strips on service and area pages, and the
+ * sitemap entries. If the content ever goes back to being placeholder, set it
+ * to `false` rather than deleting anything.
  */
-export const showPortfolio = false;
+export const showPortfolio = true;

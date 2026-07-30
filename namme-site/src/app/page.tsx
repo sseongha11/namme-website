@@ -83,12 +83,13 @@ export default function HomePage() {
         <Section>
           <SectionHeading
             eyebrow="Recent work"
-            title="Projects, with the parts that went wrong included."
-            lead="Every one of these had a problem in it — drainage, rot, a refusal, an objection. What matters is what happened next."
+            title="A job we finished this year."
+            lead="One real project rather than a wall of stock photographs. More go up here as we finish them and get permission to show them."
             action={
               <Button asChild variant="outline">
                 <Link href="/projects">
-                  All projects <ArrowRight aria-hidden />
+                  {projects.length > 1 ? "All projects" : "Read the case study"}{" "}
+                  <ArrowRight aria-hidden />
                 </Link>
               </Button>
             }
