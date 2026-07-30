@@ -34,7 +34,7 @@ export const site = {
   hours: [
     { days: "Monday – Thursday", time: "8:00 – 18:00" },
     { days: "Friday", time: "Closed" },
-    { days: "Saturday – Sunday", time: "8:00 – 18:00" },
+    { days: "Saturday – Sunday", time: "9:00 – 16:00" },
   ],
 
   social: {
