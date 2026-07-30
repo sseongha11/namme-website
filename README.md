@@ -65,20 +65,18 @@ Still worth doing, roughly in order:
 1. **Photographs of the Loughborough job.** The biggest single gap — the case
    study currently shows an illustration. Drop the files in and add them to
    `photos` in `content/projects.ts`; no code change needed. See IMAGES.md.
-2. **Confirm the company registration name** in `content/site.ts` — `legalName`
-   is still a guess, and it appears in the footer copyright line.
-3. **Add more real projects and reviews.** One of each is enough to be honest;
+2. **Add more real projects and reviews.** One of each is enough to be honest;
    more is better. Never invent one — see the rules at the top of
    `content/projects.ts` and `content/testimonials.ts`.
-4. **Add trust signals only when they are real.** Headline stats, a review
+3. **Add trust signals only when they are real.** Headline stats, a review
    score and accreditations were all removed rather than left unverified. If
    Namme holds an FMB, TrustMark, Gas Safe or NICEIC registration, add it back
    with a membership number that can be looked up.
-5. **Have a native Arabic speaker review `content/ar.ts`.** Arabic that reads
+4. **Have a native Arabic speaker review `content/ar.ts`.** Arabic that reads
    slightly off does more damage than no Arabic page.
-6. **Legal review of `/privacy` and `/terms`.** Both are starting points, not
+5. **Legal review of `/privacy` and `/terms`.** Both are starting points, not
    advice.
-7. **Verify the planning notes in `content/areas.ts`** against each council's
+6. **Verify the planning notes in `content/areas.ts`** against each council's
    current local plan. Planning policy moves, and these pages state specifics
    about conservation areas, the Derwent Valley Mills World Heritage Site and
    the Nottingham–Derby Green Belt.

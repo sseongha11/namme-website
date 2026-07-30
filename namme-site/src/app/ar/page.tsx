@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Check, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { ArrowLeft, Check, Clock, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 import { FaqSection } from "@/components/faq-section";
 import { ContactChannels } from "@/components/contact-channels";
@@ -308,6 +308,20 @@ export default function ArabicPage() {
                   <p className="mt-0.5 text-[16px]" dir="ltr">
                     {site.address.city} {site.address.postcode}
                   </p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <Clock className="mt-1 size-4 shrink-0 text-clay" aria-hidden />
+                <div>
+                  <p className="text-[12px] text-ink-muted">{ar.contact.hoursLabel}</p>
+                  <dl className="mt-1 space-y-1 text-[15px]">
+                    {ar.contact.hours.map((h) => (
+                      <div key={h.days} className="flex justify-between gap-6 sm:max-w-[260px]">
+                        <dt className="text-ink-soft">{h.days}</dt>
+                        <dd dir="ltr" className="text-ink">{h.time}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </div>
               </li>
             </ul>

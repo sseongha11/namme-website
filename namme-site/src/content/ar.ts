@@ -194,6 +194,13 @@ export const ar = {
     emailLabel: "البريد الإلكتروني",
     addressLabel: "العنوان",
     hoursLabel: "أوقات العمل",
+    /** Mirrors site.hours, in the same order. Friday closed is worth stating
+        plainly to Arabic-speaking customers rather than leaving them to guess. */
+    hours: [
+      { days: "الاثنين – الخميس", time: "8:00 – 18:00" },
+      { days: "الجمعة", time: "مغلق" },
+      { days: "السبت – الأحد", time: "9:00 – 16:00" },
+    ],
     formNote:
       "راسلونا بالعربية على واتساب أو بالهاتف أو بالبريد الإلكتروني. نردّ في اليوم نفسه كلما أمكن.",
     channelsLead:

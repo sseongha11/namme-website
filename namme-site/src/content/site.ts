@@ -8,7 +8,7 @@
 
 export const site = {
   name: "Namme",
-  legalName: "Namme Ltd", // TODO confirm
+  legalName: "Namme Ltd",
   /** Straight off the business card — keep this wording. */
   tagline: "A small, local, friendly Derby-based general building company",
   description:
