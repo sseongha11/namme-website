@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import type { Project } from "@/content/projects";
+import { type Project, projectImage } from "@/content/projects";
 import { cn } from "@/lib/utils";
 
 /**
@@ -19,13 +19,19 @@ export function ProjectCard({
   className?: string;
   priority?: boolean;
 }) {
+  const cover = projectImage(
+    project,
+    "after",
+    `${project.title} in ${project.location} — ${project.propertyType}`,
+  );
+
   return (
     <article className={cn("group", className)}>
       <Link href={`/projects/${project.slug}`} className="block">
         <div className="relative aspect-[4/3] overflow-hidden bg-paper-2">
           <Image
-            src={`/images/project-${project.slug}-after.svg`}
-            alt={`${project.title} in ${project.location} — ${project.propertyType}`}
+            src={cover.src}
+            alt={cover.alt}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
             loading={priority ? "eager" : "lazy"}

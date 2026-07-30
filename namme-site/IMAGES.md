@@ -38,11 +38,39 @@ public/images/hero.jpg          ← add this
 src/components/hero.tsx         ← change src="/images/hero.svg" to "/images/hero.jpg"
 ```
 
-Project images follow a fixed naming pattern:
+### Project photographs — no code change needed
+
+Projects are the exception: drop the file into `public/images/` under any name,
+then add it to that project's `photos` array in `src/content/projects.ts`:
+
+```ts
+photos: [
+  {
+    src: "/images/loughborough-first-floor-after.jpg",
+    alt: "Finished first floor landing with new flooring",
+    stage: "after",
+  },
+  {
+    src: "/images/loughborough-first-floor-during.jpg",
+    alt: "First floor mid-job, floor up and walls prepared",
+    stage: "during",
+  },
+],
+```
+
+Every place that project appears — the homepage, the projects index, the case
+study, service and area pages — picks the photograph up. Leave `photos` empty
+and the generated illustration renders instead, so a half-photographed
+portfolio still looks deliberate.
+
+Write the `alt` text for the photograph rather than reusing the illustration's:
+it is what a screen reader announces, and it is read by search engines.
+
+If you would rather not touch the content file, the illustration filenames are:
 
 ```
 public/images/project-<slug>-after.svg     ← completed
-public/images/project-<slug>-during.svg    ← mid-build
+public/images/project-<slug>-during.svg    ← mid-job
 ```
 
 where `<slug>` matches the project's `slug` in `src/content/projects.ts`.

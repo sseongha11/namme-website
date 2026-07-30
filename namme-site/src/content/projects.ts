@@ -93,3 +93,26 @@ export function getProject(slug: string) {
 export function projectsForService(serviceSlug: string) {
   return projects.filter((p) => p.serviceSlugs.includes(serviceSlug));
 }
+
+/**
+ * The image for a project at a given stage.
+ *
+ * Returns the real photograph if one has been added to the project's `photos`
+ * array, and the generated illustration otherwise. That is what makes real
+ * photography a drop-in: add the file to public/images/, add an entry to
+ * `photos`, and every place the project appears picks it up. Alt text follows
+ * the same rule, since a photograph and an illustration do not describe the
+ * same thing.
+ */
+export function projectImage(
+  project: Project,
+  stage: ProjectPhoto["stage"],
+  fallbackAlt: string,
+) {
+  const photo = project.photos.find((p) => p.stage === stage);
+  return {
+    src: photo?.src ?? `/images/project-${project.slug}-${stage}.svg`,
+    alt: photo?.alt ?? fallbackAlt,
+    isPhoto: Boolean(photo),
+  };
+}

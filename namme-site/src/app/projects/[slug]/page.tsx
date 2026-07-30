@@ -10,7 +10,7 @@ import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
-import { getProject, projects } from "@/content/projects";
+import { getProject, projectImage, projects } from "@/content/projects";
 import { getService } from "@/content/services";
 import { showPortfolio } from "@/lib/site-status";
 
@@ -39,6 +39,17 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
   if (!project || !showPortfolio) notFound();
 
   const others = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
+
+  const after = projectImage(
+    project,
+    "after",
+    `${project.title} in ${project.location}, completed`,
+  );
+  const during = projectImage(
+    project,
+    "during",
+    `${project.title} in ${project.location}, mid-job`,
+  );
 
   const facts = [
     { label: "Property", value: project.propertyType },
@@ -84,8 +95,8 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
           <Reveal>
             <div className="relative aspect-[4/3] overflow-hidden bg-paper-2">
               <Image
-                src={`/images/project-${project.slug}-after.svg`}
-                alt={`${project.title} in ${project.location}, completed`}
+                src={after.src}
+                alt={after.alt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"
                 loading="eager"
@@ -98,8 +109,8 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
           <Reveal delay={0.08}>
             <div className="relative aspect-[4/3] overflow-hidden bg-paper-2">
               <Image
-                src={`/images/project-${project.slug}-during.svg`}
-                alt={`${project.title} in ${project.location}, mid-build with scaffolding`}
+                src={during.src}
+                alt={during.alt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover"
