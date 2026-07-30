@@ -4,6 +4,7 @@ import { ArrowLeft, Check, Clock, Mail, MapPin, Phone, ShieldCheck } from "lucid
 
 import { FaqSection } from "@/components/faq-section";
 import { ContactChannels } from "@/components/contact-channels";
+import { DownloadsList } from "@/components/downloads-list";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { WhatsAppLink } from "@/components/whatsapp-button";
@@ -340,6 +341,22 @@ export default function ArabicPage() {
               note={ar.contact.channelsNote}
             />
           </div>
+        </div>
+      </section>
+
+      {/* Downloads */}
+      <section className="border-t border-line px-6 py-16 lg:py-20">
+        <div className="mx-auto max-w-[1240px]">
+          <Reveal>
+            <p className="eyebrow">{ar.downloads.eyebrow}</p>
+            <h2 className="mt-3 text-[26px] font-semibold leading-tight tracking-[-0.03em] sm:text-[32px]">
+              {ar.downloads.title}
+            </h2>
+            <p className="mt-4 max-w-2xl text-[16px] leading-[1.9] text-ink-soft">
+              {ar.downloads.lead}
+            </p>
+          </Reveal>
+          <DownloadsList lang="ar" className="mt-10 sm:grid-cols-2" />
         </div>
       </section>
 

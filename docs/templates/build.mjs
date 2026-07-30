@@ -18,7 +18,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -743,6 +743,107 @@ function sheetOnly(html, index) {
   throw new Error(`Unbalanced markup in sheet ${index}`);
 }
 
+/**
+ * Files a customer should be able to download from the site, and the wording
+ * that goes with each. The quotation and the invoice are deliberately absent:
+ * they are Namme's paperwork, not marketing, and a blank invoice template on a
+ * public page reads as an accident.
+ */
+const PUBLISHED = [
+  {
+    file: "leaflet.pdf",
+    label: "What we do — one page",
+    description:
+      "Every trade, what we promise, and where we work. Print it or send it on.",
+    lang: "en",
+  },
+  {
+    file: "business-card.pdf",
+    label: "Business card — to print",
+    description: "Print-ready, 85×55mm. Or scan the code on it to come back here.",
+    lang: "en",
+  },
+  {
+    file: "business-card.png",
+    label: "Business card — image",
+    description:
+      "Save it to your phone, or forward it to someone who needs a builder.",
+    lang: "en",
+  },
+  // Same leaflet file, Arabic wording — the /ar page should not hand an Arabic
+  // reader a list labelled in English.
+  {
+    file: "leaflet.pdf",
+    label: "ما نقوم به — صفحة واحدة",
+    description: "كل أعمالنا وتعهّداتنا ومناطق عملنا في صفحة واحدة. اطبعها أو أرسلها.",
+    lang: "ar",
+  },
+  {
+    file: "business-card-ar.pdf",
+    label: "بطاقة العمل — للطباعة",
+    description: "بحجم 85×55 مم، جاهزة للطباعة. أو امسح الرمز للعودة إلى الموقع.",
+    lang: "ar",
+  },
+  {
+    file: "business-card-ar.png",
+    label: "بطاقة العمل — صورة",
+    description: "احفظها على هاتفك أو أرسلها إلى من يحتاج إلى مقاول.",
+    lang: "ar",
+  },
+];
+
+const SITE_PUBLIC = join(HERE, "..", "..", "namme-site", "public", "downloads");
+const SITE_CONTENT = join(HERE, "..", "..", "namme-site", "src", "content");
+
+/** Human file sizes, so a customer on mobile data knows what they're tapping. */
+function humanSize(bytes) {
+  return bytes >= 1024 * 1024
+    ? `${(bytes / 1024 / 1024).toFixed(1)} MB`
+    : `${Math.round(bytes / 1024)} KB`;
+}
+
+/**
+ * Copies the published files into the site and writes the manifest it renders
+ * from. Generated rather than hand-maintained: a download list that quietly
+ * disagrees with the files next to it is worse than no list.
+ */
+function publishToSite() {
+  mkdirSync(SITE_PUBLIC, { recursive: true });
+
+  const entries = PUBLISHED.map((d) => {
+    const from = join(HERE, d.file);
+    copyFileSync(from, join(SITE_PUBLIC, d.file));
+    const kind = d.file.endsWith(".pdf") ? "PDF" : "Image";
+    return { ...d, kind, size: humanSize(statSync(from).size) };
+  });
+
+  const ts = `/**
+ * Downloadable documents — GENERATED, do not edit.
+ *
+ * Written by docs/templates/build.mjs, which also copies the files themselves
+ * into public/downloads/. To change what appears here, edit PUBLISHED in that
+ * script and re-run it.
+ */
+
+export type Download = {
+  file: string;
+  label: string;
+  description: string;
+  kind: string;
+  size: string;
+  lang?: string;
+};
+
+export const downloads: Download[] = ${JSON.stringify(entries, null, 2)};
+
+export function downloadsFor(lang: "en" | "ar") {
+  return downloads.filter((d) => d.lang === lang);
+}
+`;
+  writeFileSync(join(SITE_CONTENT, "downloads.ts"), ts);
+  return entries.length;
+}
+
 async function main() {
   mkdirSync(HERE, { recursive: true });
 
@@ -783,6 +884,8 @@ async function main() {
     height: 1122,
   });
 
+  const published = publishToSite();
+
   const built = [
     ...files.map(([n]) => n),
     ...files.map(([n]) => n.replace(".html", ".pdf")),
@@ -792,6 +895,7 @@ async function main() {
   ];
   console.log(`Built ${built.length} files into docs/templates/:`);
   for (const f of built) console.log(`  ${f}`);
+  console.log(`Published ${published} of them to the site's public/downloads/.`);
 }
 
 main();

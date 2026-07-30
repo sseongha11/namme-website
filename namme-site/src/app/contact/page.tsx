@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Clock, Mail, MapPin, MessageSquare, Phone } from "lucide-react";
 
+import { DownloadsList } from "@/components/downloads-list";
 import { FaqSection } from "@/components/faq-section";
 import { PageHeader } from "@/components/page-header";
 import { ContactChannels } from "@/components/contact-channels";
@@ -137,6 +138,17 @@ export default function ContactPage() {
       </Section>
 
       <Section tone="paper-2">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          <SectionHeading
+            eyebrow="Take one with you"
+            title="Our leaflet and our card."
+            lead="Everything we do on one page, and a card with the number on it. Save them, print them, or pass them to someone who needs a builder."
+          />
+          <DownloadsList />
+        </div>
+      </Section>
+
+      <Section>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <SectionHeading
             eyebrow="Before you ask"
