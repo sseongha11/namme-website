@@ -540,6 +540,134 @@ function sceneFrontage(rng, w, h, stage) {
   return s;
 }
 
+/**
+ * Shopfront in a parade: glazed frontage under a fascia, one storey above,
+ * pavement to the kerb. Commercial fit-out ran on the driveway frontage for a
+ * while, which put a detached house and a block-paved drive on the one page
+ * selling to businesses — the wrong building, the wrong customer, and a drive
+ * the trade does not lay.
+ *
+ * Straight-on elevation, deliberately: the driveway scene is the one image on
+ * the site drawn in perspective, and that vanishing point is what made it read
+ * as domestic.
+ */
+function sceneShopfront(rng, w, h, stage) {
+  const tone = pick(rng, ["stock", "london", "grey"]);
+  const x = w * 0.15;
+  const bw = w * 0.7;
+  const copingY = h * 0.08;
+  const wallTop = copingY + 18;
+  const fasciaTop = h * 0.44;
+  const fasciaH = h * 0.1;
+  const glazTop = fasciaTop + fasciaH + h * 0.015;
+  const pavementY = h * 0.78;
+  const kerbY = h * 0.925;
+  const stallH = h * 0.055;
+  const glazBottom = pavementY - stallH;
+
+  let s = `<rect width="${w}" height="${h}" fill="url(#sky)"/>`;
+
+  // The units either side, flattened off and a shade back. A commercial unit
+  // is almost never freestanding, and the neighbours are what say "parade"
+  // rather than "small detached building".
+  for (const [nx, nw, id] of [
+    [0, x, "nbl"],
+    [x + bw, w - (x + bw), "nbr"],
+  ]) {
+    const top = copingY + h * 0.035;
+    s += brickWall(nx, top, nw, pavementY - top, "grey", id);
+    s += `<rect x="${nx}" y="${top}" width="${nw}" height="${pavementY - top}" fill="#7d848a" opacity="0.3"/>`;
+    s += `<rect x="${nx - 8}" y="${top - 14}" width="${nw + 16}" height="16" fill="#8a8f93"/>`;
+    s += `<rect x="${nx}" y="${fasciaTop + h * 0.025}" width="${nw}" height="${fasciaH * 0.9}" fill="#39434a"/>`;
+    s += `<rect x="${nx + 14}" y="${glazTop + h * 0.03}" width="${nw - 28}" height="${glazBottom - glazTop - h * 0.03}" fill="url(#glassGrad)" opacity="0.7"/>`;
+    s += `<rect x="${nx + 14}" y="${glazBottom}" width="${nw - 28}" height="${stallH}" fill="#4c565c" opacity="0.8"/>`;
+  }
+
+  // subject unit: parapet, upper storey, fascia
+  s += brickWall(x, wallTop, bw, fasciaTop - wallTop, tone, "unit");
+  s += `<rect x="${x - 16}" y="${copingY}" width="${bw + 32}" height="18" fill="${BRICK[tone].shade}"/>`;
+  s += `<rect x="${x - 16}" y="${copingY + 18}" width="${bw + 32}" height="6" fill="${P.ink}" opacity="0.18"/>`;
+  for (const f of [0.08, 0.42, 0.76])
+    s += window(x + bw * f, wallTop + h * 0.055, bw * 0.16, h * 0.19);
+
+  // Fascia band. The sign panel is left blank on purpose: this is placeholder
+  // artwork, and lettering it with a shop name would invent a client.
+  s += `<rect x="${x - 12}" y="${fasciaTop}" width="${bw + 24}" height="${fasciaH}" fill="#2f383d"/>`;
+  s += `<rect x="${x - 12}" y="${fasciaTop}" width="${bw + 24}" height="5" fill="#59636a"/>`;
+  s += `<rect x="${x + bw * 0.07}" y="${fasciaTop + fasciaH * 0.28}" width="${bw * 0.38}" height="${fasciaH * 0.4}" fill="#465158"/>`;
+  s += `<rect x="${x - 12}" y="${fasciaTop + fasciaH}" width="${bw + 24}" height="7" fill="${P.ink}" opacity="0.35"/>`;
+
+  // shopfront: stone pilasters, glazed run, recessed entrance, stallriser
+  const inX = x + 30;
+  const inW = bw - 60;
+  const doorW = inW * 0.17;
+  const doorX = inX + inW * 0.62;
+  const leftW = doorX - inX - 14;
+  const rightW = inX + inW - (doorX + doorW) - 14;
+
+  for (const px of [x - 12, x + bw - 22]) {
+    s += `<rect x="${px}" y="${glazTop - 8}" width="34" height="${pavementY - glazTop + 8}" fill="#d8d0be"/>`;
+    s += `<rect x="${px}" y="${glazTop - 8}" width="7" height="${pavementY - glazTop + 8}" fill="#c0b7a5"/>`;
+  }
+
+  // glazing either side of the door, sitting on the stallriser
+  s += glazing(inX, glazTop, leftW, glazBottom - glazTop, 3);
+  s += glazing(doorX + doorW + 14, glazTop, rightW, glazBottom - glazTop, 2);
+  s += `<rect x="${inX}" y="${glazBottom}" width="${leftW}" height="${stallH}" fill="#3f4a44"/>`;
+  s += `<rect x="${doorX + doorW + 14}" y="${glazBottom}" width="${rightW}" height="${stallH}" fill="#3f4a44"/>`;
+  s += `<rect x="${inX}" y="${glazBottom - 6}" width="${leftW}" height="8" fill="#cfcabd"/>`;
+  s += `<rect x="${doorX + doorW + 14}" y="${glazBottom - 6}" width="${rightW}" height="8" fill="#cfcabd"/>`;
+
+  // entrance, set back into a reveal — the shadow is what makes it read as a
+  // way in rather than another pane
+  s += `<rect x="${doorX - 14}" y="${glazTop}" width="${doorW + 28}" height="${pavementY - glazTop}" fill="${P.ink}" opacity="0.55"/>`;
+  s += `<rect x="${doorX}" y="${glazTop + h * 0.02}" width="${doorW}" height="${pavementY - glazTop - h * 0.02}" fill="url(#glassGrad)"/>`;
+  s += `<rect x="${doorX}" y="${glazTop + h * 0.02}" width="${doorW}" height="${pavementY - glazTop - h * 0.02}" fill="none" stroke="${P.frame}" stroke-width="6"/>`;
+  s += `<rect x="${doorX + doorW * 0.72}" y="${glazTop + h * 0.13}" width="7" height="${h * 0.12}" fill="#cfcabd"/>`;
+  s += `<rect x="${doorX - 18}" y="${pavementY - 10}" width="${doorW + 36}" height="10" fill="#cdc5b4"/>`;
+
+  // trough lights washing down the glass off the underside of the fascia
+  for (let i = 0; i < 5; i++) {
+    const lx = inX + (inW * (i + 0.5)) / 5;
+    s += `<rect x="${lx - 16}" y="${fasciaTop + fasciaH + 7}" width="32" height="9" fill="#5c6367"/>`;
+    s += `<path d="M${lx - 16} ${fasciaTop + fasciaH + 16} L${lx - 52} ${glazBottom} L${lx + 52} ${glazBottom} L${lx + 16} ${fasciaTop + fasciaH + 16} Z" fill="#fff" opacity="0.06"/>`;
+  }
+
+  // pavement, kerb and the edge of the road
+  s += `<rect x="0" y="${pavementY}" width="${w}" height="${h - pavementY}" fill="${P.ground}"/>`;
+  s += `<rect x="0" y="${pavementY}" width="${w}" height="${h * 0.02}" fill="${P.ink}" opacity="0.12"/>`;
+  const slabRows = 3;
+  const slabH = (kerbY - pavementY) / slabRows;
+  for (let r = 0; r < slabRows; r++) {
+    const y = pavementY + r * slabH;
+    s += `<path d="M0 ${y} H${w}" stroke="#cec5b8" stroke-width="3"/>`;
+    const cols = 9;
+    for (let c = 0; c <= cols; c++) {
+      const off = r % 2 === 0 ? 0 : 0.5;
+      s += `<path d="M${(w * (c + off)) / cols} ${y} V${y + slabH}" stroke="#cec5b8" stroke-width="3"/>`;
+    }
+  }
+  s += `<rect x="0" y="${kerbY}" width="${w}" height="14" fill="#b9b0a0"/>`;
+  s += `<rect x="0" y="${kerbY + 14}" width="${w}" height="${h - kerbY - 14}" fill="#8d8983"/>`;
+
+  if (stage === "during") {
+    // glass papered over from the inside and boarded at the bottom, which is
+    // what a fit-out actually looks like from the street
+    for (const [gx, gw] of [
+      [inX, leftW],
+      [doorX + doorW + 14, rightW],
+    ]) {
+      s += `<rect x="${gx + 6}" y="${glazTop + 6}" width="${gw - 12}" height="${glazBottom - glazTop - 12}" fill="${P.paper}" opacity="0.82"/>`;
+      s += `<rect x="${gx + 6}" y="${glazBottom - stallH * 1.2}" width="${gw - 12}" height="${stallH * 1.2}" fill="#b98c52"/>`;
+    }
+    s += `<rect x="${doorX - 8}" y="${glazTop + h * 0.02}" width="${doorW + 16}" height="${pavementY - glazTop - h * 0.02}" fill="#b98c52"/>`;
+    // skip on the road
+    s += `<path d="M${w * 0.06} ${h} L${w * 0.1} ${kerbY + 26} L${w * 0.3} ${kerbY + 26} L${w * 0.34} ${h} Z" fill="#9c5a2f"/>`;
+    s += `<path d="M${w * 0.1} ${kerbY + 34} H${w * 0.3}" stroke="#7d4423" stroke-width="6"/>`;
+  }
+  return s;
+}
+
 /** Garden: fence line, retaining wall, patio and lawn. */
 function sceneGarden(rng, w, h, stage) {
   const skyBase = h * 0.34;
@@ -713,6 +841,7 @@ const SCENES = {
   mansard: sceneMansard,
   house: sceneHouse,
   frontage: sceneFrontage,
+  shopfront: sceneShopfront,
   garden: sceneGarden,
   interior: sceneInterior,
   room: sceneRoom,
@@ -742,7 +871,7 @@ const IMAGES = [
   { name: "service-group-building-work", kind: "extension" },
   { name: "service-group-outside", kind: "frontage" },
   { name: "service-group-inside", kind: "interior" },
-  { name: "service-group-commercial", kind: "frontage" },
+  { name: "service-group-commercial", kind: "shopfront" },
 
   // individual services — one per trade on the business card
   { name: "service-extensions", kind: "extension" },
@@ -757,7 +886,7 @@ const IMAGES = [
   { name: "service-tiling", kind: "interior" },
   { name: "service-painting-decorating", kind: "interior" },
   // the twelfth trade, added after the business card was printed
-  { name: "service-commercial-fit-out", kind: "frontage" },
+  { name: "service-commercial-fit-out", kind: "shopfront" },
 
   // projects — after + during, because in-progress shots carry more weight.
   // One entry, because there is one real project. See src/content/projects.ts.
