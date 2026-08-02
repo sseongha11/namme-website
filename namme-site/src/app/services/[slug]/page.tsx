@@ -12,9 +12,11 @@ import { ContactChannels } from "@/components/contact-channels";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHeading } from "@/components/section";
 import { Button } from "@/components/ui/button";
+import { WorkStrip } from "@/components/work-strip";
 import { projectsForService } from "@/content/projects";
 import { getService, services } from "@/content/services";
 import { site } from "@/content/site";
+import { clipsForService } from "@/content/work";
 import { showPortfolio } from "@/lib/site-status";
 
 export function generateStaticParams() {
@@ -44,6 +46,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
     (s) => s.group === service.group && s.slug !== service.slug,
   );
   const projects = projectsForService(service.slug);
+  const clips = clipsForService(service.slug);
 
   return (
     <>
@@ -149,6 +152,25 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
           </Reveal>
         </div>
       </Section>
+
+      {/* Site footage. Sits directly under the intro because it answers the
+          question the intro raises — "can you actually do this?" — before the
+          visitor has to take anything else on trust. Renders nothing for the
+          trades with no footage yet. */}
+      {showPortfolio && clips.length > 0 ? (
+        <Section tone="paper-2">
+          <SectionHeading
+            eyebrow="On site"
+            title={`${service.title}, close up.`}
+            lead={
+              clips.some((c) => c.kind === "video")
+                ? "Taken on a phone as we packed up, not staged for a photoshoot. Tap any clip to play it."
+                : "Taken on a phone as we packed up, not staged for a photoshoot."
+            }
+          />
+          <WorkStrip clips={clips} />
+        </Section>
+      ) : null}
 
       {/* Process */}
       <Section tone="deep">

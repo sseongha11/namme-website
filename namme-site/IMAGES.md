@@ -1,5 +1,38 @@
 # Images
 
+## Site footage — the clips on the service pages
+
+Real footage from finished jobs now runs on seven of the eleven service pages,
+in the strip under the intro. The masters live in `/data` at the repo root; they
+are phone recordings that have been through WhatsApp, so they are 480x848 and
+that resolution is a ceiling nothing recovers.
+
+`scripts/build-media.mjs` (`make media`, needs `ffmpeg`) cuts each master to a
+short clip in `public/media/` and writes a poster frame beside it. It exists to
+do three things:
+
+- **Trim.** The masters run 13–63s. Each is cut to a 7–13s window chosen by
+  looking through the footage. Total weight drops from 60 MB to 12 MB.
+- **Cut people out.** Several windows are positioned specifically to miss
+  someone — a reflection in a bathroom mirror, a person walking through shot,
+  a face in the glass of an extractor hood. The reasons are recorded next to
+  each window in the script; keep them there if you re-cut.
+- **Drop the audio.** The clips play muted, so the track is pure weight, and
+  phone footage picks up background conversation nobody agreed to publish.
+
+To add a clip: put the master in `/data`, add a window to `CLIPS` in the script,
+run `make media`, then add an entry to `src/content/work.ts` tagging the trades
+it shows. A service with no footage renders no strip at all, so partial
+coverage is fine.
+
+**Do not stretch these full-bleed.** The strip holds them at roughly 300px wide,
+where a 480px source is still above retina density and looks sharp. Across a
+full section they look like what they are. Held at phone size they read as
+evidence from site, which is the whole point of using them.
+
+Still uncovered: brickwork, roofing, driveways and landscape gardening — all
+four outdoor trades. Those are the footage worth capturing next.
+
 ## What's here now
 
 Every image on the site is a generated SVG illustration in `public/images/`,

@@ -22,6 +22,7 @@ Other useful commands:
 make build    # production build
 make check    # type-check and lint
 make images   # regenerate the placeholder illustrations
+make media    # cut the footage in data/ into web-ready clips (needs ffmpeg)
 make logs     # tail the dev server log
 ```
 
@@ -38,6 +39,7 @@ so you can change text without touching layout code.
 | `content/areas.ts` | Service areas and their local planning notes |
 | `content/guides.ts` | The four cost and planning guides |
 | `content/testimonials.ts` | Reviews |
+| `content/work.ts` | Site footage, tagged by trade — feeds the strips on the service pages |
 | `content/ar.ts` | All Arabic copy for the `/ar` page |
 
 Anything marked `TODO` in those files is a placeholder waiting for real data.
@@ -60,7 +62,16 @@ Anything marked `TODO` in those files is a placeholder waiting for real data.
 and the pages are indexable. There is no enquiry form: contact is WhatsApp,
 phone and email, which cannot silently fail the way an unwired form did.
 
-Still worth doing, roughly in order:
+**First, before anything else: get the clients' permission for the site
+footage.** Seven service pages now show real clips from finished jobs (see
+`content/work.ts` and IMAGES.md). Publishing the inside of somebody's home needs
+their agreement, and it is worth having in writing. The clips were cut to remove
+the people who appeared in them, which is not the same thing. Two related gaps:
+none of the footage is tied to a named job or date, so it cannot yet link back
+to a case study, and `hair-shop-1` — a commercial barber shop fit-out, and some
+of the best footage there is — sits unused because no page claims that work.
+
+Then, roughly in order:
 
 1. **Photographs of the Loughborough job.** The biggest single gap — the case
    study currently shows an illustration. Drop the files in and add them to

@@ -10,7 +10,7 @@ PIDFILE := $(APP)/.dev.pid
 LOGFILE := $(APP)/.dev.log
 
 .DEFAULT_GOAL := help
-.PHONY: help up down restart status logs open build start images check fmt install clean reset
+.PHONY: help up down restart status logs open build start images media check fmt install clean reset
 
 help: ## Show this help
 	@echo ""
@@ -63,6 +63,9 @@ open: ## Open the site in your browser
 
 images: ## Regenerate the sample illustrations
 	@cd $(APP) && node scripts/generate-images.mjs
+
+media: ## Cut the site footage in data/ into web-ready clips (needs ffmpeg)
+	@cd $(APP) && node scripts/build-media.mjs
 
 build: ## Build the production site
 	@cd $(APP) && npm run build
