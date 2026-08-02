@@ -46,6 +46,7 @@ const CLIPS = [
   { file: "living-room-1", start: 7, duration: 6.7, note: "starts after someone walks through the shot" },
   { file: "room-1", start: 33, duration: 11, note: "starts past the bags on the floor; LED coving, then the finished bedroom" },
   { file: "ground-floor-1", start: 45, duration: 11, note: "staircase and chandelier — skips the light-switch close-up, stops before the hallway clutter" },
+  { file: "hair-shop-1", start: 2, duration: 13, note: "hexagon ceiling, slat walls and the chairs; stops before the customers further down the shop" },
 ];
 
 /**

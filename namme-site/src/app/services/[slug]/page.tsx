@@ -205,7 +205,11 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
         </Section>
       ) : null}
 
-      {/* Related services */}
+      {/* Related services. A group can hold a single trade — commercial
+          fit-out does — and then there is nothing to relate it to. Rendering
+          the heading anyway leaves an empty bordered box that reads as a
+          broken page, so the whole section goes. */}
+      {related.length > 0 ? (
       <Section tone="paper-2">
         <SectionHeading
           eyebrow="Also in this category"
@@ -231,6 +235,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
           ))}
         </div>
       </Section>
+      ) : null}
 
       {/* Enquiry */}
       <Section id="enquire">

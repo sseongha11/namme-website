@@ -63,6 +63,10 @@ const N = {
     "Bathrooms",
     "Painting & decorating",
     "Kitchen fitting",
+    // Not on the printed business card — added when the shop fit-out work
+    // went on the site. Twelve is also what the leaflet's 3-column grid
+    // wants: four full rows instead of a short one.
+    "Commercial fit-out",
   ],
   areas:
     "Derby · Allestree · Mickleover · Littleover · Oakwood & Chaddesden · Chellaston & Melbourne · Belper & Duffield · Ilkeston & Long Eaton · Ashbourne · Nottingham · Loughborough · Leicester",
@@ -94,6 +98,11 @@ const N = {
       "الحمّامات",
       "الدهان والديكور",
       "تركيب المطابخ",
+      // TODO: eleven, where the English card now has twelve — "Commercial
+      // fit-out" is missing. Deliberately not machine-translated: this list is
+      // printed on a card that gets handed to people. Ask the same native
+      // speaker who reviews src/content/ar.ts, and add it here and there in
+      // the same pass.
     ],
   },
 
@@ -255,6 +264,7 @@ async function businessCard({ lang = "en" } = {}) {
     .trades { font-size: ${arabic ? "4.6pt" : "4.5pt"}; line-height: ${arabic ? "1.7" : "1.7"};
               color: rgba(244,240,232,.48); margin: ${arabic ? "2.1mm" : "2.6mm"} 0 0;
               letter-spacing: ${arabic ? "0" : ".02em"}; }
+    .trades .trade { white-space: nowrap; }
 
     /* Contact and QR share the bottom band: the customer looks for the number
        and the code in the same place, and it balances the weight of the
@@ -333,7 +343,12 @@ customer on WhatsApp or put in an email signature.</p>
   <p class="claim">${N.line1} ${N.line2}<br>
     <b>Providing a quality and reliable service at an affordable price.</b></p>
 
-  <p class="trades">${N.trades.join(" · ")}</p>
+  <!-- Each trade is kept whole. Set as one running string, "Commercial fit-out"
+       broke at its hyphen and left "out" alone on a third line, which is the
+       exact cheapness this running-line layout exists to avoid. -->
+  <p class="trades">${N.trades
+    .map((t) => `<span class="trade">${t}</span>`)
+    .join(" · ")}</p>
 
   <div class="contact">
     <div>
@@ -365,26 +380,36 @@ async function leaflet() {
   const code = await qr(C.ink);
   const pageCss = `@page { size: A4; margin: 0; }`;
 
+  /*
+   * Every measurement here is fighting for room on one A4 page, and the sheet
+   * is `overflow: hidden` — so anything that does not fit is silently cut off
+   * rather than pushed to a second page. It had been over by 19mm, which ate
+   * the bottom of the dark footer: the opening hours and half the QR code.
+   *
+   * `checkFits` at the bottom of this file now measures the rendered page and
+   * fails the build if it happens again. If you add a row here, run the build
+   * and let it tell you rather than trusting the numbers.
+   */
   const css = `
     .sheet { width: 210mm; height: 297mm; display: flex; flex-direction: column; }
-    .band { background: ${C.clay}; color: #fff; padding: 13mm 18mm 11mm; }
+    .band { background: ${C.clay}; color: #fff; padding: 11mm 18mm 9mm; }
     .band .wordmark { font-size: 20pt; font-weight: 600; letter-spacing: .18em;
                       text-transform: uppercase; line-height: 1; }
     .band h1 { font-size: 22pt; line-height: 1.15; letter-spacing: -.02em;
-               font-weight: 600; margin: 7mm 0 0; max-width: 150mm; }
-    .band p { font-size: 10.5pt; line-height: 1.6; margin: 4mm 0 0; max-width: 138mm;
+               font-weight: 600; margin: 5.5mm 0 0; max-width: 150mm; }
+    .band p { font-size: 10.5pt; line-height: 1.6; margin: 3mm 0 0; max-width: 138mm;
               color: rgba(255,255,255,.92); }
-    .body { padding: 9mm 18mm 0; flex: 1; }
+    .body { padding: 7mm 18mm 0; flex: 1; }
     .eyebrow { font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase;
                color: ${C.clay}; font-weight: 600; }
     h2 { font-size: 14pt; letter-spacing: -.01em; margin: 2.5mm 0 0; font-weight: 600; }
-    .trade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2mm 3.5mm; margin-top: 5mm; }
-    .trade { border: .8pt solid ${C.line}; padding: 2.8mm 3.6mm; font-size: 9pt;
+    .trade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8mm 3.5mm; margin-top: 4mm; }
+    .trade { border: .8pt solid ${C.line}; padding: 2.4mm 3.6mm; font-size: 9pt;
              font-weight: 500; background: ${C.paper2}; }
-    .promises { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 8mm; margin-top: 5mm; }
+    .promises { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm 8mm; margin-top: 4.5mm; }
     .promise h3 { font-size: 10.5pt; margin: 0; font-weight: 600; }
     .promise p { font-size: 9pt; line-height: 1.6; color: ${C.inkSoft}; margin: 1.6mm 0 0; }
-    .areas { font-size: 8.4pt; line-height: 1.7; color: ${C.inkSoft}; margin: 4mm 0 8mm; }
+    .areas { font-size: 8.4pt; line-height: 1.7; color: ${C.inkSoft}; margin: 3.5mm 0 4mm; }
     .foot { margin-top: auto; background: ${C.ink}; color: #fff; padding: 8mm 18mm;
             display: flex; justify-content: space-between; align-items: center; gap: 10mm; }
     .foot .num { font-size: 21pt; font-weight: 700; letter-spacing: -.02em; line-height: 1; }
@@ -392,7 +417,7 @@ async function leaflet() {
     .foot .det b { color: #fff; font-weight: 600; }
     .foot .qr { width: 27mm; height: 27mm; background: #fff; padding: 2.5mm; }
     .foot .qr-cap { font-size: 7pt; color: rgba(255,255,255,.7); text-align: center; margin-top: 2mm; }
-    .rule { height: .8pt; background: ${C.line}; margin: 7mm 0; }
+    .rule { height: .8pt; background: ${C.line}; margin: 5mm 0; }
   `;
 
   const body = `
@@ -411,7 +436,7 @@ WhatsApp when someone asks what you do, or print it as a flyer.</p>
 
   <div class="body">
     <p class="eyebrow">What we do</p>
-    <h2>Eleven trades, one team, one standard.</h2>
+    <h2>Twelve trades, one team, one standard.</h2>
     <div class="trade-grid">${N.trades.map((t) => `<div class="trade">${t}</div>`).join("")}</div>
 
     <div class="rule"></div>
@@ -744,6 +769,66 @@ function sheetOnly(html, index) {
 }
 
 /**
+ * Fails the build when a sheet's content is taller than the sheet.
+ *
+ * Every `.sheet` is `overflow: hidden`, which is what keeps a card's bleed
+ * tidy — but on a fixed-height sheet it also means content that does not fit
+ * is silently cut off. The leaflet shipped 19mm over for a while and nobody
+ * could tell from the PDF: it just ended, mid-footer, with the opening hours
+ * and half the QR code gone.
+ *
+ * Measuring in the browser rather than adding up millimetres by hand is the
+ * point. Font metrics and line wrapping decide the real height, and they are
+ * exactly what a hand calculation gets wrong.
+ *
+ * The result comes back through document.title because --dump-dom gives us the
+ * final DOM as a string; scraping Chrome's stderr for console output works
+ * until something else logs.
+ */
+function checkFits(name, html) {
+  const probe = `<script>
+    addEventListener("load", () => {
+      const mm = 96 / 25.4;
+      const over = [...document.querySelectorAll(".sheet")].map((el, i) => ({
+        i,
+        over: Math.round(((el.scrollHeight - el.clientHeight) / mm) * 10) / 10,
+      })).filter((s) => s.over > 0.5);   // sub-0.5mm is sub-pixel rounding
+      document.title = "FIT:" + JSON.stringify(over);
+    });
+  </script>`;
+
+  const tmp = join(HERE, ".tmp-fit.html");
+  writeFileSync(tmp, html.replace("</body>", `${probe}</body>`));
+  const dom = execFileSync(
+    CHROME,
+    [
+      "--headless",
+      "--disable-gpu",
+      "--virtual-time-budget=4000",
+      "--dump-dom",
+      `file://${tmp}`,
+    ],
+    { encoding: "utf8", stdio: ["pipe", "pipe", "ignore"], maxBuffer: 64e6 },
+  );
+  rmSync(tmp, { force: true });
+
+  const m = dom.match(/<title>FIT:(.*?)<\/title>/s);
+  if (!m) throw new Error(`${name}: could not measure the sheets`);
+
+  const over = JSON.parse(m[1].replace(/&quot;/g, '"'));
+  if (over.length) {
+    const detail = over
+      .map((s) => `sheet ${s.i + 1} overflows by ${s.over}mm`)
+      .join("; ");
+    throw new Error(
+      `${name}: content does not fit the page — ${detail}.\n` +
+        `  It would be cut off, not moved to another page. Tighten the ` +
+        `spacing in that template until this passes.`,
+    );
+  }
+}
+
+/**
  * Files a customer should be able to download from the site, and the wording
  * that goes with each. The quotation and the invoice are deliberately absent:
  * they are Namme's paperwork, not marketing, and a blank invoice template on a
@@ -861,6 +946,10 @@ async function main() {
     ["invoice.html", inv],
   ];
   for (const [name, html] of files) writeFileSync(join(HERE, name), html);
+
+  // Before anything is rendered: nothing here is worth producing if it is
+  // going to come out with the bottom cut off.
+  for (const [name, html] of files) checkFits(name, html);
 
   for (const [name] of files) {
     const html = join(HERE, name);

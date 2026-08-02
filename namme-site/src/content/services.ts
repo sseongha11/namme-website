@@ -1,9 +1,10 @@
 /**
  * Services.
  *
- * Taken directly from Namme's business card — brickwork, landscape gardening,
- * extensions, driveways, rendering, refurbishments, roofing, tiling, bathrooms,
- * painting & decorating and kitchen fitting.
+ * Eleven taken directly from Namme's business card — brickwork, landscape
+ * gardening, extensions, driveways, rendering, refurbishments, roofing, tiling,
+ * bathrooms, painting & decorating and kitchen fitting — plus commercial
+ * fit-out, added afterwards and marked as such at the bottom of this file.
  *
  * Deliberately granular: someone searching "driveways Derby" and someone
  * searching "rendering Derby" are two different jobs with two different
@@ -16,7 +17,7 @@ export type Service = {
   title: string;
   /** Short label for nav and cards */
   short: string;
-  group: "Building work" | "Outside" | "Inside";
+  group: "Building work" | "Outside" | "Inside" | "Commercial";
   /** One-line summary used on cards and in metadata */
   summary: string;
   /** Opening paragraphs for the service page */
@@ -389,9 +390,61 @@ export const services: Service[] = [
       "Woodwork, exterior masonry and clean down",
     ],
   },
+
+  // ── Commercial ─────────────────────────────────────────────
+  //
+  // The twelfth trade, and the only one not on the original business card. It
+  // is here because the work exists — the barber shop footage on this page is
+  // Namme's own — and a shop fit-out is a genuinely different sale from a
+  // domestic job: a business is buying downtime, a deadline and a licence to
+  // alter, not a kitchen.
+  //
+  // TODO: the cost range and duration below are indicative for a small retail
+  // or salon unit and have NOT been checked against what Namme actually
+  // charged. Every other entry in this file came from the business; this one
+  // did not. Confirm both before this page does any selling, and correct them
+  // here rather than anywhere else — the service page, cards and metadata all
+  // read from these fields.
+  {
+    slug: "commercial-fit-out",
+    title: "Commercial fit-out",
+    short: "Commercial fit-out",
+    group: "Commercial",
+    summary:
+      "Shops, salons and small commercial units — stripped back and fitted out, worked around your opening date.",
+    intro: [
+      "A commercial fit-out is priced on the same trades as a house and sold on something completely different: every week the unit is shut is a week it earns nothing. The programme matters more than any individual finish, and it is the first thing we put in writing.",
+      "Strip-out, partitions, ceilings, flooring, feature lighting, joinery, tiling and decoration, with the electrics and plumbing that sit behind them. We work to a landlord's licence to alter where the unit is leased, and hand over the certificates the fit-out needs.",
+    ],
+    priceFrom: "£12,000",
+    priceTo: "£60,000",
+    priceDrivers: [
+      "Floor area, and whether the unit is a shell or a working space being stripped back",
+      "Trading around the work, or closing the unit — evening and weekend work costs more but shortens the shutdown",
+      "Services: new distribution board, extraction, air conditioning, hot water and drainage runs to stations or basins",
+      "Joinery — how much is bought in and how much is made and fitted on site",
+      "Shopfront, signage and anything visible from the street, which is where consent gets involved",
+    ],
+    duration: "3–8 weeks",
+    planning:
+      "Depends on the unit. Fitting out within an existing Class E use needs no planning permission, but a change of use into Class E can, and a new shopfront, external signage or an extraction flue usually does — more so in a conservation area or on a listed building. Building Regulations apply throughout, the finished space must meet Part M access and the fire safety requirements of the Regulatory Reform (Fire Safety) Order 2005, and a leased unit will need the landlord's written licence to alter before anything starts.",
+    includes: [
+      "Strip-out, disposal and making good",
+      "Partitions, suspended or feature ceilings and dry lining",
+      "Electrical distribution, power, data and feature lighting",
+      "Plumbing and drainage to basins, stations and WCs",
+      "Joinery, counters, storage and fitted seating",
+      "Flooring, tiling, decoration and final clean",
+    ],
+  },
 ];
 
-export const serviceGroups = ["Building work", "Outside", "Inside"] as const;
+export const serviceGroups = [
+  "Building work",
+  "Outside",
+  "Inside",
+  "Commercial",
+] as const;
 
 export function servicesByGroup(group: string) {
   return services.filter((s) => s.group === group);

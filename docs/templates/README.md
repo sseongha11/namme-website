@@ -77,9 +77,11 @@ headless to render the PDFs and images.
 - The card is dark; the leaflet and the paperwork are light. That is deliberate
   — the card is the thing handed over, so it carries the weight, and a dark A4
   sheet would cost a fortune in ink to print at home.
-- Everything is on one face. Eleven trades set as bullets in columns forced the
+- Everything is on one face. Twelve trades set as bullets in columns forced the
   type down to about 5pt, which reads as cheap; as a running line they fit at a
   readable size and leave the white space that makes a card look considered.
+  Each trade is wrapped in a `nowrap` span, because a running line will happily
+  break "Commercial fit-out" at its hyphen and strand "out" on a line of its own.
 - Type is Instrument Sans, the site's typeface, fetched when you have a
   connection and falling back to the system font when you don't. The supplied
   PDFs have it embedded, so printers see the right thing either way.

@@ -72,6 +72,7 @@
     .trades { font-size: 4.5pt; line-height: 1.7;
               color: rgba(244,240,232,.48); margin: 2.6mm 0 0;
               letter-spacing: .02em; }
+    .trades .trade { white-space: nowrap; }
 
     /* Contact and QR share the bottom band: the customer looks for the number
        and the code in the same place, and it balances the weight of the
@@ -122,7 +123,10 @@ customer on WhatsApp or put in an email signature.</p>
   <p class="claim">A small, local, friendly, Derby based, general building company.<br>
     <b>Providing a quality and reliable service at an affordable price.</b></p>
 
-  <p class="trades">Brickwork · Landscape gardening · Extensions · Driveways · Rendering · Refurbishments · Roofing · Tiling · Bathrooms · Painting & decorating · Kitchen fitting</p>
+  <!-- Each trade is kept whole. Set as one running string, "Commercial fit-out"
+       broke at its hyphen and left "out" alone on a third line, which is the
+       exact cheapness this running-line layout exists to avoid. -->
+  <p class="trades"><span class="trade">Brickwork</span> · <span class="trade">Landscape gardening</span> · <span class="trade">Extensions</span> · <span class="trade">Driveways</span> · <span class="trade">Rendering</span> · <span class="trade">Refurbishments</span> · <span class="trade">Roofing</span> · <span class="trade">Tiling</span> · <span class="trade">Bathrooms</span> · <span class="trade">Painting & decorating</span> · <span class="trade">Kitchen fitting</span> · <span class="trade">Commercial fit-out</span></p>
 
   <div class="contact">
     <div>

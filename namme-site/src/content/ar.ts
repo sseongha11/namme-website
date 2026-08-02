@@ -52,6 +52,13 @@ export const ar = {
 
   services: {
     eyebrow: "ما نقوم به",
+    // TODO (needs a native Arabic speaker — do not machine-translate this):
+    // the site now has FOUR service groups, not three. "Commercial fit-out"
+    // (shops, salons and small units) was added as a twelfth trade with its own
+    // group, and none of the Arabic below mentions it — this heading still says
+    // "three groups", and the trade lists above stop at kitchen fitting.
+    // Left as-is on purpose: unreviewed Arabic does more damage than an Arabic
+    // page that is merely incomplete. See the checklist in the root README.
     title: "ثلاث مجموعات من الأعمال، بمعيار واحد.",
     lead: "كل ما نقوم به يندرج تحت هذه المجموعات الثلاث. تُسعَّر جميعها وتُدار بالطريقة نفسها، سواء كان العمل يوماً واحداً أو ثلاثة أشهر.",
     items: [

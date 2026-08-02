@@ -33,7 +33,9 @@
  * TODO: consent. Publishing footage of the inside of a client's home needs the
  * client's agreement, and it is worth having that in writing before these go
  * live. The clips have been cut to remove the people who appeared in them, but
- * that is not the same thing as permission.
+ * that is not the same thing as permission. `hair-shop-1` is a trading business
+ * rather than a home, which usually makes this easier — most shops are glad of
+ * the link — but it still needs asking, and the shop is identifiable.
  */
 
 export type WorkClip = {
@@ -122,6 +124,15 @@ export const workClips: WorkClip[] = [
     alt: "Stairwell with a crystal chandelier, LED coving and a painted balustrade",
     caption: "Stairwell, coving and lighting through the ground floor",
     serviceSlugs: ["refurbishments", "painting-decorating"],
+  },
+  {
+    id: "hair-shop-1",
+    kind: "video",
+    src: "/media/hair-shop-1.mp4",
+    poster: "/media/hair-shop-1.webp",
+    alt: "Barber shop fitted out with a hexagon LED ceiling, timber slat walls, fitted cabinetry and barber chairs",
+    caption: "Barber shop: slat walls, fitted cabinetry and a hexagon-lit ceiling",
+    serviceSlugs: ["commercial-fit-out"],
   },
   {
     id: "extension-1",

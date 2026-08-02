@@ -2,7 +2,7 @@
 
 ## Site footage — the clips on the service pages
 
-Real footage from finished jobs now runs on seven of the eleven service pages,
+Real footage from finished jobs now runs on eight of the twelve service pages,
 in the strip under the intro. The masters live in `/data` at the repo root; they
 are phone recordings that have been through WhatsApp, so they are 480x848 and
 that resolution is a ceiling nothing recovers.
@@ -30,8 +30,10 @@ where a 480px source is still above retina density and looks sharp. Across a
 full section they look like what they are. Held at phone size they read as
 evidence from site, which is the whole point of using them.
 
-Still uncovered: brickwork, roofing, driveways and landscape gardening — all
-four outdoor trades. Those are the footage worth capturing next.
+Still uncovered: brickwork, roofing, driveways and landscape gardening — every
+outdoor trade. Those are the footage worth capturing next, and the gap is not a
+coincidence: it is easy to film a finished room and easy to forget a driveway
+the day it goes down.
 
 ## What's here now
 

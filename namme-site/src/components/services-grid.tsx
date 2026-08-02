@@ -9,6 +9,7 @@ const GROUP_IMAGE: Record<string, string> = {
   "Building work": "/images/service-group-building-work.svg",
   Outside: "/images/service-group-outside.svg",
   Inside: "/images/service-group-inside.svg",
+  Commercial: "/images/service-group-commercial.svg",
 };
 
 const GROUP_BLURB: Record<string, string> = {
@@ -18,6 +19,8 @@ const GROUP_BLURB: Record<string, string> = {
     "Driveways and landscape gardening, built on a proper base with somewhere for the water to go.",
   Inside:
     "Kitchens, bathrooms, tiling and decorating — including all the building work that gets hidden behind them.",
+  Commercial:
+    "Shops, salons and small units, stripped back and fitted out to a date you can trade against.",
 };
 
 export function ServicesGrid() {

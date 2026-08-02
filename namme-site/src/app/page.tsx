@@ -53,8 +53,8 @@ export default function HomePage() {
       <Section>
         <SectionHeading
           eyebrow="What we do"
-          title="Eleven trades, one team, one standard."
-          lead="Brickwork, landscape gardening, extensions, driveways, rendering, refurbishments, roofing, tiling, bathrooms, painting &amp; decorating and kitchen fitting. Priced and run the same way whatever the size of the job."
+          title="Twelve trades, one team, one standard."
+          lead="Brickwork, landscape gardening, extensions, driveways, rendering, refurbishments, roofing, tiling, bathrooms, painting &amp; decorating, kitchen fitting and commercial fit-out. Priced and run the same way whatever the size of the job."
           action={
             <Button asChild variant="outline">
               <Link href={showPortfolio ? "/projects" : "/contact"}>

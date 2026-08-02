@@ -2,8 +2,8 @@
 
 Marketing site for Namme — a small, local, friendly Derby based general building
 company: brickwork, landscape gardening, extensions, driveways, rendering,
-refurbishments, roofing, tiling, bathrooms, painting & decorating and kitchen
-fitting.
+refurbishments, roofing, tiling, bathrooms, painting & decorating, kitchen
+fitting and commercial fit-out.
 
 ## Running it
 
@@ -34,7 +34,7 @@ so you can change text without touching layout code.
 | File | What it holds |
 | --- | --- |
 | `content/site.ts` | **Phone, email, address, hours, canonical URL, the 5-stage process, FAQs.** Start here. |
-| `content/services.ts` | The 11 trades, with prices, timescales and permission routes |
+| `content/services.ts` | The 12 trades, with prices, timescales and permission routes |
 | `content/projects.ts` | Portfolio case studies |
 | `content/areas.ts` | Service areas and their local planning notes |
 | `content/guides.ts` | The four cost and planning guides |
@@ -47,14 +47,14 @@ Anything marked `TODO` in those files is a placeholder waiting for real data.
 ## Structure
 
 - `/` — English homepage (primary language)
-- `/services`, `/services/[slug]` — 11 service pages
+- `/services`, `/services/[slug]` — 12 service pages
 - `/projects`, `/projects/[slug]` — portfolio
 - `/areas`, `/areas/[slug]` — 12 location pages (the local SEO engine)
 - `/guides`, `/guides/[slug]` — research-stage cost and planning content
 - `/about`, `/contact`, `/privacy`, `/terms`
 - `/ar` — Arabic summary page, right-to-left
 
-43 pages, all statically generated.
+44 pages, all statically generated.
 
 ## The site is live
 
@@ -63,13 +63,14 @@ and the pages are indexable. There is no enquiry form: contact is WhatsApp,
 phone and email, which cannot silently fail the way an unwired form did.
 
 **First, before anything else: get the clients' permission for the site
-footage.** Seven service pages now show real clips from finished jobs (see
+footage.** Eight service pages now show real clips from finished jobs (see
 `content/work.ts` and IMAGES.md). Publishing the inside of somebody's home needs
 their agreement, and it is worth having in writing. The clips were cut to remove
-the people who appeared in them, which is not the same thing. Two related gaps:
-none of the footage is tied to a named job or date, so it cannot yet link back
-to a case study, and `hair-shop-1` — a commercial barber shop fit-out, and some
-of the best footage there is — sits unused because no page claims that work.
+the people who appeared in them, which is not the same thing. The barber shop on
+`/services/commercial-fit-out` is a trading business rather than a home, which
+usually makes the conversation easier — but the shop is identifiable, so it
+still needs asking. None of the footage is tied to a named job or date either,
+so it cannot yet link back to a case study.
 
 Then, roughly in order:
 
@@ -84,7 +85,11 @@ Then, roughly in order:
    Namme holds an FMB, TrustMark, Gas Safe or NICEIC registration, add it back
    with a membership number that can be looked up.
 4. **Have a native Arabic speaker review `content/ar.ts`.** Arabic that reads
-   slightly off does more damage than no Arabic page.
+   slightly off does more damage than no Arabic page. This is now overdue
+   rather than optional: commercial fit-out was added as a twelfth trade and a
+   fourth service group, and the Arabic page still says "three groups" and
+   lists eleven trades. It was left alone deliberately — writing unreviewed
+   Arabic is the thing this checklist item exists to prevent.
 5. **Legal review of `/privacy` and `/terms`.** Both are starting points, not
    advice.
 6. **Verify the planning notes in `content/areas.ts`** against each council's

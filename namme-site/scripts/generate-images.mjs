@@ -742,6 +742,7 @@ const IMAGES = [
   { name: "service-group-building-work", kind: "extension" },
   { name: "service-group-outside", kind: "frontage" },
   { name: "service-group-inside", kind: "interior" },
+  { name: "service-group-commercial", kind: "frontage" },
 
   // individual services — one per trade on the business card
   { name: "service-extensions", kind: "extension" },
@@ -755,6 +756,8 @@ const IMAGES = [
   { name: "service-bathrooms", kind: "interior" },
   { name: "service-tiling", kind: "interior" },
   { name: "service-painting-decorating", kind: "interior" },
+  // the twelfth trade, added after the business card was printed
+  { name: "service-commercial-fit-out", kind: "frontage" },
 
   // projects — after + during, because in-progress shots carry more weight.
   // One entry, because there is one real project. See src/content/projects.ts.
