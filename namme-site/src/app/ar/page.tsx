@@ -12,10 +12,12 @@ import { areas } from "@/content/areas";
 import { ar } from "@/content/ar";
 import { site } from "@/content/site";
 
+/** Indexed by position, so it must stay in step with ar.services.items. */
 const SERVICE_IMAGE = [
   "/images/service-group-building-work.svg",
   "/images/service-group-outside.svg",
   "/images/service-group-inside.svg",
+  "/images/service-group-commercial.svg",
 ];
 
 export default function ArabicPage() {
@@ -110,7 +112,7 @@ export default function ArabicPage() {
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {ar.services.items.map((s, i) => (
               <Reveal key={s.title} as="article" delay={i * 0.07} className="group">
                 <Link href={s.href} className="block">

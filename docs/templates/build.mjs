@@ -98,11 +98,7 @@ const N = {
       "الحمّامات",
       "الدهان والديكور",
       "تركيب المطابخ",
-      // TODO: eleven, where the English card now has twelve — "Commercial
-      // fit-out" is missing. Deliberately not machine-translated: this list is
-      // printed on a card that gets handed to people. Ask the same native
-      // speaker who reviews src/content/ar.ts, and add it here and there in
-      // the same pass.
+      "تجهيز المحلات التجارية",
     ],
   },
 
@@ -307,7 +303,9 @@ one. Print <b>business-card-ar.pdf</b>; send <b>business-card-ar.png</b>.</p>
 
   <p class="claim">${N.ar.claim}<br><b>${N.ar.claimBold}</b></p>
 
-  <p class="trades">${N.ar.trades.join(" · ")}</p>
+  <p class="trades">${N.ar.trades
+    .map((t) => `<span class="trade">${t}</span>`)
+    .join(" · ")}</p>
 
   <div class="contact">
     <div>

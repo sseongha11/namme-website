@@ -38,7 +38,7 @@ export const downloads: Download[] = [
     "description": "Save it to your phone, or forward it to someone who needs a builder.",
     "lang": "en",
     "kind": "Image",
-    "size": "223 KB"
+    "size": "220 KB"
   },
   {
     "file": "leaflet.pdf",
@@ -54,7 +54,7 @@ export const downloads: Download[] = [
     "description": "بحجم 85×55 مم، جاهزة للطباعة. أو امسح الرمز للعودة إلى الموقع.",
     "lang": "ar",
     "kind": "PDF",
-    "size": "83 KB"
+    "size": "87 KB"
   },
   {
     "file": "business-card-ar.png",
@@ -62,7 +62,7 @@ export const downloads: Download[] = [
     "description": "احفظها على هاتفك أو أرسلها إلى من يحتاج إلى مقاول.",
     "lang": "ar",
     "kind": "Image",
-    "size": "195 KB"
+    "size": "202 KB"
   }
 ];
 

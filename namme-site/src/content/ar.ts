@@ -16,16 +16,24 @@
  *  - "Namme" and UK institution names (FMB, TrustMark, Building Control) are
  *    kept in Latin script, since that is how a customer will encounter them on
  *    paperwork.
+ *  - Commercial fit-out is rendered "تجهيز المحلات التجارية" in running lists
+ *    and "الأعمال التجارية" as the group heading, which keeps it parallel with
+ *    أعمال البناء / الأعمال الخارجية / الأعمال الداخلية. The same two terms are
+ *    used on the Arabic business card in docs/templates/build.mjs — change both
+ *    together. Numeral gender polarity: مجموعة is feminine, so it is أربع
+ *    مجموعات, matching the ثلاث مجموعات this replaced.
  *
  * TODO: have a native speaker review before launch. Machine-plausible Arabic
- * that reads slightly off does more damage than no Arabic page at all.
+ * that reads slightly off does more damage than no Arabic page at all. The
+ * commercial fit-out wording above is the newest and least tested part of this
+ * file — start there.
  */
 
 export const ar = {
   meta: {
     title: "نامي — شركة بناء عامة في ديربي | طوب، توسعات، أسقف، ممرات",
     description:
-      "شركة بناء عامة صغيرة ومحلية في ديربي: أعمال الطوب، تنسيق الحدائق، التوسعات، ممرات السيارات، التلبيس الخارجي، التجديدات، الأسقف، التبليط، الحمّامات، الدهان والديكور، وتركيب المطابخ. خدمة جيدة وموثوقة بسعر معقول.",
+      "شركة بناء عامة صغيرة ومحلية في ديربي: أعمال الطوب، تنسيق الحدائق، التوسعات، ممرات السيارات، التلبيس الخارجي، التجديدات، الأسقف، التبليط، الحمّامات، الدهان والديكور، تركيب المطابخ، وتجهيز المحلات التجارية. خدمة جيدة وموثوقة بسعر معقول.",
   },
 
   nav: {
@@ -36,7 +44,7 @@ export const ar = {
   hero: {
     eyebrow: "ديربي · شركة بناء عامة",
     title: "شركة بناء عامة صغيرة، محلية وودودة، مقرّها ديربي.",
-    lead: "نقدّم خدمة جيدة وموثوقة بسعر معقول. أعمال الطوب، التوسعات، الأسقف، التلبيس الخارجي، ممرات السيارات، تنسيق الحدائق، الحمّامات، المطابخ، التبليط والدهان — فريق واحد لكل ذلك.",
+    lead: "نقدّم خدمة جيدة وموثوقة بسعر معقول. أعمال الطوب، التوسعات، الأسقف، التلبيس الخارجي، ممرات السيارات، تنسيق الحدائق، الحمّامات، المطابخ، التبليط، الدهان، وتجهيز المحلات التجارية — فريق واحد لكل ذلك.",
     ctaPrimary: "اطلب عرض سعر مجاني",
     ctaSecondary: "اتصل بنا",
     trustQuote: "عروض أسعار مكتوبة ومجانية",
@@ -52,15 +60,8 @@ export const ar = {
 
   services: {
     eyebrow: "ما نقوم به",
-    // TODO (needs a native Arabic speaker — do not machine-translate this):
-    // the site now has FOUR service groups, not three. "Commercial fit-out"
-    // (shops, salons and small units) was added as a twelfth trade with its own
-    // group, and none of the Arabic below mentions it — this heading still says
-    // "three groups", and the trade lists above stop at kitchen fitting.
-    // Left as-is on purpose: unreviewed Arabic does more damage than an Arabic
-    // page that is merely incomplete. See the checklist in the root README.
-    title: "ثلاث مجموعات من الأعمال، بمعيار واحد.",
-    lead: "كل ما نقوم به يندرج تحت هذه المجموعات الثلاث. تُسعَّر جميعها وتُدار بالطريقة نفسها، سواء كان العمل يوماً واحداً أو ثلاثة أشهر.",
+    title: "أربع مجموعات من الأعمال، بمعيار واحد.",
+    lead: "كل ما نقوم به يندرج تحت هذه المجموعات الأربع. تُسعَّر جميعها وتُدار بالطريقة نفسها، سواء كان العمل يوماً واحداً أو ثلاثة أشهر.",
     items: [
       {
         title: "أعمال البناء",
@@ -82,6 +83,13 @@ export const ar = {
         price: "من £400",
         duration: "يومان – 4 أسابيع",
         href: "/services/bathrooms",
+      },
+      {
+        title: "الأعمال التجارية",
+        body: "المحلات والصالونات والوحدات التجارية الصغيرة: نزع التجهيزات القديمة بالكامل ثم تجهيز المكان من جديد، بجدول زمني يدور حول موعد افتتاحكم.",
+        price: "من £12,000",
+        duration: "3 – 8 أسابيع",
+        href: "/services/commercial-fit-out",
       },
     ],
   },

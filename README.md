@@ -85,11 +85,13 @@ Then, roughly in order:
    Namme holds an FMB, TrustMark, Gas Safe or NICEIC registration, add it back
    with a membership number that can be looked up.
 4. **Have a native Arabic speaker review `content/ar.ts`.** Arabic that reads
-   slightly off does more damage than no Arabic page. This is now overdue
-   rather than optional: commercial fit-out was added as a twelfth trade and a
-   fourth service group, and the Arabic page still says "three groups" and
-   lists eleven trades. It was left alone deliberately — writing unreviewed
-   Arabic is the thing this checklist item exists to prevent.
+   slightly off does more damage than no Arabic page. `/ar` and the Arabic
+   business card now both cover commercial fit-out — four groups, twelve
+   trades, in step with the English — but that wording is the newest and least
+   tested part of the file, so it is where a reviewer should start. The terms
+   used are `تجهيز المحلات التجارية` in running lists and `الأعمال التجارية`
+   as the group heading; they appear in `content/ar.ts` and in
+   `docs/templates/build.mjs`, and want changing together.
 5. **Legal review of `/privacy` and `/terms`.** Both are starting points, not
    advice.
 6. **Verify the planning notes in `content/areas.ts`** against each council's

@@ -24,8 +24,10 @@ const GROUP_BLURB: Record<string, string> = {
 };
 
 export function ServicesGrid() {
+  // Four across, because there are four groups. At three it was one row of
+  // three and a single stranded card.
   return (
-    <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
       {serviceGroups.map((group, i) => {
         const children = servicesByGroup(group);
         return (
