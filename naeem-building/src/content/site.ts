@@ -33,7 +33,7 @@ export const site = {
    * The vercel.app address is the real one — there is no custom domain, and
    * pointing canonicals at a domain nobody owns would deindex the live pages.
    */
-  url: "https://naeem-site.vercel.app",
+  url: "https://naeem-building.vercel.app",
 
   hours: [
     { days: "Monday – Thursday", time: "8:00 – 18:00" },

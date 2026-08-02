@@ -43,8 +43,8 @@ const N = {
   phoneHref: "tel:+447424662851",
   whatsapp: "wa.me/447424662851",
   email: "naeemhara1971@gmail.com",
-  site: "naeem-site.vercel.app",
-  siteUrl: "https://naeem-site.vercel.app",
+  site: "naeem-building.vercel.app",
+  siteUrl: "https://naeem-building.vercel.app",
   base: "Derby DE22 3QQ",
   hours: [
     ["Monday – Thursday", "8:00 – 18:00"],
@@ -83,8 +83,8 @@ const N = {
     cta: "عرض سعر مجاني · بدون أي التزام",
     whatsapp: "واتساب",
     qrCap: "أعمالنا",
-    siteUrl: "https://naeem-site.vercel.app/ar",
-    site: "naeem-site.vercel.app/ar",
+    siteUrl: "https://naeem-building.vercel.app/ar",
+    site: "naeem-building.vercel.app/ar",
     base: "ديربي DE22 3QQ",
     trades: [
       "أعمال الطوب",
@@ -875,8 +875,8 @@ const PUBLISHED = [
   },
 ];
 
-const SITE_PUBLIC = join(HERE, "..", "..", "naeem-site", "public", "downloads");
-const SITE_CONTENT = join(HERE, "..", "..", "naeem-site", "src", "content");
+const SITE_PUBLIC = join(HERE, "..", "..", "naeem-building", "public", "downloads");
+const SITE_CONTENT = join(HERE, "..", "..", "naeem-building", "src", "content");
 
 /** Human file sizes, so a customer on mobile data knows what they're tapping. */
 function humanSize(bytes) {

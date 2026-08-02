@@ -28,7 +28,7 @@ make logs     # tail the dev server log
 
 ## Where to edit things
 
-Almost all copy lives in `naeem-site/src/content/`, separate from the components,
+Almost all copy lives in `naeem-building/src/content/`, separate from the components,
 so you can change text without touching layout code.
 
 | File | What it holds |
@@ -101,9 +101,9 @@ Then, roughly in order:
 
 ## Deployments
 
-Pushing to `main` deploys automatically to <https://naeem-site.vercel.app>.
+Pushing to `main` deploys automatically to <https://naeem-building.vercel.app>.
 Pull requests get their own preview URL. Vercel's Root Directory for this
-project is `naeem-site`, since the app sits one level below the repo root.
+project is `naeem-building`, since the app sits one level below the repo root.
 
 To take the site out of preview mode, set `NEXT_PUBLIC_SITE_STATUS=live` in the
 Vercel project's environment variables — but work through the checklist above

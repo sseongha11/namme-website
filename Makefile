@@ -3,7 +3,7 @@
 #  Run `make` on its own to see everything available.
 # ─────────────────────────────────────────────────────────────
 
-APP     := naeem-site
+APP     := naeem-building
 PORT    ?= 3000
 URL     := http://localhost:$(PORT)
 PIDFILE := $(APP)/.dev.pid

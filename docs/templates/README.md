@@ -15,7 +15,7 @@ business card can never drift apart across documents.
 | `quotation.html` → `quotation.pdf` | Fill in on screen, save as PDF, send. |
 | `invoice.html` → `invoice.pdf` | The same, for after the job. |
 
-Every document carries a QR code to **naeem-site.vercel.app**. Point a phone
+Every document carries a QR code to **naeem-building.vercel.app**. Point a phone
 camera at it and the site opens — no typing a web address.
 
 ## Writing a quote or an invoice
