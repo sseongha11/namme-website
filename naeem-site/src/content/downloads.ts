@@ -38,7 +38,7 @@ export const downloads: Download[] = [
     "description": "Save it to your phone, or forward it to someone who needs a builder.",
     "lang": "en",
     "kind": "Image",
-    "size": "220 KB"
+    "size": "219 KB"
   },
   {
     "file": "leaflet.pdf",
@@ -62,7 +62,7 @@ export const downloads: Download[] = [
     "description": "احفظها على هاتفك أو أرسلها إلى من يحتاج إلى مقاول.",
     "lang": "ar",
     "kind": "Image",
-    "size": "202 KB"
+    "size": "200 KB"
   }
 ];
 

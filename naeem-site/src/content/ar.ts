@@ -4,7 +4,7 @@
  * English is the primary language of the site; this is the secondary Arabic
  * landing page at /ar. It is deliberately a single self-contained page rather
  * than a full translation of every route — a homeowner arriving in Arabic needs
- * to understand who Namme are, what they build, how the process works and how
+ * to understand who Naeem are, what they build, how the process works and how
  * to make contact. The long cost guides stay English-only until there is real
  * demand for them translated.
  *
@@ -13,7 +13,7 @@
  *    wider Levantine speakers without sounding regional.
  *  - Numbers, prices and postcodes stay in Western digits — that is the norm in
  *    UK-facing Arabic content and avoids confusion on a quote.
- *  - "Namme" and UK institution names (FMB, TrustMark, Building Control) are
+ *  - "Naeem" and UK institution names (FMB, TrustMark, Building Control) are
  *    kept in Latin script, since that is how a customer will encounter them on
  *    paperwork.
  *  - Commercial fit-out is rendered "تجهيز المحلات التجارية" in running lists

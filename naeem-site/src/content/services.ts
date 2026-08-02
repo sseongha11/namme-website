@@ -1,7 +1,7 @@
 /**
  * Services.
  *
- * Eleven taken directly from Namme's business card — brickwork, landscape
+ * Eleven taken directly from Naeem's business card — brickwork, landscape
  * gardening, extensions, driveways, rendering, refurbishments, roofing, tiling,
  * bathrooms, painting & decorating and kitchen fitting — plus commercial
  * fit-out, added afterwards and marked as such at the bottom of this file.
@@ -395,12 +395,12 @@ export const services: Service[] = [
   //
   // The twelfth trade, and the only one not on the original business card. It
   // is here because the work exists — the barber shop footage on this page is
-  // Namme's own — and a shop fit-out is a genuinely different sale from a
+  // Naeem's own — and a shop fit-out is a genuinely different sale from a
   // domestic job: a business is buying downtime, a deadline and a licence to
   // alter, not a kitchen.
   //
   // TODO: the cost range and duration below are indicative for a small retail
-  // or salon unit and have NOT been checked against what Namme actually
+  // or salon unit and have NOT been checked against what Naeem actually
   // charged. Every other entry in this file came from the business; this one
   // did not. Confirm both before this page does any selling, and correct them
   // here rather than anywhere else — the service page, cards and metadata all

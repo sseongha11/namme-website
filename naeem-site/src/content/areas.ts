@@ -10,7 +10,7 @@
  * carries genuinely local detail — housing stock, the actual planning authority,
  * and real local constraints. Fill these in properly or drop the page.
  *
- * TODO: confirm the real coverage radius with Namme, and verify every planning
+ * TODO: confirm the real coverage radius with Naeem, and verify every planning
  * note against the current local plan before publishing. Planning policy moves.
  */
 

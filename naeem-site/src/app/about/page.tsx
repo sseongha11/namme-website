@@ -28,7 +28,7 @@ export default function AboutPage() {
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
           <Reveal>
-            {/* TODO: replace with Namme’s real history — founding year, who
+            {/* TODO: replace with Naeem’s real history — founding year, who
                 started it, what they did before. Specific beats polished. */}
             <p className="text-[19px] leading-[1.75] text-ink-soft">
               We are a small, local, friendly, Derby based general building

@@ -101,7 +101,7 @@ export default function HomePage() {
       {/* Why us */}
       <Section tone="paper-2">
         <SectionHeading
-          eyebrow="Why Namme"
+          eyebrow="Why Naeem"
           title="The promises that are actually checkable."
           lead="Anyone can claim quality and reliability. These are six commitments you can hold us to — and afterwards tell whether we kept."
         />

@@ -58,7 +58,7 @@ export default function PrivacyPage() {
               How long we keep it
             </h2>
             <p className="mt-4 text-[17px] leading-[1.75] text-ink-soft">
-              {/* TODO: confirm these periods with Namme and with an adviser. */}
+              {/* TODO: confirm these periods with Naeem and with an adviser. */}
               Enquiries that do not become projects are deleted after 12 months.
               Records relating to completed work are kept for as long as our
               warranty and insurance obligations require.

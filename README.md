@@ -1,6 +1,6 @@
-# Namme — website
+# Naeem — website
 
-Marketing site for Namme — a small, local, friendly Derby based general building
+Marketing site for Naeem — a small, local, friendly Derby based general building
 company: brickwork, landscape gardening, extensions, driveways, rendering,
 refurbishments, roofing, tiling, bathrooms, painting & decorating, kitchen
 fitting and commercial fit-out.
@@ -28,7 +28,7 @@ make logs     # tail the dev server log
 
 ## Where to edit things
 
-Almost all copy lives in `namme-site/src/content/`, separate from the components,
+Almost all copy lives in `naeem-site/src/content/`, separate from the components,
 so you can change text without touching layout code.
 
 | File | What it holds |
@@ -82,7 +82,7 @@ Then, roughly in order:
    `content/projects.ts` and `content/testimonials.ts`.
 3. **Add trust signals only when they are real.** Headline stats, a review
    score and accreditations were all removed rather than left unverified. If
-   Namme holds an FMB, TrustMark, Gas Safe or NICEIC registration, add it back
+   Naeem holds an FMB, TrustMark, Gas Safe or NICEIC registration, add it back
    with a membership number that can be looked up.
 4. **Have a native Arabic speaker review `content/ar.ts`.** Arabic that reads
    slightly off does more damage than no Arabic page. `/ar` and the Arabic
@@ -101,9 +101,9 @@ Then, roughly in order:
 
 ## Deployments
 
-Pushing to `main` deploys automatically to <https://namme-site.vercel.app>.
+Pushing to `main` deploys automatically to <https://naeem-site.vercel.app>.
 Pull requests get their own preview URL. Vercel's Root Directory for this
-project is `namme-site`, since the app sits one level below the repo root.
+project is `naeem-site`, since the app sits one level below the repo root.
 
 To take the site out of preview mode, set `NEXT_PUBLIC_SITE_STATUS=live` in the
 Vercel project's environment variables — but work through the checklist above

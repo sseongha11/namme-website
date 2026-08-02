@@ -31,8 +31,8 @@ const CHROME =
 /* ── the business ─────────────────────────────────────────── */
 
 const N = {
-  name: "Namme",
-  legalName: "Namme Ltd",
+  name: "Naeem",
+  legalName: "Naeem Ltd",
   // Straight off the original business card. Keep this wording.
   card: "A small, local, friendly, Derby based, general building company. Providing a quality and reliable service at an affordable price.",
   line1: "A small, local, friendly, Derby based,",
@@ -43,8 +43,8 @@ const N = {
   phoneHref: "tel:+447424662851",
   whatsapp: "wa.me/447424662851",
   email: "naeemhara1971@gmail.com",
-  site: "namme-site.vercel.app",
-  siteUrl: "https://namme-site.vercel.app",
+  site: "naeem-site.vercel.app",
+  siteUrl: "https://naeem-site.vercel.app",
   base: "Derby DE22 3QQ",
   hours: [
     ["Monday – Thursday", "8:00 – 18:00"],
@@ -72,7 +72,7 @@ const N = {
     "Derby · Allestree · Mickleover · Littleover · Oakwood & Chaddesden · Chellaston & Melbourne · Belper & Duffield · Ilkeston & Long Eaton · Ashbourne · Nottingham · Loughborough · Leicester",
   /**
    * Arabic card. The site's own /ar page is the authority for this wording —
-   * keep the two in step. "Namme" stays in Latin script, as it does on the
+   * keep the two in step. "Naeem" stays in Latin script, as it does on the
    * site: that is how a customer meets the name on paperwork and on the van.
    * Numbers stay in Western digits, the norm for UK-facing Arabic.
    */
@@ -83,8 +83,8 @@ const N = {
     cta: "عرض سعر مجاني · بدون أي التزام",
     whatsapp: "واتساب",
     qrCap: "أعمالنا",
-    siteUrl: "https://namme-site.vercel.app/ar",
-    site: "namme-site.vercel.app/ar",
+    siteUrl: "https://naeem-site.vercel.app/ar",
+    site: "naeem-site.vercel.app/ar",
     base: "ديربي DE22 3QQ",
     trades: [
       "أعمال الطوب",
@@ -829,7 +829,7 @@ function checkFits(name, html) {
 /**
  * Files a customer should be able to download from the site, and the wording
  * that goes with each. The quotation and the invoice are deliberately absent:
- * they are Namme's paperwork, not marketing, and a blank invoice template on a
+ * they are Naeem's paperwork, not marketing, and a blank invoice template on a
  * public page reads as an accident.
  */
 const PUBLISHED = [
@@ -875,8 +875,8 @@ const PUBLISHED = [
   },
 ];
 
-const SITE_PUBLIC = join(HERE, "..", "..", "namme-site", "public", "downloads");
-const SITE_CONTENT = join(HERE, "..", "..", "namme-site", "src", "content");
+const SITE_PUBLIC = join(HERE, "..", "..", "naeem-site", "public", "downloads");
+const SITE_CONTENT = join(HERE, "..", "..", "naeem-site", "src", "content");
 
 /** Human file sizes, so a customer on mobile data knows what they're tapping. */
 function humanSize(bytes) {

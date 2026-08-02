@@ -1,6 +1,6 @@
 # Print and send kit
 
-Everything Namme needs on paper or by message. All of it is generated from one
+Everything Naeem needs on paper or by message. All of it is generated from one
 script, so the phone number, the email, the trades list and the sentence off the
 business card can never drift apart across documents.
 
@@ -15,7 +15,7 @@ business card can never drift apart across documents.
 | `quotation.html` → `quotation.pdf` | Fill in on screen, save as PDF, send. |
 | `invoice.html` → `invoice.pdf` | The same, for after the job. |
 
-Every document carries a QR code to **namme-site.vercel.app**. Point a phone
+Every document carries a QR code to **naeem-site.vercel.app**. Point a phone
 camera at it and the site opens — no typing a web address.
 
 ## Writing a quote or an invoice

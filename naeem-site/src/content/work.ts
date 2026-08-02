@@ -19,7 +19,7 @@
  *
  * TWO RULES, both the same rule that governs projects.ts and testimonials.ts:
  *
- *  1. Only Namme's own work goes here. Never a supplier photo, never a stock
+ *  1. Only Naeem's own work goes here. Never a supplier photo, never a stock
  *     shot, never a job someone else finished.
  *  2. Caption the trade, not the room. "Marble-effect porcelain, floor to
  *     ceiling" tells a homeowner what they would be buying; "beautiful

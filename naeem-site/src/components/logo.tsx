@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Namme mark.
+ * Naeem mark.
  *
  * The monogram is an N whose diagonal doubles as a roof pitch: two posts, an
  * apex, and the diagonal stroke that makes it read as a letter rather than a
@@ -48,7 +48,7 @@ export function Logo({
       <LogoMark className={cn("h-7 w-7 text-clay", markClassName)} />
       <span className="flex flex-col leading-none">
         <span className="text-[19px] font-semibold uppercase tracking-[0.16em]">
-          Namme
+          Naeem
         </span>
         {showTagline ? (
           <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.2em] text-ink-muted">
